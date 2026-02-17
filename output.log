@@ -1,0 +1,24 @@
+
+> evincarr-resume@0.1.0 dev
+> next dev
+
+node:internal/modules/package_json_reader:125
+  const parsed = modulesBinding.readPackageJSON(
+                                ^
+
+Error: Invalid package config /Users/difr/Desktop/evincarr-resume/node_modules/next/dist/compiled/compression/package.json.
+    at Object.read (node:internal/modules/package_json_reader:125:33)
+    at _readPackage (node:internal/modules/cjs/loader:490:55)
+    at tryPackage (node:internal/modules/cjs/loader:511:36)
+    at Module._findPath (node:internal/modules/cjs/loader:793:18)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1433:27)
+    at /Users/difr/Desktop/evincarr-resume/node_modules/next/dist/server/require-hook.js:57:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1234:25)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  code: 'ERR_INVALID_PACKAGE_CONFIG'
+}
+
+Node.js v24.13.1
+[?25h
