@@ -10,6 +10,16 @@ export const resumeData = {
 
 I've spent 15+ years in operations across wildly different environments - bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work with the American Red Cross. Different industries, same skill set: spot the inefficiency, figure out how to fix it, keep things running smoothly. After 20 years in retail and HR, I semi-retired to live full-time in an RV for 7 years. Learned solar. Built a consulting business. Now I'm back doing operations work - the kind that makes leadership's lives easier.`,
   
+testimonials: [
+    "This is so freaking cool!",
+    "These are great and make my day.",
+    "I would be significantly more stressed out if I didn't have your help.",
+    "The event tracker WAS HUGE. Like massive. If you didn't figure that out I probably would've had to tell Stan not my problem.",
+    "Thank you so much for all of your help!",
+    "My new computer is SO GOOD! Thank you for your help with that.",
+    "So awesome! Looks amazing!"
+  ],
+
   highlights: {
     automations: [
       "Built automated RSVP tracking dashboard with real-time updates every 5 minutes, consolidating multiple event forms into single view",

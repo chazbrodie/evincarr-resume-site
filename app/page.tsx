@@ -110,6 +110,19 @@ export default function Home() {
           </section>
         </div>
 
+        {/* Testimonials */}
+        <section className="bg-gradient-to-br from-[#254117] to-[#1a2d10] rounded-xl shadow-lg p-8 mb-8 text-white">
+          <h2 className="text-3xl font-bold mb-6 text-center">What People Say</h2>
+          <p className="text-center text-white/80 mb-8 italic">Anonymous feedback from amazing colleagues</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {resumeData.testimonials?.map((quote, i) => (
+              <div key={i} className="bg-white/10 backdrop-blur rounded-lg p-6 border border-white/20">
+                <p className="text-white/95 italic">"{quote}"</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Embedded Chat Section */}
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <div className="flex items-center justify-between mb-6">
