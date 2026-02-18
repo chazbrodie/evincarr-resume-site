@@ -2,6 +2,7 @@
 
 import { resumeData } from './resume-data'
 import { useState } from 'react'
+import Image from 'next/image'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -53,33 +54,55 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700">
-      <div className="max-w-5xl mx-auto p-8">
+    <main className="min-h-screen bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-5xl mx-auto p-8 relative z-10">
         
-        {/* Header */}
+        {/* Header with Photo */}
         <header className="bg-gradient-to-br from-slate-800/90 to-slate-700/90 backdrop-blur rounded-2xl shadow-2xl p-10 mb-8 border border-slate-600/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-          <div className="relative">
-            <h1 className="text-5xl font-bold text-white mb-2">
-              {resumeData.name}
-            </h1>
-            <p className="text-2xl text-cyan-400 mb-4 font-medium">
-              {resumeData.title}
-            </p>
-            <div className="flex flex-wrap gap-4 text-slate-300 text-sm">
-              <span className="flex items-center gap-1">📍 {resumeData.location}</span>
-              <span className="flex items-center gap-1">✉️ {resumeData.email}</span>
-              <a href={`https://${resumeData.linkedin}`} target="_blank" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
-                💼 LinkedIn →
-              </a>
+          <div className="relative flex items-start gap-8">
+            {/* Photo */}
+            <div className="flex-shrink-0">
+              <div className="relative w-32 h-32 rounded-2xl overflow-hidden border-4 border-cyan-500/30 shadow-xl">
+                <Image
+                  src="/headshot.jpg"
+                  alt="Evin Carr"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            
+            {/* Text Content */}
+            <div className="flex-1">
+              <h1 className="text-5xl font-bold text-white mb-2">
+                {resumeData.name}
+              </h1>
+              <p className="text-2xl text-cyan-400 mb-4 font-medium">
+                {resumeData.title}
+              </p>
+              <div className="flex flex-wrap gap-4 text-slate-300 text-sm">
+                <span className="flex items-center gap-1">📍 {resumeData.location}</span>
+                <span className="flex items-center gap-1">✉️ {resumeData.email}</span>
+                <a href={`https://${resumeData.linkedin}`} target="_blank" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
+                  💼 LinkedIn →
+                </a>
+              </div>
             </div>
           </div>
         </header>
 
         {/* Quick Chat CTA */}
         {!chatOpen && (
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 mb-8 text-white border border-cyan-500/30">
-            <div className="flex items-center justify-between">
+          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 mb-8 text-white border border-cyan-500/30 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-2xl"></div>
+            <div className="flex items-center justify-between relative z-10">
               <div>
                 <h2 className="text-2xl font-bold mb-2">💬 Want to know more?</h2>
                 <p className="text-white/90">Chat with my AI assistant about my experience, projects, and skills</p>
@@ -182,47 +205,56 @@ export default function Home() {
         )}
 
         {/* Bio */}
-        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>👋</span> About Me
-          </h2>
-          <p className="text-lg text-slate-300 leading-relaxed whitespace-pre-line">
-            {resumeData.bio}
-          </p>
+        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50 relative overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full -mr-24 -mb-24 blur-2xl"></div>
+          <div className="relative">
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+              <span>👋</span> About Me
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed whitespace-pre-line">
+              {resumeData.bio}
+            </p>
+          </div>
         </section>
 
         {/* Highlights Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Automations */}
-          <section className="bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 text-white border border-cyan-500/30">
-            <h3 className="text-xl font-bold mb-5 flex items-center">
-              <span className="text-2xl mr-2">⚡</span>
-              Automation Projects
-            </h3>
-            <ul className="space-y-3">
-              {resumeData.highlights?.automations?.map((item, i) => (
-                <li key={i} className="flex items-start text-sm leading-relaxed">
-                  <span className="mr-2 mt-0.5 text-white/90">→</span>
-                  <span className="text-white/95">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <section className="bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 text-white border border-cyan-500/30 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+            <div className="relative">
+              <h3 className="text-xl font-bold mb-5 flex items-center">
+                <span className="text-2xl mr-2">⚡</span>
+                Automation Projects
+              </h3>
+              <ul className="space-y-3">
+                {resumeData.highlights?.automations?.map((item, i) => (
+                  <li key={i} className="flex items-start text-sm leading-relaxed">
+                    <span className="mr-2 mt-0.5 text-white/90">→</span>
+                    <span className="text-white/95">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
 
           {/* Achievements */}
-          <section className="bg-slate-800/90 backdrop-blur border-2 border-cyan-500/50 rounded-2xl shadow-2xl p-8">
-            <h3 className="text-xl font-bold text-white mb-5 flex items-center">
-              <span className="text-2xl mr-2">🏆</span>
-              Career Highlights
-            </h3>
-            <ul className="space-y-3">
-              {resumeData.highlights?.achievements?.map((item, i) => (
-                <li key={i} className="flex items-start text-sm text-slate-300 leading-relaxed">
-                  <span className="mr-2 mt-0.5 text-cyan-400">→</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <section className="bg-slate-800/90 backdrop-blur border-2 border-cyan-500/50 rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 rounded-full -ml-16 -mb-16 blur-2xl"></div>
+            <div className="relative">
+              <h3 className="text-xl font-bold text-white mb-5 flex items-center">
+                <span className="text-2xl mr-2">🏆</span>
+                Career Highlights
+              </h3>
+              <ul className="space-y-3">
+                {resumeData.highlights?.achievements?.map((item, i) => (
+                  <li key={i} className="flex items-start text-sm text-slate-300 leading-relaxed">
+                    <span className="mr-2 mt-0.5 text-cyan-400">→</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
         </div>
 
