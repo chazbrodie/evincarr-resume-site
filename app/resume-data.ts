@@ -1,7 +1,7 @@
 export const resumeData = {
   name: "Evin Carr",
   title: "Remote Operations Specialist | AI-Powered Workflow Automation",
-  location: "Fully Remote (US-based, open to global opportunities)",
+  location: "Fully Remote - sync/async work welcome",
   email: "evindcarr@gmail.com",
   linkedin: "linkedin.com/in/evincarr",
   
