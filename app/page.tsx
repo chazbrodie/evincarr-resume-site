@@ -1,7 +1,50 @@
+'use client'
+
 import { resumeData } from './resume-data'
-import Link from 'next/link'
+import { useState } from 'react'
+
+type Message = {
+  role: 'user' | 'assistant'
+  content: string
+}
 
 export default function Home() {
+  const [messages, setMessages] = useState<Message[]>([])
+  const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [chatOpen, setChatOpen] = useState(false)
+
+  const sendMessage = async () => {
+    if (!input.trim() || isLoading) return
+
+    const userMessage: Message = { role: 'user', content: input }
+    setMessages(prev => [...prev, userMessage])
+    setInput('')
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: input,
+          history: messages
+        })
+      })
+
+      const data = await response.json()
+      setMessages(prev => [...prev, { role: 'assistant', content: data.text }])
+    } catch (error) {
+      console.error('Error:', error)
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: 'Sorry, I encountered an error. Please try again.' 
+      }])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="max-w-5xl mx-auto p-8">
@@ -67,6 +110,84 @@ export default function Home() {
           </section>
         </div>
 
+        {/* Embedded Chat Section */}
+        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-3xl font-bold text-gray-900">Chat with AI Evin</h2>
+            <button
+              onClick={() => setChatOpen(!chatOpen)}
+              className="text-emerald-700 hover:text-emerald-900 font-medium"
+            >
+              {chatOpen ? 'Hide Chat' : 'Open Chat'}
+            </button>
+          </div>
+
+          {chatOpen && (
+            <div>
+              {/* Chat Messages */}
+              <div className="bg-gray-50 rounded-lg p-6 mb-4 h-96 overflow-y-auto border border-gray-200">
+                {messages.length === 0 && (
+                  <div className="text-center text-gray-400 mt-20">
+                    <p className="mb-2">Ask me anything about my experience!</p>
+                    <p className="text-sm">Try: "What automation projects have you built?"</p>
+                  </div>
+                )}
+                
+                {messages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`mb-4 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}
+                  >
+                    <div
+                      className={`inline-block p-4 rounded-lg max-w-[80%] ${
+                        msg.role === 'user'
+                          ? 'bg-emerald-700 text-white'
+                          : 'bg-white border border-gray-300 text-gray-800'
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  </div>
+                ))}
+                
+                {isLoading && (
+                  <div className="text-left">
+                    <div className="inline-block p-4 rounded-lg bg-white border border-gray-300 text-gray-500">
+                      Thinking...
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Chat Input */}
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                  placeholder="Ask me about my experience..."
+                  className="flex-1 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700"
+                  disabled={isLoading}
+                />
+                <button
+                  onClick={sendMessage}
+                  disabled={isLoading || !input.trim()}
+                  className="bg-emerald-700 text-white px-8 py-4 rounded-lg hover:bg-emerald-800 disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          )}
+
+          {!chatOpen && (
+            <p className="text-gray-600 text-center">
+              Click "Open Chat" to ask me questions about my experience and projects.
+            </p>
+          )}
+        </section>
+
         {/* Experience */}
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Experience</h2>
@@ -126,22 +247,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* CTA to Chat */}
-        <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 rounded-xl shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">
-            Let's Connect
-          </h2>
-          <p className="text-emerald-100 mb-6">
-            Chat with an AI version of me to learn more about my experience and projects.
-          </p>
-          <Link
-            href="/chat"
-            className="inline-block bg-white text-emerald-700 px-8 py-3 rounded-lg text-base font-bold hover:bg-emerald-50 transition-all shadow-md"
-          >
-            Start Conversation →
-          </Link>
-        </div>
       </div>
     </main>
   )
