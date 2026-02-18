@@ -323,20 +323,80 @@ export default function Home() {
           </section>
         )}
 
-        {/* Skills */}
+        {/* Skills - REORGANIZED */}
         <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
           <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
             <span>🛠️</span> Skills & Tools
           </h2>
-          <div className="flex flex-wrap gap-3">
-            {resumeData.skills?.map((skill, index) => (
-              <span
-                key={index}
-                className="bg-slate-900/50 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border-2 border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* AI & Automation */}
+            <div>
+              <h3 className="text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                <span>🤖</span> AI & Automation
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {resumeData.skills?.aiAutomation?.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-slate-900/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools & Platforms */}
+            <div>
+              <h3 className="text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                <span>⚙️</span> Tools & Platforms
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {resumeData.skills?.tools?.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-slate-900/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Technical Skills */}
+            <div>
+              <h3 className="text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                <span>💻</span> Technical Skills
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {resumeData.skills?.technical?.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-slate-900/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Operations */}
+            <div>
+              <h3 className="text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                <span>📊</span> Operations & Management
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {resumeData.skills?.operations?.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-slate-900/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </div>

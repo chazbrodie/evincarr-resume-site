@@ -1,7 +1,7 @@
 export const resumeData = {
   name: "Evin Carr",
   title: "Remote Operations Specialist | AI-Powered Workflow Automation",
-  location: "Fully Remote - sync/async work welcome",
+  location: "Fully Remote (US-based, open to global opportunities)",
   email: "evindcarr@gmail.com",
   linkedin: "linkedin.com/in/evincarr",
   
@@ -112,23 +112,35 @@ I've spent 15+ years in operations across wildly different environments - bike s
     status: "Expected May 2026"
   },
   
-  skills: [
-    "Claude AI for Development & Automation",
-    "Workflow Automation",
-    "Google Workspace & Apps Script",
-    "Slack Bot Development",
-    "Problem Solving",
-    "Program Coordination",
-    "Salesforce CRM",
-    "Process Optimization",
-    "Asana & Project Management",
-    "Airtable",
-    "WordPress",
-    "Microsoft Office Suite",
-    "Technical Writing",
-    "Remote Collaboration",
-    "Event Coordination",
-    "Data Management",
-    "Self-Directed Learning"
-  ]
+  skills: {
+    aiAutomation: [
+      "Claude AI for Development & Automation",
+      "Workflow Automation & Process Optimization",
+      "Google Apps Script",
+      "Slack Bot Development",
+      "Self-Directed Learning & Problem Solving"
+    ],
+    tools: [
+      "Google Workspace (Sheets, Forms, Drive)",
+      "Asana & Project Management",
+      "Salesforce CRM",
+      "Pipedrive",
+      "Airtable",
+      "WordPress",
+      "Microsoft Office Suite"
+    ],
+    technical: [
+      "Technical Writing",
+      "Data Management & Analysis",
+      "Solar System Design (RV/Off-Grid)",
+      "Basic Web Development (HTML, CSS, JavaScript, React)"
+    ],
+    operations: [
+      "Remote Team Collaboration",
+      "Event Coordination & Logistics",
+      "Program Coordination",
+      "HR Management",
+      "Retail Operations"
+    ]
+  }
 }
