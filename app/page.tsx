@@ -53,23 +53,23 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-700 via-slate-600 to-slate-700">
       <div className="max-w-5xl mx-auto p-8">
         
         {/* Header */}
-        <header className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-10 mb-8 border border-slate-700 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <header className="bg-gradient-to-br from-slate-800/90 to-slate-700/90 backdrop-blur rounded-2xl shadow-2xl p-10 mb-8 border border-slate-600/50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
           <div className="relative">
             <h1 className="text-5xl font-bold text-white mb-2">
               {resumeData.name}
             </h1>
-            <p className="text-2xl text-amber-400 mb-4 font-medium">
+            <p className="text-2xl text-cyan-400 mb-4 font-medium">
               {resumeData.title}
             </p>
             <div className="flex flex-wrap gap-4 text-slate-300 text-sm">
               <span className="flex items-center gap-1">📍 {resumeData.location}</span>
               <span className="flex items-center gap-1">✉️ {resumeData.email}</span>
-              <a href={`https://${resumeData.linkedin}`} target="_blank" className="text-amber-400 hover:text-amber-300 font-medium transition-colors flex items-center gap-1">
+              <a href={`https://${resumeData.linkedin}`} target="_blank" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
                 💼 LinkedIn →
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function Home() {
 
         {/* Quick Chat CTA */}
         {!chatOpen && (
-          <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-2xl shadow-2xl p-8 mb-8 text-white border border-amber-500/20">
+          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 mb-8 text-white border border-cyan-500/30">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold mb-2">💬 Want to know more?</h2>
@@ -86,7 +86,7 @@ export default function Home() {
               </div>
               <button
                 onClick={() => setChatOpen(true)}
-                className="bg-white text-amber-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-all shadow-lg whitespace-nowrap"
+                className="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-all shadow-lg whitespace-nowrap"
               >
                 Start Chat
               </button>
@@ -96,7 +96,7 @@ export default function Home() {
 
         {/* Chat Section - Expanded when open */}
         {chatOpen && (
-          <section className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+          <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-3xl font-bold text-white">💬 Chat with AI Evin</h2>
@@ -112,7 +112,7 @@ export default function Home() {
 
             <div>
               {/* Chat Messages */}
-              <div className="bg-slate-950 rounded-xl p-6 mb-4 h-96 overflow-y-auto border border-slate-800 shadow-inner">
+              <div className="bg-slate-900/50 rounded-xl p-6 mb-4 h-96 overflow-y-auto border border-slate-700/50 shadow-inner">
                 {messages.length === 0 && (
                   <div className="text-center mt-12">
                     <p className="text-slate-400 mb-6">👋 Hey! Ask me anything about my experience and projects</p>
@@ -121,7 +121,7 @@ export default function Home() {
                         <button
                           key={i}
                           onClick={() => setInput(q)}
-                          className="text-left p-3 bg-slate-800 rounded-lg border border-slate-700 hover:border-amber-500 hover:shadow-md transition-all text-sm text-slate-300"
+                          className="text-left p-3 bg-slate-800/80 rounded-lg border border-slate-700 hover:border-cyan-500 hover:shadow-md transition-all text-sm text-slate-300"
                         >
                           💡 {q}
                         </button>
@@ -138,7 +138,7 @@ export default function Home() {
                     <div
                       className={`inline-block p-4 rounded-xl max-w-[80%] ${
                         msg.role === 'user'
-                          ? 'bg-gradient-to-br from-amber-600 to-orange-600 text-white shadow-md'
+                          ? 'bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-md'
                           : 'bg-slate-800 border border-slate-700 text-slate-200 shadow-sm'
                       }`}
                     >
@@ -166,13 +166,13 @@ export default function Home() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                   placeholder="Ask me anything..."
-                  className="flex-1 p-4 bg-slate-950 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-slate-500"
+                  className="flex-1 p-4 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all text-white placeholder-slate-500"
                   disabled={isLoading}
                 />
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || !input.trim()}
-                  className="bg-gradient-to-br from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-amber-500 hover:to-orange-500 disabled:from-slate-700 disabled:to-slate-700 disabled:cursor-not-allowed font-semibold shadow-lg transition-all"
+                  className="bg-gradient-to-br from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-cyan-500 hover:to-blue-500 disabled:from-slate-700 disabled:to-slate-700 disabled:cursor-not-allowed font-semibold shadow-lg transition-all"
                 >
                   Send
                 </button>
@@ -182,7 +182,7 @@ export default function Home() {
         )}
 
         {/* Bio */}
-        <section className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
           <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
             <span>👋</span> About Me
           </h2>
@@ -194,7 +194,7 @@ export default function Home() {
         {/* Highlights Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Automations */}
-          <section className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl shadow-2xl p-8 text-white border border-amber-500/20">
+          <section className="bg-gradient-to-br from-cyan-600 to-blue-600 rounded-2xl shadow-2xl p-8 text-white border border-cyan-500/30">
             <h3 className="text-xl font-bold mb-5 flex items-center">
               <span className="text-2xl mr-2">⚡</span>
               Automation Projects
@@ -210,7 +210,7 @@ export default function Home() {
           </section>
 
           {/* Achievements */}
-          <section className="bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-amber-500 rounded-2xl shadow-2xl p-8">
+          <section className="bg-slate-800/90 backdrop-blur border-2 border-cyan-500/50 rounded-2xl shadow-2xl p-8">
             <h3 className="text-xl font-bold text-white mb-5 flex items-center">
               <span className="text-2xl mr-2">🏆</span>
               Career Highlights
@@ -218,7 +218,7 @@ export default function Home() {
             <ul className="space-y-3">
               {resumeData.highlights?.achievements?.map((item, i) => (
                 <li key={i} className="flex items-start text-sm text-slate-300 leading-relaxed">
-                  <span className="mr-2 mt-0.5 text-amber-400">→</span>
+                  <span className="mr-2 mt-0.5 text-cyan-400">→</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -227,14 +227,14 @@ export default function Home() {
         </div>
 
         {/* Testimonials */}
-        <section className="bg-gradient-to-br from-slate-800 via-slate-850 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
           <div className="relative">
             <h2 className="text-3xl font-bold mb-3 text-center text-white">💬 What People Say</h2>
             <p className="text-center text-slate-400 mb-8 italic">Anonymous feedback from amazing colleagues</p>
             <div className="grid md:grid-cols-2 gap-4">
               {resumeData.testimonials?.map((quote, i) => (
-                <div key={i} className="bg-slate-900/50 backdrop-blur rounded-xl p-6 border border-slate-700 hover:border-amber-500/50 transition-all">
+                <div key={i} className="bg-slate-900/50 backdrop-blur rounded-xl p-6 border border-slate-700 hover:border-cyan-500/50 transition-all">
                   <p className="text-slate-300 italic">"{quote}"</p>
                 </div>
               ))}
@@ -243,17 +243,17 @@ export default function Home() {
         </section>
 
         {/* Experience */}
-        <section className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
           <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-2">
             <span>💼</span> Experience
           </h2>
           <div className="space-y-8">
             {resumeData.experience?.map((job, index) => (
-              <div key={index} className="border-l-4 border-amber-500 pl-6 py-2 hover:border-amber-400 transition-all">
+              <div key={index} className="border-l-4 border-cyan-500 pl-6 py-2 hover:border-cyan-400 transition-all">
                 <h3 className="text-xl font-bold text-white">
                   {job.role}
                 </h3>
-                <p className="text-lg text-amber-400 font-semibold mb-1">
+                <p className="text-lg text-cyan-400 font-semibold mb-1">
                   {job.company}
                 </p>
                 <p className="text-sm text-slate-400 mb-3">
@@ -263,7 +263,7 @@ export default function Home() {
                 <ul className="space-y-2">
                   {job.achievements?.map((achievement, i) => (
                     <li key={i} className="flex items-start text-sm text-slate-300">
-                      <span className="text-amber-400 mr-2 mt-1">✓</span>
+                      <span className="text-cyan-400 mr-2 mt-1">✓</span>
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -275,15 +275,15 @@ export default function Home() {
 
         {/* Education */}
         {resumeData.education && (
-          <section className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+          <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
               <span>🎓</span> Education
             </h2>
-            <div className="border-l-4 border-amber-500 pl-6">
+            <div className="border-l-4 border-cyan-500 pl-6">
               <h3 className="text-xl font-bold text-white">
                 {resumeData.education.degree}
               </h3>
-              <p className="text-lg text-amber-400 font-semibold">
+              <p className="text-lg text-cyan-400 font-semibold">
                 {resumeData.education.school}
               </p>
               <p className="text-sm text-slate-400">{resumeData.education.status}</p>
@@ -292,7 +292,7 @@ export default function Home() {
         )}
 
         {/* Skills */}
-        <section className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-8 mb-8 border border-slate-600/50">
           <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
             <span>🛠️</span> Skills & Tools
           </h2>
@@ -300,7 +300,7 @@ export default function Home() {
             {resumeData.skills?.map((skill, index) => (
               <span
                 key={index}
-                className="bg-slate-900 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border-2 border-slate-700 hover:border-amber-500 hover:shadow-lg transition-all cursor-default"
+                className="bg-slate-900/50 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium border-2 border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default"
               >
                 {skill}
               </span>
