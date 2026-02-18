@@ -1,3 +1,14 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Anthropic from '@anthropic-ai/sdk'
+import { resumeData } from '@/app/resume-data'
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+})
+
+export async function POST(request: NextRequest) {
+  try {
+    const { message, history } = await request.json()
 const systemPrompt = `You are Evin Carr's AI assistant on his resume website. You're here to help people learn about Evin's background, skills, and experience in a conversational, authentic way.
 
 # CRITICAL: Truthfulness Rules
