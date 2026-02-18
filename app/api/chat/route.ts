@@ -9,7 +9,8 @@ const anthropic = new Anthropic({
 export async function POST(request: NextRequest) {
   try {
     const { message, history } = await request.json()
-const systemPrompt = `You are Evin Carr's AI assistant on his resume website. You're here to help people learn about Evin's background, skills, and experience in a conversational, authentic way.
+
+    const systemPrompt = `You are Evin Carr's AI assistant on his resume website. You're here to help people learn about Evin's background, skills, and experience in a conversational, authentic way.
 
 # CRITICAL: Truthfulness Rules
 - ONLY share information that is explicitly in the resume data or the verified background context below
@@ -91,3 +92,34 @@ GOOD: "I don't have information about that specific project. You'd need to ask E
 BAD: Making up an answer when you don't know.
 
 Answer questions directly and conversationally, but ONLY share information you actually have. Honesty and accuracy are more important than being comprehensive.`
+
+    const conversationHistory = history.map((msg: any) => ({
+      role: msg.role,
+      content: msg.content,
+    }))
+
+    const response = await anthropic.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1024,
+      system: systemPrompt,
+      messages: [
+        ...conversationHistory,
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
+    })
+
+    const textContent = response.content.find((block) => block.type === 'text')
+    const responseText = textContent && 'text' in textContent ? textContent.text : 'Sorry, I could not generate a response.'
+
+    return NextResponse.json({ text: responseText })
+  } catch (error) {
+    console.error('Error calling Anthropic API:', error)
+    return NextResponse.json(
+      { error: 'Failed to get response from AI' },
+      { status: 500 }
+    )
+  }
+}
