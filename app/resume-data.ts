@@ -1,49 +1,58 @@
 export const resumeData = {
   name: "Evin Carr",
-  title: "Operations Professional | Automation Enthusiast",
+  title: "Remote Operations Specialist | Workflow Automation Enthusiast",
   location: "Virginia, USA",
   email: "evindcarr@gmail.com",
   phone: "480-278-5388",
   linkedin: "linkedin.com/in/evincarr",
   
-  bio: `I'm an operations professional who gets excited about making work easier through smart automations. With 15+ years optimizing workflows across corporate, small business, and nonprofit sectors, I specialize in finding the inefficiencies that drive teams crazy and building solutions that actually work. Currently geeking out on process automation and remote collaboration tools.`,
+  bio: `I'm the person in the background making sure things actually work. Currently at Storm King Consulting where I coordinate events and build automations that save our small team time. Recent win: solved a 6-month dashboard challenge in a couple days with Google Workspace scripts and Slack bots, saving leadership 50+ hours annually. Not bad for someone who'd never built automations before - just YouTube, Google, and trial and error.
+
+I've spent 15+ years in operations across wildly different environments - bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work with the American Red Cross. Different industries, same skill set: spot the inefficiency, figure out how to fix it, keep things running smoothly. After 20 years in retail and HR, I semi-retired to live full-time in an RV for 7 years. Learned solar. Built a consulting business. Now I'm back doing operations work - the kind that makes leadership's lives easier.`,
   
   highlights: {
     automations: [
-      "Built automated RSVP dashboard with Slack bot integration, saving CEO 50+ hours annually",
-      "Designed Google Workspace automations saving team 5+ hours weekly",
-      "Created event coordination workflows eliminating manual data entry"
+      "Built automated RSVP tracking dashboard with real-time updates every 5 minutes, consolidating multiple event forms into single view",
+      "Developed Slack bot integration using Google Workspace Apps Script for instant event registration notifications - team loves seeing RSVPs pop up without checking spreadsheets",
+      "Created automated RSVP tracker that pulls data directly into spreadsheets, eliminating manual data entry across 10+ concurrent events",
+      "Figured out how to build all of this with zero prior coding experience - just YouTube tutorials and problem-solving"
     ],
     achievements: [
-      "Managed multi-location operations achieving 10-20% YoY sales growth",
+      "Solved 6-month dashboard automation challenge in 2 days that leadership had struggled with",
+      "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year sales growth",
       "Led teams of 15-25 employees across hiring, training, and performance management",
-      "Launched digital product with successful Facebook ad campaigns"
+      "Led technology transition at Sears from legacy green-screen systems to modern platforms, training 130+ employees",
+      "Living full-time off-grid in an RV for 7 years powered entirely by solar systems I designed and installed"
     ]
   },
   
   experience: [
     {
       company: "Storm King Consulting",
-      role: "Events Coordinator & Automations Engineer",
+      role: "Events Assistant",
       period: "January 2026 - Present",
       location: "Remote",
-      description: "Coordinate virtual and hybrid events while building automations to eliminate repetitive tasks.",
+      description: "Coordinate virtual and hybrid events for curated executive network of marketing leaders while building automations to eliminate manual work. Work closely with CEO Stan and team members Kristen, Sarah, and Morgan.",
       achievements: [
-        "Design workflow automations using Google Workspace, saving team 5+ hours weekly",
-        "Built automated RSVP dashboard with Slack bot integration, saving CEO 50+ hours annually",
-        "Coordinate virtual and hybrid event operations including logistics and vendor communications"
+        "Built automated RSVP tracking dashboard consolidating multiple event forms into single real-time view, saving CEO 50+ hours annually",
+        "Developed Slack bot integration for instant event registration notifications using Google Workspace scripts",
+        "Solved 6-month dashboard automation challenge in 2 days using Apps Script and creative problem-solving",
+        "Coordinate operations for virtual roundtables, in-person dinners, and hybrid events across multiple timezones",
+        "Create landing pages, Google Forms, and tracking systems for 10+ concurrent events",
+        "Support event logistics including vendor communications, attendee management, and technical setup"
       ]
     },
     {
       company: "The Off Grid Guy & DIY RV Living",
-      role: "Owner & Digital Product Developer",
-      period: "2019 - Present",
+      role: "Founder/CEO",
+      period: "November 2020 - Present",
       location: "Remote",
-      description: "Run my own business creating digital products and providing RV solar consulting services nationwide.",
+      description: "Created digital products and provide solar consulting services to RV owners nationwide. Built entire business from scratch while living full-time in an RV.",
       achievements: [
-        "Created and launched \"The Ultimate RV Solar Planner\" with Facebook ad campaigns",
-        "Provide RV solar consulting services nationwide and manage business operations",
-        "Built business from scratch during 7 years of full-time RV living"
+        "Created and launched 'The Ultimate RV Solar Planner' digital product, marketing through Facebook ads",
+        "Provide solar consulting to clients across the country via video calls and custom system designs",
+        "Manage all business operations: marketing, sales, customer support, and technical troubleshooting",
+        "Designed and installed solar systems up to 3,700 watts with 2,048 AH battery capacity"
       ]
     },
     {
@@ -51,55 +60,59 @@ export const resumeData = {
       role: "Disaster Recovery Caseworker (Volunteer)",
       period: "March 2025 - Present",
       location: "Remote",
-      description: "Help families recover from disasters through virtual case management.",
+      description: "Provide disaster recovery support through virtual case management. Turns out good systems matter even more when stakes are high.",
       achievements: [
-        "Conduct virtual client interviews and develop recovery plans",
-        "Manage cases in Salesforce CRM",
-        "Coordinate resources and support for disaster-affected families"
+        "Conduct virtual client interviews and develop individualized recovery plans for disaster-affected families",
+        "Document all case activities and maintain accurate records in Salesforce CRM",
+        "Collaborate with remote team across multiple timezones to serve disaster survivors",
+        "Balance efficiency with empathy - they're not opposites"
       ]
     },
     {
       company: "Global Bikes",
       role: "General Manager",
-      period: "2009 - 2018",
+      period: "February 2009 - October 2018",
       location: "Phoenix, AZ",
-      description: "Managed multi-location bike shop operations and led high-performing teams.",
+      description: "Managed multi-location bike shop operations with consistent growth year over year.",
       achievements: [
-        "Achieved 10-20% year-over-year sales growth across multiple locations",
-        "Led hiring, training, and performance management for teams of 15-25 employees",
-        "Optimized inventory and operations processes"
+        "Achieved consistent 10-20% year-over-year sales growth across multiple locations",
+        "Led teams of 10-15 people through hiring, training, and daily operations",
+        "Monitored and analyzed KPI tracking systems to identify performance trends and improvement opportunities"
       ]
     },
     {
       company: "Sears",
-      role: "HR Manager, Sales & Operations",
-      period: "Prior to 2009",
-      location: "Phoenix, AZ",
-      description: "Managed full-cycle HR operations for retail locations.",
+      role: "HR Manager | Sales | Operations",
+      period: "January 2002 - January 2009",
+      location: "West Springfield, MA",
+      description: "Managed full-cycle HR operations for large retail location during major technology transitions.",
       achievements: [
-        "Managed recruitment, onboarding, payroll, and benefits administration",
-        "Supported sales and operations teams",
-        "Implemented HR processes and policies"
+        "Managed HR operations for 130+ employees including recruitment, onboarding, payroll, and benefits",
+        "Led technology transition from legacy green-screen systems to modern platforms, training entire staff",
+        "Created staff scheduling systems optimizing coverage while controlling labor costs",
+        "Ensured compliance with company policies and labor regulations"
       ]
     }
   ],
   
   education: {
     school: "Western Governors University",
-    degree: "B.S., Business Administration",
+    degree: "B.S., Business Administration and Management",
     status: "Expected May 2026"
   },
   
   skills: [
-    "Process Automation",
-    "Google Workspace",
-    "Slack API",
-    "Salesforce",
-    "Asana",
-    "Excel & Data Management",
-    "Remote Collaboration",
-    "Workflow Optimization",
+    "Workflow Automation",
+    "Google Workspace & Apps Script",
+    "Slack Bot Development",
+    "Problem Solving",
     "Program Coordination",
-    "Stakeholder Relations"
+    "Salesforce CRM",
+    "Process Optimization",
+    "Asana & Project Management",
+    "Remote Collaboration",
+    "Event Coordination",
+    "Data Management",
+    "Self-Directed Learning"
   ]
 }
