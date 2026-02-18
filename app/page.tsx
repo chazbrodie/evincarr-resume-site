@@ -65,9 +65,9 @@ export default function Home() {
         {/* Header with Photo */}
         <header className="bg-gradient-to-br from-slate-800/90 to-slate-700/90 backdrop-blur rounded-2xl shadow-2xl p-10 mb-8 border border-slate-600/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-          <div className="relative flex items-start gap-8">
+          <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
             {/* Photo */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
               <div className="relative w-32 h-32 rounded-2xl overflow-hidden border-4 border-cyan-500/30 shadow-xl">
                 <Image
                   src="/headshot.jpg"
@@ -80,8 +80,8 @@ export default function Home() {
             </div>
             
             {/* Text Content */}
-            <div className="flex-1">
-              <h1 className="text-5xl font-bold text-white mb-2">
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">
                 {resumeData.name}
               </h1>
               <p className="text-2xl text-cyan-400 mb-4 font-medium">
