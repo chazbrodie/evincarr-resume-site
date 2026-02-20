@@ -9,7 +9,7 @@ export const resumeData = {
 
 I'm obsessed with Claude AI and use it for everything—building automations, troubleshooting code, optimizing workflows, and yes, even building this entire website despite having zero web development experience. If there's a repetitive task, I'm already thinking about how to automate it with Claude's help.
 
-I've spent more than 15 years in operations across wildly different environments—bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work. Different industries, same skill set: I spot the inefficiency, figure out how to fix it, and keep things running smoothly. After 20 years in retail and HR, I semi-retired to live full-time in an RV for seven years, during which I learned solar systems, built a consulting business, and wrote extensively about RV technology.`,
+I've spent more than 15 years in operations across wildly different environments—bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work. Different industries, same skill set: I spot the inefficiency, figure out how to fix it, and keep things running smoothly. After 20 years in retail and HR, I decided to travel full time in an RV, during which I learned solar systems, built a consulting business, and wrote extensively about RV technology.`,
 
   highlights: {
     automations: [
@@ -24,7 +24,7 @@ I've spent more than 15 years in operations across wildly different environments
       "Learned automation builder using only YouTube, Google, Claude AI, and lots of trial and error",
       "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
       "Held Series 6 & 63 securities licenses (yes, I was briefly an insurance agent - long story)",
-      "Wrote 50+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
+      "Wrote 20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
       "Designed and installed a solar system on my personal RV, allowing me to live off-grid full-time for seven years"
     ]
   },
@@ -40,7 +40,7 @@ I've spent more than 15 years in operations across wildly different environments
         "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
         "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
         "Coordinate operations for virtual roundtables, in-person dinners, and hybrid events across timezones",
-        "Create landing pages, Google Forms, and tracking systems for 10+ concurrent events",
+        "Create landing pages, Google Forms, and tracking systems for 15+ concurrent events",
         "Use Claude AI daily for automation building, code troubleshooting, and workflow optimization"
       ]
     },
@@ -54,8 +54,8 @@ I've spent more than 15 years in operations across wildly different environments
         "Provide solar consulting to clients across the country via video calls and custom system designs",
         "Manage all business operations, including marketing, sales, customer support, technical troubleshooting",
         "Created and launched 'The Ultimate RV Solar Planner' digital product, marketing through Facebook ads",
-        "Wrote 50+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
-        "Designed and installed solar systems up to 3,700 watts with 2,048 AH battery capacity"
+        "Wrote 20+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
+        "Designed and installed solar systems up to 6000 watts on personal RV, allowing for full-time off-grid living"
       ]
     },
     {
