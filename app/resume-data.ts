@@ -1,11 +1,11 @@
 export const resumeData = {
   name: "Evin Carr",
   title: "Remote Operations Specialist | AI-Powered Workflow Automation",
-  location: "Fully Remote",
+  location: "Fully Remote (International)",
   email: "evindcarr@gmail.com",
   linkedin: "linkedin.com/in/evincarr",
   
-  bio: `I'm the person in the background making sure things actually work. I'm currently working at Storm King Consulting, where I coordinate events and build automations that save our small team time. I recently solved a six-month dashboard challenge in a couple days with Google Workspace scripts and Slack bots, which will save leadership 50+ hours annually.
+  bio: `I'm the person in the background making sure things actually work. I'm currently working at Storm King Consulting, where I coordinate events and build automations that save our small team time. I recently built an automated RSVP tracking dashboard in two days using Google Workspace scripts and Slack bots—consolidating data from multiple event forms into real-time updates.
 
 I'm obsessed with Claude AI and use it for everything—building automations, troubleshooting code, optimizing workflows, and yes, even building this entire website despite having zero web development experience. If there's a repetitive task, I'm already thinking about how to automate it with Claude's help.
 
@@ -20,7 +20,7 @@ I've spent more than 15 years in operations across wildly different environments
       "Built this entire resume website with Claude's help, with zero web development experience (learned React, Next.js, Vercel in a weekend)"
     ],
     achievements: [
-      "Solved six-month dashboard automation challenge in two days—using only Apps Script, Claude AI, and creative problem-solving",
+      "Built automated RSVP tracking system in two days—using only Apps Script, Claude AI, and creative problem-solving",
       "Learned automation builder using only YouTube, Google, Claude AI, and lots of trial and error",
       "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
       "Held Series 6 & 63 securities licenses (yes, I was briefly an insurance agent - long story)",
@@ -37,9 +37,8 @@ I've spent more than 15 years in operations across wildly different environments
       location: "Remote",
       description: "Coordinate virtual and hybrid events for curated executive network of marketing leaders while building automations to eliminate manual work.",
       achievements: [
-        "Built automated RSVP tracking dashboard consolidating multiple event forms",
+        "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
         "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
-        "Solved six-month dashboard automation challenge in two days using Apps Script and Claude AI",
         "Coordinate operations for virtual roundtables, in-person dinners, and hybrid events across timezones",
         "Create landing pages, Google Forms, and tracking systems for 10+ concurrent events",
         "Use Claude AI daily for automation building, code troubleshooting, and workflow optimization"
