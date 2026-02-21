@@ -10,13 +10,13 @@
 
   <style>
     :root {
-      --bg:      #141210;   /* warm dark espresso */
-      --surface: #1E1C19;
-      --ink:     #EDE8DF;   /* warm off-white */
-      --mid:     #9A9288;
-      --low:     #58534D;
-      --rule:    #2E2C28;
-      --accent:  #C87941;   /* warm copper */
+      --bg:      #FAFAF7;
+      --surface: #FFFFFF;
+      --ink:     #131211;
+      --mid:     #5C5751;
+      --low:     #9C9790;
+      --rule:    #E4E0D8;
+      --accent:  #C07840;   /* warm copper */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,16 +34,15 @@
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--accent); }
 
-    /* ── Layout ──────────────────────────────────────────────── */
-    .page {
+    /* ── Hero band ───────────────────────────────────────────── */
+    .hero {
+      background: #1C2B3A;   /* deep navy */
+      width: 100%;
+    }
+    .hero-inner {
       max-width: 880px;
       margin: 0 auto;
-      padding: 0 32px 80px;
-    }
-
-    /* ── Header ──────────────────────────────────────────────── */
-    .header {
-      padding: 52px 0 0;
+      padding: 52px 32px 56px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 40px;
@@ -51,19 +50,20 @@
     }
 
     .name {
-      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: #EDE8DF;
+      margin-bottom: 14px;
     }
 
     .title {
       font-size: 0.82rem;
       font-weight: 400;
-      color: var(--mid);
+      color: rgba(237,232,223,0.55);
       letter-spacing: 0.03em;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       max-width: 380px;
     }
 
@@ -75,35 +75,42 @@
       font-size: 0.8rem;
     }
     .contact-plain {
-      color: var(--mid);
+      color: rgba(237,232,223,0.45);
       font-weight: 300;
     }
     .contact-sep {
-      color: var(--rule);
+      color: rgba(237,232,223,0.2);
       user-select: none;
     }
     .contact-link {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      color: var(--ink);
+      color: rgba(237,232,223,0.85);
       font-weight: 400;
       padding: 4px 11px;
-      border: 1px solid var(--rule);
+      border: 1px solid rgba(237,232,223,0.2);
       border-radius: 2px;
-      background: var(--surface);
+      background: rgba(237,232,223,0.07);
       transition: border-color 0.15s, color 0.15s, background 0.15s;
       letter-spacing: 0.01em;
     }
     .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--bg);
+      border-color: rgba(237,232,223,0.5);
+      color: #EDE8DF;
+      background: rgba(237,232,223,0.12);
       text-decoration: none;
     }
     .contact-link svg {
-      opacity: 0.5;
+      opacity: 0.6;
       flex-shrink: 0;
+    }
+
+    /* ── Layout ──────────────────────────────────────────────── */
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
     }
 
     .photo img {
@@ -176,7 +183,7 @@
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .btn:hover { background: #A0622E; }
+    .btn:hover { background: #9A5E2E; }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
@@ -304,7 +311,7 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #A0622E; }
+    .chat-input-area button:hover { background: #9A5E2E; }
     .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
@@ -457,10 +464,10 @@
 
     /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 680px) {
-      .page { padding: 0 20px 60px; }
-      .header { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; padding: 36px 20px 40px; }
       .photo { order: -1; }
       .photo img { width: 90px; height: 110px; }
+      .page { padding: 0 20px 60px; }
       .row { grid-template-columns: 1fr; gap: 10px; }
       .label { padding-top: 0; }
       .two-col, .skills-four { grid-template-columns: 1fr; }
@@ -702,9 +709,8 @@ My background is all over the place in the best way. Bike shops, big box retail,
       </div>`;
 
     root.innerHTML = `
-      <div class="page">
-
-        <header class="header">
+      <div class="hero">
+        <div class="hero-inner">
           <div>
             <h1 class="name">${x(data.name)}</h1>
             <p class="title">${x(data.title)}</p>
@@ -728,7 +734,10 @@ My background is all over the place in the best way. Bike shops, big box retail,
           <div class="photo">
             <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" />
           </div>
-        </header>
+        </div>
+      </div>
+
+      <div class="page">
 
         <hr class="rule">
 
