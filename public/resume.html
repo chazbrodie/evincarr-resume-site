@@ -10,13 +10,13 @@
 
   <style>
     :root {
-      --bg:      #F8F5EF;
-      --surface: #FEFCF8;
-      --ink:     #111110;
-      --mid:     #5C5751;
-      --low:     #9C9790;
-      --rule:    #E4E0D9;
-      --accent:  #9B6A15;   /* warm amber/honey */
+      --bg:      #141210;   /* warm dark espresso */
+      --surface: #1E1C19;
+      --ink:     #EDE8DF;   /* warm off-white */
+      --mid:     #9A9288;
+      --low:     #58534D;
+      --rule:    #2E2C28;
+      --accent:  #C87941;   /* warm copper */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -176,7 +176,7 @@
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .btn:hover { background: #7A5010; }
+    .btn:hover { background: #A0622E; }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
@@ -186,8 +186,8 @@
       overflow: hidden;
     }
     .chat-panel-head {
-      background: var(--ink);
-      color: #fff;
+      background: #0D0C0A;
+      color: var(--ink);
       padding: 14px 22px;
       display: flex;
       align-items: center;
@@ -209,7 +209,7 @@
     .chat-panel-head button {
       background: none;
       border: none;
-      color: rgba(255,255,255,0.6);
+      color: var(--mid);
       font-family: 'Inter', sans-serif;
       font-size: 0.72rem;
       font-weight: 400;
@@ -218,7 +218,7 @@
       padding: 0;
       transition: color 0.15s;
     }
-    .chat-panel-head button:hover { color: #fff; }
+    .chat-panel-head button:hover { color: var(--ink); }
 
     #chat-messages {
       min-height: 18rem;
@@ -304,7 +304,7 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #7A5010; }
+    .chat-input-area button:hover { background: #A0622E; }
     .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
