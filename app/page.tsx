@@ -81,7 +81,8 @@ export default function Home() {
   "How did you learn to code?",
   "What's your experience with Claude AI?",
   "What do your coworkers call you?",
-  "What was your RV life like?"
+  "What was your RV life like?",
+  "Tell me about Solar Wars"
   ]
 
   return (

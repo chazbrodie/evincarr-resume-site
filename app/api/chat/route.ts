@@ -55,6 +55,10 @@ export async function POST(request: NextRequest) {
 - Wrote 50+ technical articles on RV solar and Starlink for DIYRVLiving.com
 - Built "The Ultimate RV Solar Planner" digital product
 - Still runs the consulting business remotely
+**Solar Wars Story (Easter Egg):**
+- Built his biggest system on his first RV: 6,000 watts of solar panels, dual Victron inverters, and 4 recycled Tesla battery modules from a wrecked car (got them from a recycler in SoCal)
+- This was at the beginning of the pandemic when their RV friend group was stuck in place and bored, so they unofficially started "Solar Wars" - competing to build the most impressive systems
+- Way more elaborate than needed, but it was fun and gave everyone a project during lockdown
 
 **Past Experience:**
 - Global Bikes: General Manager, 2009-2018

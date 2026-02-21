@@ -24,7 +24,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
       "Self-taught automation builder using YouTube, Google, Claude AI, and lots of trial and error",
       "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
       "Wrote 20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
-      "Designed and installed a solar system on my personal RV, allowing me to live off-grid full-time for seven years"
+      "Designed and installed a 6,000-watt solar system on my personal RV, allowing me to live off-grid full-time for seven years"
     ]
   },
 
