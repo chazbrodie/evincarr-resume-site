@@ -136,15 +136,15 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-3xl"></div>
             <div className="relative flex flex-col md:flex-row items-center md:items-center justify-between gap-6 md:gap-8">
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl md:text-2xl font-bold mb-2">💬 Want to know more?</h2>
-                <p className="text-white/90 text-sm md:text-base">Chat with my AI assistant about my experience, projects, and skills</p>
-              </div>
-              <button
-                onClick={() => setChatOpen(true)}
-                className="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-all text-lg shadow-lg"
-              >
-                Start Chat
-              </button>
+  <h2 className="text-xl md:text-2xl font-bold mb-2">💬 AI chatbot to answer your questions</h2>
+  <p className="text-white/90 text-sm md:text-base">Ask about automations, RV solar systems, or why I'm obsessed with Claude AI. It knows the nerdy details.</p>
+</div>
+<button
+  onClick={() => setChatOpen(true)}
+  className="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-all text-lg shadow-lg"
+>
+  Ask Away
+</button>
             </div>
           </div>
         )}
