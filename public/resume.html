@@ -10,13 +10,13 @@
 
   <style>
     :root {
-      --bg:      #EFEFED;
-      --surface: #FAFAF8;
+      --bg:      #F8F5EF;
+      --surface: #FEFCF8;
       --ink:     #111110;
-      --mid:     #575451;
-      --low:     #9A9892;
-      --rule:    #E0DFDB;
-      --accent:  #1B4FA0;   /* cobalt navy */
+      --mid:     #5C5751;
+      --low:     #9C9790;
+      --rule:    #E4E0D9;
+      --accent:  #9B6A15;   /* warm amber/honey */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,9 +52,9 @@
 
     .name {
       font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.05;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
 
@@ -176,7 +176,7 @@
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .btn:hover { background: #14387A; }
+    .btn:hover { background: #7A5010; }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
@@ -304,7 +304,7 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #14387A; }
+    .chat-input-area button:hover { background: #7A5010; }
     .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
