@@ -5,11 +5,11 @@ export const resumeData = {
   email: "evindcarr@gmail.com",
   linkedin: "linkedin.com/in/evincarr",
   
-  bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I started using AI tools. Now I build automations using Claude AI, Zapier, and Google Apps Script, eliminating manual work and freeing up teams to focus on what matters.
+  bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script - eliminating the tedious stuff so teams can focus on work that actually matters.
 
-I'm obsessed with Claude AI and use it for everything. Building automations, troubleshooting code, optimizing workflows, and yes, even building this entire website despite having zero web development experience. If there's a repetitive task, I'm already thinking about how to automate it.
+I'm genuinely obsessed with Claude AI. I use it to build automations, troubleshoot code I don't know how to write, and optimize workflows. I even built this entire website with Claude's help despite having zero web development background. If something's repetitive, my brain immediately goes to "how do I automate this?"
 
-I've spent more than 15 years in operations across wildly different environments. Bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work. Different industries, same skill set: I spot the inefficiency, figure out how to fix it, and keep things running smoothly. After 20 years in retail and HR, I semi-retired to live full-time in an RV for seven years, during which I learned solar systems, built a consulting business, and wrote extensively about RV technology.`,
+My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work with families after hurricanes and wildfires. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years grinding in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about for years.`,
 
   highlights: {
     automations: [
@@ -113,6 +113,7 @@ I've spent more than 15 years in operations across wildly different environments
     ],
     tools: [
       "Google Workspace",
+      "Microsoft Office",
       "Slack",
       "Salesforce",
       "Asana"
