@@ -38,7 +38,10 @@ export async function POST(request: NextRequest) {
 - Built automated RSVP dashboard that saved significant time
 - Solved a 6-month automation challenge in 2 days using Apps Script + Claude
 - Uses Claude AI daily for automation, code troubleshooting, workflow optimization
-- Works with tools: Apollo, Clay, Pipedrive, Asana, Google Workspace
+- Works with tools: Apollo, Asana, Google Workspace, Zapier, Slack, LinkedIn Sales Navigator
+- Coordinates virtual roundtables and in-person dinner events across timezones
+- Creates landing pages, Google Forms, and tracking systems for 15+ concurrent events
+- Coworker unofficially call him "Automation Engineer" because that's what he actually does
 
 **AI/Automation Work:**
 - Heavy Claude user for workflows, automations, and building this website
@@ -55,6 +58,7 @@ export async function POST(request: NextRequest) {
 
 **Past Experience:**
 - Global Bikes: General Manager, 2009-2018
+  - Unofficial nickname: "Head Speller" (owner gave it as a tongue-in-cheek joke because Evin proofread all the newsletters and caught everyone's typos)
 - Sears: HR Manager, 2002-2009
 - American Red Cross: Volunteer disaster recovery caseworker (current)
 - Brief background in insurance (held Series 6 & 63 licenses)

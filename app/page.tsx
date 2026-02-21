@@ -76,10 +76,12 @@ export default function Home() {
   }
 
   const suggestedQuestions = [
-    "What automation projects have you built?",
-    "Tell me about the RSVP dashboard",
-    "How did you learn to code?",
-    "What's your experience with Claude AI?"
+  "What automation projects have you built?",
+  "Tell me about the RSVP dashboard",
+  "How did you learn to code?",
+  "What's your experience with Claude AI?",
+  "What do your coworkers call you?",
+  "What was your RV life like?"
   ]
 
   return (
