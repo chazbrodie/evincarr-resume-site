@@ -6,17 +6,17 @@
   <title>Evin Carr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:      #FAFAF7;
-      --surface: #FFFFFF;
-      --ink:     #131211;
-      --mid:     #5C5751;
-      --low:     #9C9790;
-      --rule:    #E4E0D8;
-      --accent:  #C07840;   /* warm copper */
+      --bg:     #FFFFFF;
+      --ink:    #111111;
+      --body:   #424242;
+      --mid:    #787878;
+      --low:    #AAAAAA;
+      --line:   #E6E6E6;
+      --red:    #D42B2B;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,143 +24,129 @@
 
     body {
       background: var(--bg);
-      color: var(--ink);
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 300;
-      line-height: 1.65;
+      color: var(--body);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
+    a:hover { color: var(--red); }
 
-    /* ── Hero band ───────────────────────────────────────────── */
-    .hero {
-      background: #1E2A14;   /* deep warm olive */
-      width: 100%;
-    }
-    .hero-inner {
-      max-width: 880px;
+    /* ── Page container ──────────────────────────────────────── */
+    .page {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 52px 32px 56px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: start;
+      padding: 0 36px 80px;
+    }
+
+    /* ── Page header ─────────────────────────────────────────── */
+    .page-header {
+      padding-top: 56px;
     }
 
     .name {
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 700;
-      line-height: 1.0;
+      font-size: clamp(3rem, 6.5vw, 5rem);
+      font-weight: 800;
+      line-height: 0.95;
       letter-spacing: -0.03em;
-      color: #EDE8DF;
-      margin-bottom: 14px;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .header-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 36px;
+      padding: 20px 0 52px;
+      border-top: 2px solid var(--ink);
     }
 
     .title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 400;
-      color: rgba(237,232,223,0.55);
-      letter-spacing: 0.03em;
-      margin-bottom: 28px;
-      max-width: 380px;
+      color: var(--mid);
+      margin-bottom: 16px;
+      line-height: 1.55;
     }
 
     .contact {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
+      gap: 6px;
+      font-size: 0.78rem;
     }
     .contact-plain {
-      color: rgba(237,232,223,0.45);
-      font-weight: 300;
+      color: var(--low);
     }
     .contact-sep {
-      color: rgba(237,232,223,0.2);
+      color: var(--line);
       user-select: none;
     }
     .contact-link {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      color: rgba(237,232,223,0.85);
+      color: var(--mid);
       font-weight: 400;
       padding: 4px 11px;
-      border: 1px solid rgba(237,232,223,0.2);
-      border-radius: 2px;
-      background: rgba(237,232,223,0.07);
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
-      letter-spacing: 0.01em;
+      border-radius: 4px;
+      background: #F2F2F2;
+      transition: background 0.15s, color 0.15s;
     }
     .contact-link:hover {
-      border-color: rgba(237,232,223,0.5);
-      color: #EDE8DF;
-      background: rgba(237,232,223,0.12);
-      text-decoration: none;
+      background: #E8E8E8;
+      color: var(--red);
     }
     .contact-link svg {
-      opacity: 0.6;
+      opacity: 0.4;
       flex-shrink: 0;
     }
 
-    /* ── Layout ──────────────────────────────────────────────── */
-    .page {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 32px 80px;
-    }
-
     .photo img {
-      width: 136px;
-      height: 165px;
+      width: 118px;
+      height: 143px;
       object-fit: cover;
       object-position: center top;
       display: block;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
-    /* ── Divider ─────────────────────────────────────────────── */
-    .rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 48px 0;
+    /* ── Sections ────────────────────────────────────────────── */
+    .section {
+      border-top: 1px solid var(--line);
+      padding-top: 34px;
+      margin-bottom: 50px;
     }
 
-    /* ── Section row ─────────────────────────────────────────── */
-    .row {
-      display: grid;
-      grid-template-columns: 148px 1fr;
-      gap: 0 40px;
-      margin-bottom: 48px;
+    .section-head {
+      margin-bottom: 22px;
     }
-    .row:last-child { margin-bottom: 0; }
-
-    .label {
-      font-size: 0.67rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--low);
-      padding-top: 4px;
     }
 
     /* ── Chat CTA ────────────────────────────────────────────── */
     .chat-cta-wrap {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      padding: 22px 26px;
+      border-left: 3px solid var(--red);
+      background: #FEF9F9;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
     .chat-cta-wrap .cta-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
+      color: var(--ink);
       margin-bottom: 3px;
     }
     .chat-cta-wrap .cta-sub {
@@ -170,43 +156,41 @@
 
     .btn {
       flex-shrink: 0;
-      background: var(--accent);
+      background: var(--red);
       color: #fff;
       border: none;
-      padding: 11px 22px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      border-radius: 2px;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 4px;
       cursor: pointer;
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .btn:hover { background: #9A5E2E; }
+    .btn:hover { background: #BB2020; }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
       overflow: hidden;
     }
     .chat-panel-head {
-      background: #0D0C0A;
-      color: var(--ink);
-      padding: 14px 22px;
+      background: #111111;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .chat-panel-head .head-title {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
+      color: #F0EFED;
     }
     .chat-panel-head .head-sub {
       font-size: 0.72rem;
-      opacity: 0.5;
+      color: rgba(240,239,237,0.4);
       margin-top: 1px;
     }
     .chat-panel-head .head-actions {
@@ -216,23 +200,21 @@
     .chat-panel-head button {
       background: none;
       border: none;
-      color: var(--mid);
-      font-family: 'Inter', sans-serif;
+      color: rgba(240,239,237,0.4);
+      font-family: 'DM Sans', sans-serif;
       font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
       cursor: pointer;
       padding: 0;
       transition: color 0.15s;
     }
-    .chat-panel-head button:hover { color: var(--ink); }
+    .chat-panel-head button:hover { color: #F0EFED; }
 
     #chat-messages {
       min-height: 18rem;
       max-height: 22rem;
       overflow-y: auto;
       padding: 22px;
-      background: var(--bg);
+      background: #FAFAFA;
     }
 
     .empty-state {
@@ -254,72 +236,69 @@
     .suggestion-btn {
       text-align: left;
       padding: 10px 14px;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.77rem;
-      font-weight: 300;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
       color: var(--mid);
       cursor: pointer;
       line-height: 1.4;
       transition: border-color 0.15s, color 0.15s;
     }
-    .suggestion-btn:hover { border-color: var(--accent); color: var(--ink); }
+    .suggestion-btn:hover { border-color: var(--red); color: var(--ink); }
 
     .chat-row { display: flex; margin-bottom: 10px; }
     .chat-row.user { justify-content: flex-end; }
     .bubble {
       max-width: 78%;
-      padding: 10px 15px;
-      border-radius: 2px;
+      padding: 10px 14px;
+      border-radius: 4px;
       font-size: 0.83rem;
       line-height: 1.6;
       white-space: pre-wrap;
     }
-    .bubble.user { background: var(--accent); color: #fff; }
-    .bubble.assistant { background: var(--surface); border: 1px solid var(--rule); color: var(--ink); }
-    .bubble.thinking { background: var(--surface); border: 1px solid var(--rule); color: var(--low); font-style: italic; }
+    .bubble.user { background: var(--red); color: #fff; }
+    .bubble.assistant { background: #FFFFFF; border: 1px solid var(--line); color: var(--body); }
+    .bubble.thinking { background: #FFFFFF; border: 1px solid var(--line); color: var(--low); font-style: italic; }
 
     .chat-input-area {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid var(--line);
       display: flex;
-      background: var(--surface);
+      background: #FFFFFF;
     }
     .chat-input-area input {
       flex: 1;
-      padding: 13px 18px;
+      padding: 12px 16px;
       background: transparent;
       border: none;
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 0.83rem;
-      font-weight: 300;
-      color: var(--ink);
+      color: var(--body);
       outline: none;
     }
     .chat-input-area input::placeholder { color: var(--low); }
     .chat-input-area button {
-      padding: 13px 22px;
-      background: var(--accent);
+      padding: 12px 20px;
+      background: var(--red);
       color: #fff;
       border: none;
-      border-left: 1px solid var(--rule);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      border-left: 1px solid var(--line);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #9A5E2E; }
-    .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
+    .chat-input-area button:hover { background: #BB2020; }
+    .chat-input-area button:disabled { background: var(--line); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
     .about p {
       font-size: 0.92rem;
-      color: var(--mid);
-      line-height: 1.82;
-      margin-bottom: 16px;
+      color: var(--body);
+      line-height: 1.78;
+      margin-bottom: 14px;
     }
     .about p:last-child { margin-bottom: 0; }
 
@@ -327,31 +306,32 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
 
     .hl-head {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
+      color: var(--ink);
       letter-spacing: -0.01em;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--rule);
+      border-bottom: 1px solid var(--line);
     }
 
     .hl-list { list-style: none; }
     .hl-list li {
       display: flex;
       gap: 10px;
-      font-size: 0.83rem;
-      color: var(--mid);
-      line-height: 1.55;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--rule);
+      font-size: 0.82rem;
+      color: var(--body);
+      line-height: 1.5;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
     }
     .hl-list li:last-child { border-bottom: none; padding-bottom: 0; }
-    .hl-dot { color: var(--accent); flex-shrink: 0; margin-top: 1px; font-size: 0.6rem; line-height: 1.8; }
+    .hl-dot { color: var(--red); flex-shrink: 0; margin-top: 1px; font-size: 0.6rem; line-height: 1.8; }
 
     /* ── Experience ──────────────────────────────────────────── */
     .exp-item {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
     }
     .exp-item:first-child { padding-top: 0; }
     .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
@@ -364,8 +344,9 @@
       margin-bottom: 2px;
     }
     .exp-role {
-      font-size: 1.0rem;
+      font-size: 0.98rem;
       font-weight: 700;
+      color: var(--ink);
       letter-spacing: -0.01em;
     }
     .exp-meta {
@@ -378,36 +359,35 @@
       font-size: 0.8rem;
       color: var(--mid);
       font-weight: 500;
-      margin-bottom: 8px;
-      letter-spacing: 0.01em;
+      margin-bottom: 7px;
     }
     .exp-desc {
       font-size: 0.82rem;
       color: var(--mid);
       font-style: italic;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
       line-height: 1.6;
     }
     .exp-list { list-style: none; }
     .exp-list li {
       font-size: 0.82rem;
-      color: var(--mid);
+      color: var(--body);
       line-height: 1.6;
-      padding: 3px 0;
-      padding-left: 14px;
+      padding: 2px 0 2px 14px;
       position: relative;
     }
     .exp-list li::before {
       content: '–';
       position: absolute;
       left: 0;
-      color: var(--rule);
+      color: var(--line);
     }
 
     /* ── Education ───────────────────────────────────────────── */
     .edu-degree {
-      font-size: 1.0rem;
+      font-size: 0.98rem;
       font-weight: 700;
+      color: var(--ink);
       letter-spacing: -0.01em;
       margin-bottom: 4px;
     }
@@ -426,50 +406,50 @@
     .skills-four {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px 36px;
+      gap: 26px 36px;
     }
     .skill-group-name {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--mid);
       margin-bottom: 10px;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .tag {
-      padding: 4px 11px;
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      font-size: 0.76rem;
+      padding: 3px 10px;
+      background: #F4F4F4;
+      border-radius: 4px;
+      font-size: 0.75rem;
       color: var(--mid);
-      transition: border-color 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s;
       cursor: default;
     }
-    .tag:hover { border-color: var(--accent); color: var(--ink); }
+    .tag:hover { background: #EBEBEB; color: var(--ink); }
 
     /* ── Footer ──────────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid var(--line);
       margin-top: 48px;
-      padding-top: 28px;
-      font-size: 0.78rem;
+      padding-top: 24px;
+      font-size: 0.76rem;
       color: var(--low);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     footer a { color: var(--low); }
-    footer a:hover { color: var(--accent); }
+    footer a:hover { color: var(--red); }
 
     /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 680px) {
-      .hero-inner { grid-template-columns: 1fr; padding: 36px 20px 40px; }
-      .photo { order: -1; }
-      .photo img { width: 90px; height: 110px; }
       .page { padding: 0 20px 60px; }
-      .row { grid-template-columns: 1fr; gap: 10px; }
-      .label { padding-top: 0; }
+      .page-header { padding-top: 36px; }
+      .name { font-size: clamp(2.8rem, 11vw, 4rem); margin-bottom: 18px; }
+      .header-bottom { grid-template-columns: 1fr; gap: 20px; }
+      .photo { order: -1; }
+      .photo img { width: 80px; height: 96px; }
       .two-col, .skills-four { grid-template-columns: 1fr; }
       .suggestion-grid { grid-template-columns: 1fr; }
       .chat-cta-wrap { flex-direction: column; align-items: flex-start; }
@@ -709,40 +689,40 @@ My background is all over the place in the best way. Bike shops, big box retail,
       </div>`;
 
     root.innerHTML = `
-      <div class="hero">
-        <div class="hero-inner">
-          <div>
-            <h1 class="name">${x(data.name)}</h1>
-            <p class="title">${x(data.title)}</p>
-            <div class="contact">
-              <span class="contact-plain">${x(data.location)}</span>
-              <span class="contact-sep">·</span>
-              <a class="contact-link" href="mailto:${x(data.email)}">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5l5 3.5 5-3.5" stroke="currentColor" stroke-width="1"/></svg>
-                ${x(data.email)}
-              </a>
-              <a class="contact-link" href="https://${x(data.linkedin)}" target="_blank" rel="noopener">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1"/><path d="M3.5 5.5v3M3.5 3.5v.5M5.5 8.5V6.25C5.5 5.836 5.836 5.5 6.25 5.5v0C6.664 5.5 7 5.836 7 6.25V8.5M7 6.5c0-.5.336-1 1-1s1 .5 1 1v2" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
-                LinkedIn
-              </a>
-              <a class="contact-link" href="https://evincarr.com/Evin-Carr-Resume.pdf" download>
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v6M4 5l2 2 2-2M2 9v1.5A.5.5 0 002.5 11h7a.5.5 0 00.5-.5V9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Download CV
-              </a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" />
-          </div>
-        </div>
-      </div>
-
       <div class="page">
 
-        <hr class="rule">
+        <header class="page-header">
+          <h1 class="name">${x(data.name)}</h1>
+          <div class="header-bottom">
+            <div>
+              <p class="title">${x(data.title)}</p>
+              <div class="contact">
+                <span class="contact-plain">${x(data.location)}</span>
+                <span class="contact-sep">·</span>
+                <a class="contact-link" href="mailto:${x(data.email)}">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5l5 3.5 5-3.5" stroke="currentColor" stroke-width="1"/></svg>
+                  ${x(data.email)}
+                </a>
+                <a class="contact-link" href="https://${x(data.linkedin)}" target="_blank" rel="noopener">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1"/><path d="M3.5 5.5v3M3.5 3.5v.5M5.5 8.5V6.25C5.5 5.836 5.836 5.5 6.25 5.5v0C6.664 5.5 7 5.836 7 6.25V8.5M7 6.5c0-.5.336-1 1-1s1 .5 1 1v2" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+                  LinkedIn
+                </a>
+                <a class="contact-link" href="https://evincarr.com/Evin-Carr-Resume.pdf" download>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v6M4 5l2 2 2-2M2 9v1.5A.5.5 0 002.5 11h7a.5.5 0 00.5-.5V9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Download CV
+                </a>
+              </div>
+            </div>
+            <div class="photo">
+              <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" />
+            </div>
+          </div>
+        </header>
 
-        <div class="row" id="cta-row">
-          <span class="label">AI Chat</span>
+        <section class="section" id="cta-row">
+          <div class="section-head">
+            <span class="section-label">AI Chat</span>
+          </div>
           <div class="chat-cta-wrap">
             <div>
               <p class="cta-title">Have a question? Ask the AI.</p>
@@ -750,10 +730,12 @@ My background is all over the place in the best way. Bike shops, big box retail,
             </div>
             <button class="btn" onclick="openChat()">Start a conversation</button>
           </div>
-        </div>
+        </section>
 
-        <div class="row hidden" id="panel-row">
-          <span class="label">AI Chat</span>
+        <section class="section hidden" id="panel-row">
+          <div class="section-head">
+            <span class="section-label">AI Chat</span>
+          </div>
           <div class="chat-panel-wrap">
             <div class="chat-panel-head">
               <div>
@@ -772,19 +754,19 @@ My background is all over the place in the best way. Bike shops, big box retail,
               <button id="send-btn" onclick="send()" disabled>Send</button>
             </div>
           </div>
-        </div>
+        </section>
 
-        <hr class="rule">
-
-        <div class="row">
-          <span class="label">About</span>
+        <section class="section">
+          <div class="section-head">
+            <span class="section-label">About</span>
+          </div>
           <div class="about">${bio}</div>
-        </div>
+        </section>
 
-        <hr class="rule">
-
-        <div class="row">
-          <span class="label">Highlights</span>
+        <section class="section">
+          <div class="section-head">
+            <span class="section-label">Highlights</span>
+          </div>
           <div class="two-col">
             <div>
               <p class="hl-head">Automation Projects</p>
@@ -795,37 +777,37 @@ My background is all over the place in the best way. Bike shops, big box retail,
               <ul class="hl-list">${achiev}</ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        <hr class="rule">
-
-        <div class="row">
-          <span class="label">Experience</span>
+        <section class="section">
+          <div class="section-head">
+            <span class="section-label">Experience</span>
+          </div>
           <div>${exp}</div>
-        </div>
+        </section>
 
-        <hr class="rule">
-
-        <div class="row">
-          <span class="label">Education</span>
+        <section class="section">
+          <div class="section-head">
+            <span class="section-label">Education</span>
+          </div>
           <div>
             <p class="edu-degree">${x(data.education.degree)}</p>
             <p class="edu-school">${x(data.education.school)}</p>
             <p class="edu-status">${x(data.education.status)}</p>
           </div>
-        </div>
+        </section>
 
-        <hr class="rule">
-
-        <div class="row">
-          <span class="label">Skills</span>
+        <section class="section">
+          <div class="section-head">
+            <span class="section-label">Skills</span>
+          </div>
           <div class="skills-four">
             ${skillGroup('AI & Automation', data.skills.aiAutomation)}
             ${skillGroup('Tools & Platforms', data.skills.tools)}
             ${skillGroup('Technical', data.skills.technical)}
             ${skillGroup('Operations', data.skills.operations)}
           </div>
-        </div>
+        </section>
 
         <footer>
           <span>© ${new Date().getFullYear()} Evin Carr</span>
