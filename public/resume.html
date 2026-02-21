@@ -3,72 +3,507 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evin Carr - Resume</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cyan: {
-              550: '#0891b2'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <title>Evin Carr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
   <style>
-    h1, h2, h3, h4, h5, h6 { color: #ffffff; }
-    body { font-family: Arial, Helvetica, sans-serif; }
-    .backdrop-blur-custom {
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+    /* ── Tokens ──────────────────────────────────────────────── */
+    :root {
+      --cream:   #F3EDE2;
+      --paper:   #FDFAF5;
+      --white:   #FFFFFF;
+      --ink:     #1C1917;
+      --ink-mid: #6B6058;
+      --ink-low: #A09890;
+      --accent:  #AD5B2F;   /* terracotta */
+      --accent-light: #F0E0D6;
+      --border:  #E2D9CC;
+      --border-strong: #C8BFAF;
     }
-    #chat-messages { height: 24rem; overflow-y: auto; }
-    .chat-bubble-user { background-color: #0891b2; color: white; }
-    .chat-bubble-assistant { background-color: #334155; color: #f1f5f9; }
-    .suggested-btn:hover { border-color: #0891b2; }
+
+    /* ── Base ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ──────────────────────────────────────────────── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section label (overline) ────────────────────────────── */
+    .overline {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* ── Dividers ────────────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 56px 0;
+    }
+    .rule-light {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* ── Header ──────────────────────────────────────────────── */
+    .header {
+      padding: 64px 0 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+    }
+    .header-name {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+    .header-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--ink-mid);
+      margin-bottom: 28px;
+      max-width: 420px;
+      line-height: 1.5;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+    }
+    .header-meta a { color: var(--ink-mid); }
+    .header-meta a:hover { color: var(--accent); text-decoration: none; }
+    .header-meta span::before { content: '·'; margin-right: 20px; color: var(--border-strong); }
+    .header-meta span:first-child::before { display: none; }
+
+    .header-photo {
+      flex-shrink: 0;
+    }
+    .header-photo img {
+      width: 140px;
+      height: 170px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 4px;
+      filter: grayscale(15%);
+    }
+
+    /* ── Chat CTA ────────────────────────────────────────────── */
+    .chat-cta {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .chat-cta-text p:first-child {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+    .chat-cta-text p:last-child {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #8F4520; }
+
+    /* ── Chat Panel ──────────────────────────────────────────── */
+    .chat-panel {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: var(--ink);
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-header-left p:first-child {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .chat-header-left p:last-child {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 1px;
+    }
+    .chat-header-right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .chat-header-right button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.03em;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .chat-header-right button:hover { color: #fff; }
+    .chat-header-right .close-btn { font-size: 1.1rem; }
+
+    #chat-messages {
+      height: 22rem;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .suggested-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .suggested-btn {
+      text-align: left;
+      padding: 12px 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .suggested-btn:hover { border-color: var(--accent); color: var(--ink); }
+
+    .empty-prompt {
+      text-align: center;
+      padding-top: 32px;
+    }
+    .empty-prompt p {
+      font-size: 0.875rem;
+      color: var(--ink-low);
+      margin-bottom: 20px;
+    }
+
+    .chat-bubble {
+      max-width: 78%;
+      padding: 12px 16px;
+      border-radius: 3px;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .chat-row { display: flex; margin-bottom: 12px; }
+    .chat-row.user { justify-content: flex-end; }
+    .chat-row.assistant { justify-content: flex-start; }
+    .chat-bubble.user { background: var(--accent); color: #fff; }
+    .chat-bubble.assistant { background: var(--white); border: 1px solid var(--border); color: var(--ink); }
+
+    .chat-input-row {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      background: var(--white);
+    }
+    .chat-input-row input {
+      flex: 1;
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--ink);
+      background: var(--paper);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .chat-input-row input:focus { border-color: var(--accent); }
+    .chat-input-row input::placeholder { color: var(--ink-low); }
+    .chat-input-row button {
+      padding: 11px 22px;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s;
+    }
+    #send-btn:not(:disabled) { background: var(--accent); color: #fff; }
+    #send-btn:not(:disabled):hover { background: #8F4520; }
+    #send-btn:disabled { background: var(--border); color: var(--ink-low); cursor: not-allowed; }
+
+    /* ── About ───────────────────────────────────────────────── */
+    .about-text p {
+      font-size: 1.0625rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── Two-col Highlights ──────────────────────────────────── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .highlight-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .highlight-list {
+      list-style: none;
+    }
+    .highlight-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      display: flex;
+      gap: 12px;
+    }
+    .highlight-list li:last-child { border-bottom: none; }
+    .highlight-list li .marker {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.75rem;
+    }
+
+    /* ── Experience ──────────────────────────────────────────── */
+    .experience-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .experience-item:first-child { padding-top: 0; }
+    .experience-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-meta {
+      padding-top: 4px;
+    }
+    .exp-period {
+      font-size: 0.8rem;
+      color: var(--ink-low);
+      line-height: 1.5;
+    }
+    .exp-location {
+      font-size: 0.8rem;
+      color: var(--ink-low);
+      margin-top: 2px;
+    }
+    .exp-role {
+      font-size: 1.2rem;
+      margin-bottom: 3px;
+    }
+    .exp-company {
+      font-size: 0.875rem;
+      color: var(--accent);
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+    }
+    .exp-desc {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      font-style: italic;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .exp-achievements {
+      list-style: none;
+    }
+    .exp-achievements li {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      padding: 4px 0;
+      display: flex;
+      gap: 10px;
+    }
+    .exp-achievements li::before {
+      content: '—';
+      color: var(--border-strong);
+      flex-shrink: 0;
+    }
+
+    /* ── Education ───────────────────────────────────────────── */
+    .education-block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+    }
+    .edu-status {
+      font-size: 0.8rem;
+      color: var(--ink-low);
+      padding-top: 4px;
+    }
+    .edu-degree { font-size: 1.2rem; margin-bottom: 4px; }
+    .edu-school { font-size: 0.875rem; color: var(--accent); }
+
+    /* ── Skills ──────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 48px;
+    }
+    .skill-group-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-low);
+      margin-bottom: 14px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: 2px;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      letter-spacing: 0.01em;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--ink); }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-low);
+      padding-top: 32px;
+      line-height: 1.8;
+    }
+    .footer a { color: var(--ink-low); }
+    .footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .header {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+      .header-photo { order: -1; }
+      .header-photo img { width: 100px; height: 120px; }
+      .highlights-grid,
+      .skills-grid { grid-template-columns: 1fr; }
+      .experience-item,
+      .education-block { grid-template-columns: 1fr; gap: 12px; }
+      .exp-meta { padding-top: 0; }
+      .suggested-grid { grid-template-columns: 1fr; }
+      .chat-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    .hidden { display: none !important; }
   </style>
 </head>
-<body class="min-h-screen" style="background: linear-gradient(135deg, #475569 0%, #64748b 50%, #475569 100%);">
+<body>
 
-<!-- ============================================================
-     CONFIG: Change API_URL to http://localhost:3000/api/chat
-     when running the Next.js dev server locally.
-     ============================================================ -->
+<!-- ── CONFIG ────────────────────────────────────────────────────
+     Swap the comment to use local dev server instead of production.
+──────────────────────────────────────────────────────────────── -->
 <script>
   const API_URL = 'https://evincarr.com/api/chat';
-  // const API_URL = 'http://localhost:3000/api/chat'; // uncomment for local dev
+  // const API_URL = 'http://localhost:3000/api/chat';
 
-  // ── Resume Data ────────────────────────────────────────────
   const resumeData = {
     name: "Evin Carr",
-    title: "Remote Operations Specialist | AI-Powered Workflow Automation",
+    title: "Remote Operations Specialist · AI-Powered Workflow Automation",
     location: "Fully Remote",
     email: "evindcarr@gmail.com",
     linkedin: "linkedin.com/in/evincarr",
 
-    bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script - eliminating the tedious stuff so teams can focus on work that actually matters.
+    bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script — eliminating the tedious stuff so teams can focus on work that actually matters.
 
 I'm genuinely obsessed with Claude AI. I use it to build automations, troubleshoot code I don't know how to write, and optimize workflows. I even built this entire website with Claude's help despite having zero web development background. If something's repetitive, my brain immediately goes to "how do I automate this?"
 
-My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work with families after disasters. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years grinding in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about for years.`,
+My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about.`,
 
     highlights: {
       automations: [
-        "Built automated RSVP tracking dashboard with real-time updates using Google Apps Script and Claude AI for code generation",
-        "Developed Slack bot integration for instant event notifications, allowing the events team to see RSVPs without checking spreadsheets",
-        "Created an automated workflow to pull data directly into tracking sheets, eliminating manual entry across 15+ concurrent events",
-        "Use Claude AI, ChatGPT, and Perplexity daily as coding assistants and research tools to build practical solutions",
-        "Built this entire resume website with Claude's help, with zero web development experience (learned React, Next.js, Vercel in a weekend)"
+        "Automated RSVP tracking dashboard with real-time updates using Google Apps Script and Claude AI",
+        "Slack bot integration for instant event notifications — no spreadsheet-checking required",
+        "Workflow pulling form data directly into tracking sheets across 15+ concurrent events",
+        "Claude AI, ChatGPT, and Perplexity as daily coding assistants and research tools",
+        "Built this entire resume website with Claude — learned React, Next.js, and Vercel in a weekend"
       ],
       achievements: [
-        "Built automated RSVP tracking system in two days using only Apps Script, Claude AI, and creative problem-solving",
-        "Self-taught automation builder using YouTube, Google, Claude AI, and lots of trial and error",
-        "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
-        "Wrote 20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
-        "Designed and installed a 6,000-watt solar system on my personal RV, allowing me to live off-grid full-time for seven years"
+        "Built RSVP automation in two days using Apps Script, Claude AI, and creative problem-solving",
+        "Self-taught builder: YouTube, Google, Claude AI, and a lot of trial and error",
+        "Multi-location bike shop GM with consistent 10–20% year-over-year growth",
+        "20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
+        "Designed and installed a 6,000-watt solar system — lived off-grid full-time for seven years"
       ]
     },
 
@@ -76,66 +511,66 @@ My background is all over the place in the best way. Bike shops, big box retail,
       {
         role: "Events Assistant",
         company: "Storm King Consulting",
-        period: "January 2026 - Present",
+        period: "January 2026 – Present",
         location: "Remote",
-        description: "Coordinate virtual and in-person events and experiences for curated executive network of marketing leaders while building automations to eliminate manual work.",
+        description: "Coordinate virtual and in-person events for a curated executive network of marketing leaders, while building automations to eliminate manual work.",
         achievements: [
-          "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
+          "Automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
           "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
-          "Coordinate operations for virtual roundtables and in-person dinners across timezones",
-          "Create landing pages, Google Forms, and tracking systems for 15+ concurrent events",
-          "Use Claude AI and Zapier daily for automation building, code troubleshooting, and workflow optimization"
+          "Operations for virtual roundtables and in-person dinners across timezones",
+          "Landing pages, Google Forms, and tracking systems for 15+ concurrent events",
+          "Claude AI and Zapier daily for automation building, code troubleshooting, and workflow optimization"
         ]
       },
       {
-        role: "Founder/CEO",
+        role: "Founder / CEO",
         company: "The Off Grid Guy & DIY RV Living",
-        period: "2020 - Present",
+        period: "2020 – Present",
         location: "Remote",
-        description: "Created digital products and provide solar consulting services to RV owners nationwide.",
+        description: "Digital products and solar consulting services for RV owners nationwide.",
         achievements: [
-          "Provide solar consulting to clients across the country via video calls and custom system designs",
-          "Manage all business operations, including marketing, sales, customer support, technical troubleshooting",
-          "Created and launched 'The Ultimate RV Solar Planner' digital product, marketing through Facebook ads",
-          "Wrote 20+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
+          "Solar consulting via video calls and custom system designs for clients across the country",
+          "All business operations — marketing, sales, customer support, technical troubleshooting",
+          "Launched 'The Ultimate RV Solar Planner' digital product, marketed via Facebook ads",
+          "20+ in-depth technical articles on RV solar and Starlink for DIYRVLiving.com",
           "Designed and installed solar systems up to 6,000 watts"
         ]
       },
       {
-        role: "Disaster Recovery Caseworker (Volunteer)",
+        role: "Disaster Recovery Caseworker",
         company: "American Red Cross",
-        period: "March 2025 - Present",
-        location: "Remote",
-        description: "Provide disaster recovery support through virtual case management.",
+        period: "March 2025 – Present",
+        location: "Remote (Volunteer)",
+        description: "Disaster recovery support through virtual case management.",
         achievements: [
-          "Conduct virtual client interviews and develop individualized recovery plans for disaster-affected families",
-          "Document all case activities and maintain accurate records in Salesforce CRM",
-          "Collaborate with remote team across multiple timezones to serve disaster survivors"
+          "Virtual client interviews and individualized recovery plans for disaster-affected families",
+          "Case documentation and records in Salesforce CRM",
+          "Collaboration with remote teams across multiple timezones"
         ]
       },
       {
         role: "General Manager",
         company: "Global Bikes",
-        period: "2009 - 2018",
+        period: "2009 – 2018",
         location: "Phoenix, AZ",
-        description: "Managed multi-location bike shop operations with consistent growth year over year.",
+        description: "Multi-location bike shop operations with consistent year-over-year growth.",
         achievements: [
-          "Won inaugural Manager of the Year Award (2017)",
-          "Achieved consistent 10-20% year-over-year sales growth across multiple locations",
-          "Led teams of 10-15 people through hiring, training, and daily operations",
-          "Monitored and analyzed KPI tracking systems to identify performance trends"
+          "Inaugural Manager of the Year Award (2017)",
+          "Consistent 10–20% year-over-year sales growth across multiple locations",
+          "Led teams of 10–15 through hiring, training, and daily operations",
+          "KPI tracking systems to monitor and improve performance trends"
         ]
       },
       {
-        role: "HR Manager | Sales | Operations",
+        role: "HR Manager · Sales · Operations",
         company: "Sears",
-        period: "2002 - 2009",
+        period: "2002 – 2009",
         location: "West Springfield, MA",
-        description: "Managed full-cycle HR operations for large retail location during major technology transitions.",
+        description: "Full-cycle HR operations for a large retail location through major technology transitions.",
         achievements: [
-          "Managed HR operations for 130+ employees including recruitment, onboarding, payroll, benefits",
-          "Led technology transition from legacy green-screen systems to modern platforms, including training entire staff",
-          "Created staff scheduling systems, optimizing coverage while controlling labor costs"
+          "HR for 130+ employees — recruitment, onboarding, payroll, benefits",
+          "Led technology transition from legacy green-screen systems, trained entire staff",
+          "Staff scheduling systems balancing coverage and labor cost control"
         ]
       }
     ],
@@ -147,7 +582,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
     },
 
     skills: {
-      aiAutomation: ["Claude AI (Advanced)", "ChatGPT", "Perplexity", "Google Apps Script", "Zapier", "Make (learning)", "n8n (learning)"],
+      aiAutomation: ["Claude AI (Advanced)", "ChatGPT", "Perplexity", "Google Apps Script", "Zapier", "Make", "n8n"],
       tools: ["Google Workspace", "Microsoft Office", "Slack", "Salesforce", "Asana"],
       technical: ["API Integration", "Dashboard Building", "Workflow Automation", "Process Optimization"],
       operations: ["Event Coordination", "Project Management", "Team Leadership", "Remote Collaboration", "Async Communication"]
@@ -164,118 +599,80 @@ My background is all over the place in the best way. Bike shops, big box retail,
     "Tell me about Solar Wars"
   ];
 
-  // ── Chat State ─────────────────────────────────────────────
+  // ── Chat state ────────────────────────────────────────────────
   let messages = [];
   let isLoading = false;
 
-  // ── Helpers ────────────────────────────────────────────────
-  function escapeHtml(text) {
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+  function esc(str) {
+    return String(str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
   function renderMessages() {
-    const container = document.getElementById('chat-messages');
+    const el = document.getElementById('chat-messages');
+    if (!el) return;
     if (messages.length === 0) {
-      container.innerHTML = `
-        <div class="text-center mt-12">
-          <p class="text-slate-400 mb-6 text-sm">👋 Hey! Ask me anything about my experience and projects</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
-            ${suggestedQuestions.map(q => `
-              <button
-                onclick="handleSuggestedQuestion(${JSON.stringify(q)})"
-                class="suggested-btn text-left p-3 bg-slate-800/80 rounded-lg border border-slate-700 hover:border-cyan-500 hover:shadow-md transition-all text-sm text-slate-300"
-              >💡 ${escapeHtml(q)}</button>
-            `).join('')}
+      el.innerHTML = `
+        <div class="empty-prompt">
+          <p>Ask me anything about Evin's experience and projects</p>
+          <div class="suggested-grid">
+            ${suggestedQuestions.map(q =>
+              `<button class="suggested-btn" onclick="handleSuggested(${JSON.stringify(q)})">${esc(q)}</button>`
+            ).join('')}
           </div>
         </div>`;
       return;
     }
+    el.innerHTML = messages.map(m => `
+      <div class="chat-row ${m.role}">
+        <div class="chat-bubble ${m.role}">${esc(m.content)}</div>
+      </div>`).join('') + (isLoading ? `
+      <div class="chat-row assistant">
+        <div class="chat-bubble assistant" style="color:var(--ink-low);font-style:italic;">Thinking…</div>
+      </div>` : '');
+    el.scrollTop = el.scrollHeight;
+  }
 
-    let html = messages.map(msg => `
-      <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} mb-4">
-        <div class="max-w-[80%] p-3 rounded-2xl ${msg.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-assistant'}">
-          <p class="text-sm whitespace-pre-wrap">${escapeHtml(msg.content)}</p>
-        </div>
-      </div>`).join('');
-
-    if (isLoading) {
-      html += `
-        <div class="flex justify-start mb-4">
-          <div class="chat-bubble-assistant p-3 rounded-2xl">
-            <p class="text-sm">Thinking...</p>
-          </div>
-        </div>`;
-    }
-
-    container.innerHTML = html;
-    container.scrollTop = container.scrollHeight;
+  async function callAPI(message, history) {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, history })
+    });
+    const data = await res.json();
+    return data.text;
   }
 
   async function sendMessage() {
-    const inputEl = document.getElementById('chat-input');
-    const text = inputEl.value.trim();
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
     if (!text || isLoading) return;
-
     messages.push({ role: 'user', content: text });
-    inputEl.value = '';
-    isLoading = true;
-    renderMessages();
-    updateSendButton();
-
+    input.value = '';
+    isLoading = true; renderMessages(); syncSendBtn();
     try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history: messages.slice(0, -1) })
-      });
-      const data = await res.json();
-      messages.push({ role: 'assistant', content: data.text });
-    } catch (e) {
-      messages.push({ role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' });
-    } finally {
-      isLoading = false;
-      renderMessages();
-      updateSendButton();
-    }
+      const reply = await callAPI(text, messages.slice(0,-1));
+      messages.push({ role: 'assistant', content: reply });
+    } catch { messages.push({ role: 'assistant', content: 'Sorry, something went wrong. Please try again.' }); }
+    isLoading = false; renderMessages(); syncSendBtn();
   }
 
-  async function handleSuggestedQuestion(question) {
+  async function handleSuggested(q) {
     if (isLoading) return;
-    messages.push({ role: 'user', content: question });
-    isLoading = true;
-    renderMessages();
-    updateSendButton();
-
+    messages.push({ role: 'user', content: q });
+    isLoading = true; renderMessages(); syncSendBtn();
     try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: question, history: messages.slice(0, -1) })
-      });
-      const data = await res.json();
-      messages.push({ role: 'assistant', content: data.text });
-    } catch (e) {
-      messages.push({ role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' });
-    } finally {
-      isLoading = false;
-      renderMessages();
-      updateSendButton();
-    }
+      const reply = await callAPI(q, messages.slice(0,-1));
+      messages.push({ role: 'assistant', content: reply });
+    } catch { messages.push({ role: 'assistant', content: 'Sorry, something went wrong. Please try again.' }); }
+    isLoading = false; renderMessages(); syncSendBtn();
   }
 
-  function updateSendButton() {
+  function syncSendBtn() {
     const btn = document.getElementById('send-btn');
     const input = document.getElementById('chat-input');
-    if (btn) {
-      btn.disabled = isLoading || !input.value.trim();
-      btn.className = btn.disabled
-        ? 'bg-slate-600 cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold transition-all'
-        : 'bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-semibold transition-all';
-    }
+    if (btn) btn.disabled = isLoading || !input.value.trim();
   }
 
   function openChat() {
@@ -283,243 +680,183 @@ My background is all over the place in the best way. Bike shops, big box retail,
     document.getElementById('chat-panel').classList.remove('hidden');
     renderMessages();
   }
-
   function closeChat() {
     document.getElementById('chat-panel').classList.add('hidden');
     document.getElementById('chat-cta').classList.remove('hidden');
   }
+  function startOver() { messages = []; renderMessages(); }
 
-  function startOver() {
-    messages = [];
-    renderMessages();
-  }
-
-  // Build the page once DOM is ready
-  document.addEventListener('DOMContentLoaded', () => {
-    buildPage();
-    document.getElementById('chat-input')?.addEventListener('keypress', e => {
-      if (e.key === 'Enter') sendMessage();
-    });
-    document.getElementById('chat-input')?.addEventListener('input', updateSendButton);
-    updateSendButton();
-  });
-
-  // ── Page Builder ───────────────────────────────────────────
-  function skillTag(skill) {
-    return `<span class="bg-slate-900/50 text-slate-300 px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-700 hover:border-cyan-500 hover:shadow-lg transition-all cursor-default">${escapeHtml(skill)}</span>`;
-  }
-
+  // ── Build page ────────────────────────────────────────────────
   function buildPage() {
-    const app = document.getElementById('app');
+    const root = document.getElementById('root');
 
-    // Bio paragraphs
-    const bioParagraphs = resumeData.bio.split('\n\n').map(p =>
-      `<p>${escapeHtml(p)}</p>`).join('');
+    const bioParagraphs = resumeData.bio.split('\n\n')
+      .map(p => `<p>${esc(p)}</p>`).join('');
 
-    // Automation highlights
-    const automationItems = resumeData.highlights.automations.map(item =>
-      `<li class="flex items-start gap-2"><span class="text-white/80 mt-1">→</span><span class="text-white/90">${escapeHtml(item)}</span></li>`
-    ).join('');
+    const automationItems = resumeData.highlights.automations
+      .map(i => `<li><span class="marker">◆</span><span>${esc(i)}</span></li>`).join('');
 
-    // Achievement highlights
-    const achievementItems = resumeData.highlights.achievements.map(item =>
-      `<li class="flex items-start gap-2"><span class="text-cyan-400 mt-1">→</span><span>${escapeHtml(item)}</span></li>`
-    ).join('');
+    const achievementItems = resumeData.highlights.achievements
+      .map(i => `<li><span class="marker">◆</span><span>${esc(i)}</span></li>`).join('');
 
-    // Experience
-    const experienceItems = resumeData.experience.map(job => `
-      <div class="border-l-4 border-cyan-500 pl-4 md:pl-6">
-        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-          <div>
-            <h3 class="text-lg md:text-xl font-bold text-white">${escapeHtml(job.role)}</h3>
-            <p class="text-cyan-400 font-medium text-sm">${escapeHtml(job.company)}</p>
-          </div>
-          <div class="text-slate-400 text-xs">
-            <p>${escapeHtml(job.period)}</p>
-            <p>${escapeHtml(job.location)}</p>
-          </div>
+    const experienceHTML = resumeData.experience.map(job => `
+      <div class="experience-item">
+        <div class="exp-meta">
+          <p class="exp-period">${esc(job.period)}</p>
+          <p class="exp-location">${esc(job.location)}</p>
         </div>
-        <p class="text-slate-300 mb-3 text-sm italic">${escapeHtml(job.description)}</p>
-        <ul class="space-y-2 text-sm text-slate-300">
-          ${job.achievements.map(a =>
-            `<li class="flex items-start gap-2"><span class="text-cyan-400 mt-1">✓</span><span>${escapeHtml(a)}</span></li>`
-          ).join('')}
-        </ul>
-      </div>`
-    ).join('');
+        <div class="exp-body">
+          <h3 class="exp-role">${esc(job.role)}</h3>
+          <p class="exp-company">${esc(job.company)}</p>
+          <p class="exp-desc">${esc(job.description)}</p>
+          <ul class="exp-achievements">
+            ${job.achievements.map(a => `<li>${esc(a)}</li>`).join('')}
+          </ul>
+        </div>
+      </div>`).join('');
 
-    app.innerHTML = `
-      <!-- Background blobs -->
-      <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    const skillSection = (label, items) => `
+      <div>
+        <p class="skill-group-label">${label}</p>
+        <div class="skill-tags">
+          ${items.map(s => `<span class="skill-tag">${esc(s)}</span>`).join('')}
+        </div>
+      </div>`;
 
-      <div class="max-w-5xl mx-auto px-4 md:px-8 py-6 md:py-8 relative z-10">
+    root.innerHTML = `
+      <div class="page">
 
         <!-- Header -->
-        <header class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-10 mb-6 md:mb-8 border border-slate-600/50 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(30,41,59,0.9) 0%, rgba(51,65,85,0.9) 100%);">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none"></div>
-          <div class="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
-            <div class="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
-              <div class="relative w-32 h-32 rounded-2xl overflow-hidden border-4 shadow-xl" style="border-color: rgba(6,182,212,0.3);">
-                <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" class="w-full h-full object-cover" />
-              </div>
-            </div>
-            <div class="flex-1 text-center md:text-left">
-              <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">${escapeHtml(resumeData.name)}</h1>
-              <p class="text-xl md:text-2xl text-white mb-4 font-medium">${escapeHtml(resumeData.title)}</p>
-              <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-slate-300 text-base">
-                <span class="flex items-center gap-1">📍 ${escapeHtml(resumeData.location)}</span>
-                <a href="mailto:${escapeHtml(resumeData.email)}" class="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors">
-                  ✉️ ${escapeHtml(resumeData.email)}
-                </a>
-                <a href="https://${escapeHtml(resumeData.linkedin)}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
-                  💼 LinkedIn →
-                </a>
-                <a href="https://evincarr.com/Evin-Carr-Resume.pdf" download class="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
-                  📄 Resume
-                </a>
-              </div>
-            </div>
+        <header class="header">
+          <div class="header-copy">
+            <h1 class="header-name">${esc(resumeData.name)}</h1>
+            <p class="header-title">${esc(resumeData.title)}</p>
+            <nav class="header-meta">
+              <span>${esc(resumeData.location)}</span>
+              <span><a href="mailto:${esc(resumeData.email)}">${esc(resumeData.email)}</a></span>
+              <span><a href="https://${esc(resumeData.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></span>
+              <span><a href="https://evincarr.com/Evin-Carr-Resume.pdf" download>Download CV</a></span>
+            </nav>
+          </div>
+          <div class="header-photo">
+            <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" />
           </div>
         </header>
 
+        <hr class="rule">
+
         <!-- Chat CTA -->
-        <div id="chat-cta" class="rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 text-white border border-cyan-500/30 relative overflow-hidden" style="background: linear-gradient(90deg, #0891b2 0%, #0891b2 100%);">
-          <div class="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-3xl pointer-events-none"></div>
-          <div class="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-            <div class="flex-1 text-center md:text-left">
-              <h2 class="text-xl md:text-2xl font-bold mb-2">💬 Questions? Chat with my AI bot!</h2>
-              <p class="text-white/90 text-sm md:text-base">Ask about automations, RV solar systems, or why I'm obsessed with Claude AI. It knows the nerdy details.</p>
-            </div>
-            <button onclick="openChat()" class="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-all text-lg shadow-lg">
-              Ask Away
-            </button>
+        <div id="chat-cta" class="chat-cta">
+          <div class="chat-cta-text">
+            <p>Have a question? Ask the AI.</p>
+            <p>Trained on Evin's resume — ask about automations, RV life, or the nerdy stuff.</p>
           </div>
+          <button class="btn-primary" onclick="openChat()">Start a conversation</button>
         </div>
 
         <!-- Chat Panel -->
-        <div id="chat-panel" class="hidden backdrop-blur-custom rounded-2xl shadow-2xl mb-6 md:mb-8 border border-slate-600/50 overflow-hidden" style="background: rgba(30,41,59,0.9);">
-          <div class="p-4 flex items-center justify-between" style="background: linear-gradient(90deg, #0891b2 0%, #0891b2 100%);">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.2);">💬</div>
-              <div>
-                <h3 class="font-bold text-white">Chat with AI Assistant</h3>
-                <p class="text-white/80 text-sm">Ask me about Evin's experience</p>
-              </div>
+        <div id="chat-panel" class="chat-panel hidden">
+          <div class="chat-header">
+            <div class="chat-header-left">
+              <p>AI Assistant</p>
+              <p>Ask me about Evin's experience</p>
             </div>
-            <div class="flex gap-3 items-center">
-              <button onclick="startOver()" class="text-white/80 hover:text-white transition-colors text-sm font-medium">↺ Start Over</button>
-              <button onclick="closeChat()" class="text-white/80 hover:text-white transition-colors text-2xl">✕</button>
+            <div class="chat-header-right">
+              <button onclick="startOver()">↺ Start over</button>
+              <button class="close-btn" onclick="closeChat()">✕</button>
             </div>
           </div>
-
-          <div id="chat-messages" class="p-4 md:p-6 space-y-4"></div>
-
-          <div class="p-4 border-t border-slate-700" style="background: rgba(15,23,42,0.5);">
-            <div class="flex gap-2">
-              <input
-                id="chat-input"
-                type="text"
-                placeholder="Ask me anything..."
-                class="flex-1 px-4 py-3 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 text-sm border border-slate-600"
-                style="background: #1e293b;"
-              />
-              <button id="send-btn" onclick="sendMessage()" class="bg-slate-600 cursor-not-allowed text-white px-6 py-3 rounded-lg font-semibold transition-all">
-                Send
-              </button>
-            </div>
+          <div id="chat-messages"></div>
+          <div class="chat-input-row">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Ask me anything…"
+              onkeypress="if(event.key==='Enter') sendMessage()"
+              oninput="syncSendBtn()"
+            />
+            <button id="send-btn" onclick="sendMessage()" disabled>Send</button>
           </div>
         </div>
+
+        <hr class="rule">
 
         <!-- About -->
-        <section class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50" style="background: rgba(30,41,59,0.9);">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 flex items-center gap-2">
-            <span>👋</span> About Me
-          </h2>
-          <div class="text-slate-300 space-y-4 text-sm md:text-base leading-relaxed">
-            ${bioParagraphs}
+        <section>
+          <span class="overline">About</span>
+          <div class="about-text">${bioParagraphs}</div>
+        </section>
+
+        <hr class="rule">
+
+        <!-- Highlights -->
+        <section>
+          <span class="overline">Highlights</span>
+          <div class="highlights-grid">
+            <div class="highlight-section">
+              <h3>Automation Projects</h3>
+              <ul class="highlight-list">${automationItems}</ul>
+            </div>
+            <div class="highlight-section">
+              <h3>Career Highlights</h3>
+              <ul class="highlight-list">${achievementItems}</ul>
+            </div>
           </div>
         </section>
 
-        <!-- Highlights Grid -->
-        <div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
-          <!-- Automation Projects -->
-          <div class="rounded-2xl shadow-2xl p-6 md:p-8 text-white border border-cyan-700/30 relative overflow-hidden" style="background: linear-gradient(90deg, #0891b2 0%, #0891b2 100%);">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-3xl pointer-events-none"></div>
-            <div class="relative">
-              <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 flex items-center gap-2"><span>⚡</span> Automation Projects</h3>
-              <ul class="space-y-2 md:space-y-3 text-sm md:text-base">
-                ${automationItems}
-              </ul>
-            </div>
-          </div>
-
-          <!-- Career Highlights -->
-          <div class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-8 border border-slate-600/50" style="background: rgba(30,41,59,0.9);">
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2"><span>🏆</span> Career Highlights</h3>
-            <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-slate-300">
-              ${achievementItems}
-            </ul>
-          </div>
-        </div>
+        <hr class="rule">
 
         <!-- Experience -->
-        <section class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50" style="background: rgba(30,41,59,0.9);">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 flex items-center gap-2"><span>💼</span> Experience</h2>
-          <div class="space-y-6 md:space-y-8">
-            ${experienceItems}
-          </div>
+        <section>
+          <span class="overline">Experience</span>
+          ${experienceHTML}
         </section>
+
+        <hr class="rule">
 
         <!-- Education -->
-        <section class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50" style="background: rgba(30,41,59,0.9);">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 flex items-center gap-2"><span>🎓</span> Education</h2>
-          <div class="border-l-4 border-cyan-500 pl-4 md:pl-6">
-            <h3 class="text-lg md:text-xl font-bold text-white mb-1">${escapeHtml(resumeData.education.degree)}</h3>
-            <p class="text-cyan-400 font-medium text-sm mb-2">${escapeHtml(resumeData.education.school)}</p>
-            <p class="text-slate-400 text-xs">${escapeHtml(resumeData.education.status)}</p>
+        <section>
+          <span class="overline">Education</span>
+          <div class="education-block">
+            <div class="edu-status">${esc(resumeData.education.status)}</div>
+            <div>
+              <h3 class="edu-degree">${esc(resumeData.education.degree)}</h3>
+              <p class="edu-school">${esc(resumeData.education.school)}</p>
+            </div>
           </div>
         </section>
+
+        <hr class="rule">
 
         <!-- Skills -->
-        <section class="backdrop-blur-custom rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50" style="background: rgba(30,41,59,0.9);">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 flex items-center gap-2"><span>🔧</span> Skills &amp; Tools</h2>
-          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2"><span>🤖</span> AI &amp; Automation</h3>
-              <div class="flex flex-wrap gap-2">${resumeData.skills.aiAutomation.map(skillTag).join('')}</div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2"><span>🛠️</span> Tools &amp; Platforms</h3>
-              <div class="flex flex-wrap gap-2">${resumeData.skills.tools.map(skillTag).join('')}</div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2"><span>💻</span> Technical Skills</h3>
-              <div class="flex flex-wrap gap-2">${resumeData.skills.technical.map(skillTag).join('')}</div>
-            </div>
-            <div>
-              <h3 class="text-base md:text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2"><span>📊</span> Operations &amp; Management</h3>
-              <div class="flex flex-wrap gap-2">${resumeData.skills.operations.map(skillTag).join('')}</div>
-            </div>
+        <section>
+          <span class="overline">Skills & Tools</span>
+          <div class="skills-grid">
+            ${skillSection('AI & Automation', resumeData.skills.aiAutomation)}
+            ${skillSection('Tools & Platforms', resumeData.skills.tools)}
+            ${skillSection('Technical', resumeData.skills.technical)}
+            ${skillSection('Operations', resumeData.skills.operations)}
           </div>
         </section>
 
+        <hr class="rule">
+
         <!-- Footer -->
-        <footer class="text-center text-slate-400 text-sm py-8 border-t border-slate-700/50 mt-8">
-          <p class="mb-2">© ${new Date().getFullYear()} Evin Carr • Built with Claude AI</p>
-          <p class="text-slate-500">Last updated: February 2026 •
-            <a href="mailto:${escapeHtml(resumeData.email)}" class="text-cyan-400 hover:text-cyan-300 transition-colors">Get in touch</a>
+        <footer class="footer">
+          <p>© ${new Date().getFullYear()} Evin Carr &nbsp;·&nbsp; Built with Claude AI</p>
+          <p style="margin-top:4px">
+            <a href="mailto:${esc(resumeData.email)}">Get in touch</a>
           </p>
         </footer>
 
       </div>
     `;
   }
+
+  document.addEventListener('DOMContentLoaded', buildPage);
 </script>
 
-<!-- Background wrapper -->
-<div class="relative overflow-hidden" id="app" style="min-height: 100vh;"></div>
+<div id="root"></div>
 
 </body>
 </html>
