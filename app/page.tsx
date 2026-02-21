@@ -112,7 +112,7 @@ export default function Home() {
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">
                 {resumeData.name}
               </h1>
-              <p className="text-xl md:text-2xl text-cyan-400 mb-4 font-medium">
+              <p className="text-xl md:text-2xl text-white mb-4 font-medium">
                 {resumeData.title}
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-slate-300 text-base">
