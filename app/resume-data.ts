@@ -9,13 +9,13 @@ export const resumeData = {
 
 I'm genuinely obsessed with Claude AI. I use it to build automations, troubleshoot code I don't know how to write, and optimize workflows. I even built this entire website with Claude's help despite having zero web development background. If something's repetitive, my brain immediately goes to "how do I automate this?"
 
-My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work with families after hurricanes and wildfires. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years grinding in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about for years.`,
+My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work with families after disasters. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years grinding in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about for years.`,
 
   highlights: {
     automations: [
       "Built automated RSVP tracking dashboard with real-time updates using Google Apps Script and Claude AI for code generation",
       "Developed Slack bot integration for instant event notifications, allowing the events team to see RSVPs without checking spreadsheets",
-      "Created an automated workflow to pull data directly into tracking sheets, eliminating manual entry across 10+ concurrent events",
+      "Created an automated workflow to pull data directly into tracking sheets, eliminating manual entry across 15+ concurrent events",
       "Use Claude AI, ChatGPT, and Perplexity daily as coding assistants and research tools to build practical solutions",
       "Built this entire resume website with Claude's help, with zero web development experience (learned React, Next.js, Vercel in a weekend)"
     ],
@@ -23,7 +23,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
       "Built automated RSVP tracking system in two days using only Apps Script, Claude AI, and creative problem-solving",
       "Self-taught automation builder using YouTube, Google, Claude AI, and lots of trial and error",
       "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
-      "Wrote 50+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
+      "Wrote 20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
       "Designed and installed a solar system on my personal RV, allowing me to live off-grid full-time for seven years"
     ]
   },
@@ -34,12 +34,12 @@ My background is all over the place in the best way. Bike shops, big box retail,
       company: "Storm King Consulting",
       period: "January 2026 - Present",
       location: "Remote",
-      description: "Coordinate virtual and hybrid events for curated executive network of marketing leaders while building automations to eliminate manual work.",
+      description: "Coordinate virtual and in-person events and experiences for curated executive network of marketing leaders while building automations to eliminate manual work.",
       achievements: [
         "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
         "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
-        "Coordinate operations for virtual roundtables, in-person dinners, and hybrid events across timezones",
-        "Create landing pages, Google Forms, and tracking systems for 10+ concurrent events",
+        "Coordinate operations for virtual roundtables andin-person dinners across timezones",
+        "Create landing pages, Google Forms, and tracking systems for 15+ concurrent events",
         "Use Claude AI and Zapier daily for automation building, code troubleshooting, and workflow optimization"
       ]
     },
@@ -48,13 +48,13 @@ My background is all over the place in the best way. Bike shops, big box retail,
       company: "The Off Grid Guy & DIY RV Living",
       period: "2020 - Present",
       location: "Remote",
-      description: "Created digital products and provide solar consulting services to RV owners nationwide. Built entire business from scratch.",
+      description: "Created digital products and provide solar consulting services to RV owners nationwide.",
       achievements: [
         "Provide solar consulting to clients across the country via video calls and custom system designs",
         "Manage all business operations, including marketing, sales, customer support, technical troubleshooting",
         "Created and launched 'The Ultimate RV Solar Planner' digital product, marketing through Facebook ads",
-        "Wrote 50+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
-        "Designed and installed solar systems up to 3,700 watts with 2,048 AH battery capacity"
+        "Wrote 20+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
+        "Designed and installed solar systems up to 6,000 watts"
       ]
     },
     {
