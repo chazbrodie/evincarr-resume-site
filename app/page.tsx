@@ -388,6 +388,13 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Footer */}
+        <footer className="text-center text-slate-400 text-sm py-8 border-t border-slate-700/50 mt-8">
+          <p className="mb-2">© {new Date().getFullYear()} Evin Carr • Built with Claude AI</p>
+          <p className="text-slate-500">
+            Last updated: February 2026 • <a href={`mailto:${resumeData.email}`} className="text-cyan-400 hover:text-cyan-300 transition-colors">Get in touch</a>
+          </p>
+        </footer>
       </div>
     </main>
   )
