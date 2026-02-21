@@ -132,7 +132,7 @@ export default function Home() {
 
         {/* Quick Chat CTA */}
         {!chatOpen && (
-          <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 text-white border border-cyan-500/30 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-cyan-550 to-cyan-600 rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 text-white border border-cyan-500/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-3xl"></div>
             <div className="relative flex flex-col md:flex-row items-center md:items-center justify-between gap-6 md:gap-8">
               <div className="flex-1 text-center md:text-left">
@@ -152,7 +152,7 @@ export default function Home() {
         {/* Chat Interface */}
         {chatOpen && (
           <div className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl mb-6 md:mb-8 border border-slate-600/50 overflow-hidden">
-            <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-cyan-550 to-cyan-600 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                   💬
@@ -251,7 +251,7 @@ export default function Home() {
         {/* Highlights */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Automation Projects */}
-          <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl shadow-2xl p-6 md:p-8 text-white border border-cyan-700/30 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-cyan-550 to-cyan-600 rounded-2xl shadow-2xl p-6 md:p-8 text-white border border-cyan-700/30 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-3xl"></div>
             <div className="relative">
               <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 flex items-center gap-2">
