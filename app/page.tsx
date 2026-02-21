@@ -94,7 +94,7 @@ export default function Home() {
                   💼 LinkedIn →
                 </a>
                 <a href="/Evin-Carr-Resume.pdf" download className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
-                  📄 Resume
+                  📄 Resume PDF
                 </a>
               </div>
             </div>
