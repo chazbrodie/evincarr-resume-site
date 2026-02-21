@@ -258,22 +258,6 @@ export default function Home() {
           </section>
         </div>
 
-        {/* Testimonials */}
-        <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
-          <div className="relative">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-center text-white">💬 What People Say</h2>
-            <p className="text-center text-slate-400 mb-6 md:mb-8 italic text-sm md:text-base">Anonymous feedback from amazing colleagues</p>
-            <div className="grid md:grid-cols-2 gap-3 md:gap-4">
-              {resumeData.testimonials?.map((quote, i) => (
-                <div key={i} className="bg-slate-900/50 backdrop-blur rounded-xl p-4 md:p-6 border border-slate-700 hover:border-cyan-500/50 transition-all">
-                  <p className="text-slate-300 italic text-sm md:text-base">"{quote}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Experience */}
         <section className="bg-slate-800/90 backdrop-blur rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 border border-slate-600/50">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 flex items-center gap-2">
