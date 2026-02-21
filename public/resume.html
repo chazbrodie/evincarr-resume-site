@@ -6,17 +6,17 @@
   <title>Evin Carr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:     #FFFFFF;
-      --ink:    #111111;
-      --body:   #424242;
-      --mid:    #787878;
-      --low:    #AAAAAA;
-      --line:   #E6E6E6;
-      --red:    #D42B2B;
+      --bg:     #FAFAF9;
+      --ink:    #18181B;
+      --body:   #3F3F46;
+      --mid:    #71717A;
+      --low:    #A1A1AA;
+      --line:   #E4E4E7;
+      --teal:   #155E75;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,20 +25,20 @@
     body {
       background: var(--bg);
       color: var(--body);
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: 'Syne', system-ui, sans-serif;
       font-weight: 400;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      border-top: 4px solid var(--red);
+      border-top: 3px solid var(--teal);
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--red); }
+    a:hover { color: var(--teal); }
 
     /* ── Page container ──────────────────────────────────────── */
     .page {
@@ -50,16 +50,16 @@
     /* ── Page header ─────────────────────────────────────────── */
     .page-header {
       padding-top: 56px;
-      animation: fadeUp 0.5s ease-out both;
+      animation: fadeUp 0.45s ease-out both;
     }
 
     .name {
-      font-size: clamp(3rem, 6.5vw, 5rem);
+      font-size: clamp(3.5rem, 7vw, 6rem);
       font-weight: 800;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
       color: var(--ink);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .header-bottom {
@@ -72,11 +72,11 @@
     }
 
     .title {
-      font-size: 0.8rem;
-      font-weight: 400;
+      font-size: 0.82rem;
+      font-weight: 500;
       color: var(--mid);
       margin-bottom: 16px;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .contact {
@@ -87,6 +87,8 @@
       font-size: 0.78rem;
     }
     .contact-plain {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
       color: var(--low);
     }
     .contact-sep {
@@ -98,15 +100,16 @@
       align-items: center;
       gap: 5px;
       color: var(--mid);
-      font-weight: 400;
+      font-weight: 500;
       padding: 4px 11px;
-      border-radius: 4px;
-      background: #F2F2F2;
-      transition: background 0.15s, color 0.15s, transform 0.12s;
+      border-radius: 3px;
+      border: 1px solid var(--line);
+      background: transparent;
+      transition: border-color 0.15s, color 0.15s, transform 0.12s;
     }
     .contact-link:hover {
-      background: #E8E8E8;
-      color: var(--red);
+      border-color: var(--teal);
+      color: var(--teal);
       transform: translateY(-1px);
     }
     .contact-link svg {
@@ -120,7 +123,7 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
     /* ── Sections ────────────────────────────────────────────── */
@@ -134,17 +137,19 @@
       margin-bottom: 22px;
     }
     .section-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.60rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--low);
+      color: var(--teal);
     }
 
     /* ── Chat CTA ────────────────────────────────────────────── */
     .chat-cta-wrap {
-      border-left: 3px solid var(--red);
-      background: #FEF9F9;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--teal);
+      background: var(--bg);
       padding: 20px 24px;
       display: flex;
       align-items: center;
@@ -153,7 +158,7 @@
     }
     .chat-cta-wrap .cta-title {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
       margin-bottom: 3px;
     }
@@ -164,28 +169,28 @@
 
     .btn {
       flex-shrink: 0;
-      background: var(--red);
-      color: #fff;
-      border: none;
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid var(--teal);
       padding: 10px 20px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Syne', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
-      border-radius: 4px;
+      border-radius: 3px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.12s;
+      transition: background 0.15s, color 0.15s, transform 0.12s;
       white-space: nowrap;
     }
-    .btn:hover { background: #BB2020; transform: translateY(-1px); }
+    .btn:hover { background: var(--teal); color: #fff; transform: translateY(-1px); }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
       border: 1px solid var(--line);
-      border-radius: 4px;
+      border-radius: 3px;
       overflow: hidden;
     }
     .chat-panel-head {
-      background: #111111;
+      background: var(--ink);
       padding: 14px 20px;
       display: flex;
       align-items: center;
@@ -194,12 +199,13 @@
     .chat-panel-head .head-title {
       font-size: 0.9rem;
       font-weight: 600;
-      color: #F0EFED;
+      color: #F4F4F5;
     }
     .chat-panel-head .head-sub {
-      font-size: 0.72rem;
-      color: rgba(240,239,237,0.4);
-      margin-top: 1px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem;
+      color: rgba(244,244,245,0.4);
+      margin-top: 2px;
     }
     .chat-panel-head .head-actions {
       display: flex;
@@ -208,21 +214,21 @@
     .chat-panel-head button {
       background: none;
       border: none;
-      color: rgba(240,239,237,0.4);
-      font-family: 'DM Sans', sans-serif;
+      color: rgba(244,244,245,0.4);
+      font-family: 'Syne', sans-serif;
       font-size: 0.72rem;
       cursor: pointer;
       padding: 0;
       transition: color 0.15s;
     }
-    .chat-panel-head button:hover { color: #F0EFED; }
+    .chat-panel-head button:hover { color: #F4F4F5; }
 
     #chat-messages {
       min-height: 18rem;
       max-height: 22rem;
       overflow-y: auto;
       padding: 22px;
-      background: #FAFAFA;
+      background: #FAFAF9;
     }
 
     .empty-state {
@@ -244,29 +250,29 @@
     .suggestion-btn {
       text-align: left;
       padding: 10px 14px;
-      background: #FFFFFF;
+      background: transparent;
       border: 1px solid var(--line);
-      border-radius: 4px;
-      font-family: 'DM Sans', sans-serif;
+      border-radius: 3px;
+      font-family: 'Syne', sans-serif;
       font-size: 0.78rem;
       color: var(--mid);
       cursor: pointer;
       line-height: 1.4;
       transition: border-color 0.15s, color 0.15s;
     }
-    .suggestion-btn:hover { border-color: var(--red); color: var(--ink); }
+    .suggestion-btn:hover { border-color: var(--teal); color: var(--ink); }
 
     .chat-row { display: flex; margin-bottom: 10px; }
     .chat-row.user { justify-content: flex-end; }
     .bubble {
       max-width: 78%;
       padding: 10px 14px;
-      border-radius: 4px;
+      border-radius: 3px;
       font-size: 0.83rem;
       line-height: 1.6;
       white-space: pre-wrap;
     }
-    .bubble.user { background: var(--red); color: #fff; }
+    .bubble.user { background: var(--teal); color: #fff; }
     .bubble.assistant { background: #FFFFFF; border: 1px solid var(--line); color: var(--body); }
     .bubble.thinking { background: #FFFFFF; border: 1px solid var(--line); color: var(--low); font-style: italic; }
 
@@ -280,7 +286,7 @@
       padding: 12px 16px;
       background: transparent;
       border: none;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Syne', sans-serif;
       font-size: 0.83rem;
       color: var(--body);
       outline: none;
@@ -288,17 +294,17 @@
     .chat-input-area input::placeholder { color: var(--low); }
     .chat-input-area button {
       padding: 12px 20px;
-      background: var(--red);
+      background: var(--teal);
       color: #fff;
       border: none;
       border-left: 1px solid var(--line);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Syne', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #BB2020; }
+    .chat-input-area button:hover { background: #0E4E62; }
     .chat-input-area button:disabled { background: var(--line); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
@@ -314,7 +320,7 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
 
     .hl-head {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--ink);
       letter-spacing: -0.01em;
@@ -334,7 +340,7 @@
       border-bottom: 1px solid var(--line);
     }
     .hl-list li:last-child { border-bottom: none; padding-bottom: 0; }
-    .hl-dot { color: var(--red); flex-shrink: 0; margin-top: 1px; font-size: 0.6rem; line-height: 1.8; }
+    .hl-dot { color: var(--teal); flex-shrink: 0; margin-top: 1px; font-size: 0.6rem; line-height: 1.8; }
 
     /* ── Experience ──────────────────────────────────────────── */
     .exp-item {
@@ -355,10 +361,11 @@
       font-size: 0.98rem;
       font-weight: 700;
       color: var(--ink);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
     .exp-meta {
-      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
       color: var(--low);
       white-space: nowrap;
       flex-shrink: 0;
@@ -366,7 +373,7 @@
     .exp-company {
       font-size: 0.8rem;
       color: var(--mid);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 7px;
     }
     .exp-desc {
@@ -396,17 +403,18 @@
       font-size: 0.98rem;
       font-weight: 700;
       color: var(--ink);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
       margin-bottom: 4px;
     }
     .edu-school {
       font-size: 0.82rem;
       color: var(--mid);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 4px;
     }
     .edu-status {
-      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
       color: var(--low);
     }
 
@@ -417,9 +425,10 @@
       gap: 26px 36px;
     }
     .skill-group-name {
-      font-size: 0.66rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.60rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mid);
       margin-bottom: 10px;
@@ -427,14 +436,15 @@
     .tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .tag {
       padding: 3px 10px;
-      background: #F4F4F4;
-      border-radius: 4px;
-      font-size: 0.75rem;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      font-size: 0.73rem;
       color: var(--mid);
-      transition: background 0.15s, color 0.15s;
+      transition: border-color 0.15s, color 0.15s;
       cursor: default;
     }
-    .tag:hover { background: #EBEBEB; color: var(--ink); }
+    .tag:hover { border-color: var(--teal); color: var(--ink); }
 
     /* ── Footer ──────────────────────────────────────────────── */
     footer {
@@ -448,7 +458,7 @@
       align-items: center;
     }
     footer a { color: var(--low); }
-    footer a:hover { color: var(--red); }
+    footer a:hover { color: var(--teal); }
 
     /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 680px) {
