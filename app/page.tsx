@@ -163,12 +163,20 @@ export default function Home() {
                   <p className="text-white/80 text-sm">Ask me about Evin's experience</p>
                 </div>
               </div>
-              <button
-                onClick={() => setChatOpen(false)}
-                className="text-white/80 hover:text-white transition-colors text-2xl"
-              >
-                ✕
-              </button>
+              <div className="flex gap-3">
+  <button
+    onClick={() => setMessages([])}
+    className="text-white/80 hover:text-white transition-colors text-sm font-medium"
+  >
+    ↺ Start Over
+  </button>
+  <button
+    onClick={() => setChatOpen(false)}
+    className="text-white/80 hover:text-white transition-colors text-2xl"
+  >
+    ✕
+  </button>
+</div>
             </div>
             
             <div className="h-96 overflow-y-auto p-4 md:p-6 space-y-4">
