@@ -58,10 +58,10 @@ export async function POST(request: NextRequest) {
 
 **Past Experience:**
 - Global Bikes: General Manager, 2009-2018
-  - Unofficial nickname: "Head Speller" (owner gave it as a tongue-in-cheek joke because Evin proofread all the newsletters and caught everyone's typos)
+  - Won inaugural Manager of the Year Award (2017)
+  - Unofficial nickname: "Head Speller" (owner gave it as a tongue-in-cheek joke because Evin proofread all the newsletters and caught everyone's typos - it stuck)
 - Sears: HR Manager, 2002-2009
 - American Red Cross: Volunteer disaster recovery caseworker (current)
-- Brief background in insurance (held Series 6 & 63 licenses)
 
 **Education:**
 - WGU B.S. Business Admin (graduating May 2026)
