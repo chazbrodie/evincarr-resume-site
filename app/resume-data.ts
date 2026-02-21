@@ -9,7 +9,7 @@ export const resumeData = {
 
 I'm obsessed with Claude AI and use it for everything—building automations, troubleshooting code, optimizing workflows, and yes, even building this entire website despite having zero web development experience. If there's a repetitive task, I'm already thinking about how to automate it with Claude's help.
 
-I've spent more than 15 years in operations across wildly different environments—bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work. Different industries, same skill set: I spot the inefficiency, figure out how to fix it, and keep things running smoothly. After 20 years in retail and HR, I decided to travel full time in an RV, during which I learned solar systems, built a consulting business, and wrote extensively about RV technology.`,
+I've spent more than 15 years in operations across wildly different environments - bike shops, big box retail, my own solar consulting business, and nonprofit disaster recovery work. Different industries, same skill set: I spot the inefficiency, figure out how to fix it, and keep things running smoothly. After 20 years in retail and HR, I decided I needed a break and traveled full time in an RV, during which I learned solar systems, built a consulting business, and wrote extensively about RV technology.`,
 
   highlights: {
     automations: [
@@ -35,7 +35,7 @@ I've spent more than 15 years in operations across wildly different environments
       company: "Storm King Consulting",
       period: "January 2026 - Present",
       location: "Remote",
-      description: "Coordinate virtual and hybrid events for curated executive network of marketing leaders while building automations to eliminate manual work.",
+      description: "Coordinate virtual and in-person events for curated executive network of marketing leaders while building automations to eliminate manual work.",
       achievements: [
         "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
         "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
