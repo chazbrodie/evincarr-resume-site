@@ -87,11 +87,13 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-cyan-400 mb-4 font-medium">
                 {resumeData.title}
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-slate-300 text-sm">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-slate-300 text-base">
                 <span className="flex items-center gap-1">📍 {resumeData.location}</span>
-                <span className="flex items-center gap-1">✉️ {resumeData.email}</span>
+                <a href={`mailto:${resumeData.email}`} className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors">
+  ✉️ {resumeData.email}
+</a>
                 <a href={`https://${resumeData.linkedin}`} target="_blank" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
-                  💼 LinkedIn →
+                  💼 LinkedIn
                 </a>
                 <a href="/Evin-Carr-Resume.pdf" download className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors flex items-center gap-1">
                   📄 Resume PDF
