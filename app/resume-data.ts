@@ -70,17 +70,18 @@ My background is all over the place in the best way. Bike shops, big box retail,
       ]
     },
     {
-      role: "General Manager",
-      company: "Global Bikes",
-      period: "2009 - 2018",
-      location: "Phoenix, AZ",
-      description: "Managed multi-location bike shop operations with consistent growth year over year.",
-      achievements: [
-        "Achieved consistent 10-20% year-over-year sales growth across multiple locations",
-        "Led teams of 10-15 people through hiring, training, and daily operations",
-        "Monitored and analyzed KPI tracking systems to identify performance trends"
-      ]
-    },
+  role: "General Manager",
+  company: "Global Bikes",
+  period: "2009 - 2018",
+  location: "Phoenix, AZ",
+  description: "Managed multi-location bike shop operations with consistent growth year over year.",
+  achievements: [
+    "Won inaugural Manager of the Year Award (2017)",
+    "Achieved consistent 10-20% year-over-year sales growth across multiple locations",
+    "Led teams of 10-15 people through hiring, training, and daily operations",
+    "Monitored and analyzed KPI tracking systems to identify performance trends"
+  ]
+},
     {
       role: "HR Manager | Sales | Operations",
       company: "Sears",
