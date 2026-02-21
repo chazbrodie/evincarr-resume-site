@@ -6,210 +6,217 @@
   <title>Evin Carr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Tokens ────────────────────────────────────────────── */
     :root {
-      --white:   #FFFFFF;
-      --off:     #F7F7F7;
-      --ink:     #111111;
-      --mid:     #555555;
-      --low:     #999999;
-      --rule:    #E0E0E0;
-      --accent:  #D0021B;   /* one bold red — the only color on the page */
+      --bg:      #ECEAE3;   /* warm linen — more gray than cream, less AI */
+      --surface: #F5F3EE;
+      --ink:     #1C1917;
+      --mid:     #5C564F;
+      --low:     #9C9690;
+      --rule:    #D4CEC6;
+      --accent:  #2E5339;   /* deep forest green — warm, specific, not trendy */
     }
 
-    /* ── Reset ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 15px; }
+    html { font-size: 16px; }
 
     body {
-      background: var(--white);
+      background: var(--bg);
       color: var(--ink);
-      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--accent); }
 
-    /* ── Grid container ────────────────────────────────────── */
-    .wrap {
-      max-width: 1020px;
+    /* ── Layout ──────────────────────────────────────────────── */
+    .page {
+      max-width: 880px;
       margin: 0 auto;
-      padding: 0 40px 80px;
+      padding: 0 32px 80px;
     }
 
-    /* ── Top bar ───────────────────────────────────────────── */
-    .topbar {
-      border-bottom: 3px solid var(--ink);
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding: 24px 0 12px;
-      gap: 16px;
-    }
-    .topbar-name {
-      font-size: 1.0rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .topbar-nav {
-      display: flex;
-      gap: 24px;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--mid);
-      letter-spacing: 0.04em;
-    }
-    .topbar-nav a:hover { color: var(--accent); }
-
-    /* ── Hero ──────────────────────────────────────────────── */
-    .hero {
+    /* ── Header ──────────────────────────────────────────────── */
+    .header {
+      padding: 52px 0 0;
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 48px;
-      padding: 56px 0 48px;
-      border-bottom: 1px solid var(--rule);
+      gap: 40px;
+      align-items: start;
     }
-    .hero-title {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 600;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
+
+    .name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
     }
-    .hero-title em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .hero-sub {
-      margin-top: 16px;
-      font-size: 0.9rem;
+
+    .title {
+      font-size: 0.82rem;
+      font-weight: 400;
       color: var(--mid);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      max-width: 480px;
+      letter-spacing: 0.03em;
+      margin-bottom: 24px;
+      max-width: 380px;
     }
-    .hero-photo img {
-      width: 160px;
-      height: 195px;
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+    .contact a { color: var(--mid); }
+    .contact a:hover { color: var(--accent); }
+    .contact-item { display: flex; align-items: center; }
+    .contact-item + .contact-item::before {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 11px;
+      background: var(--rule);
+      margin: 0 14px;
+    }
+
+    .photo img {
+      width: 136px;
+      height: 165px;
       object-fit: cover;
       object-position: center top;
       display: block;
-      filter: grayscale(100%);
+      border-radius: 2px;
     }
 
-    /* ── Section shell ─────────────────────────────────────── */
-    .section {
+    /* ── Divider ─────────────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 48px 0;
+    }
+
+    /* ── Section row ─────────────────────────────────────────── */
+    .row {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0 48px;
-      border-bottom: 1px solid var(--rule);
-      padding: 40px 0;
+      grid-template-columns: 148px 1fr;
+      gap: 0 40px;
+      margin-bottom: 48px;
     }
-    .section:last-of-type { border-bottom: none; }
+    .row:last-child { margin-bottom: 0; }
 
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+    .label {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--low);
-      padding-top: 3px;
+      color: var(--accent);
+      padding-top: 4px;
     }
 
-    /* ── Chat ──────────────────────────────────────────────── */
-    .chat-cta-inner {
+    /* ── Chat CTA ────────────────────────────────────────────── */
+    .chat-cta-wrap {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 22px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
-    .chat-cta-inner p:first-child {
-      font-size: 0.95rem;
-      font-weight: 500;
+    .chat-cta-wrap .cta-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      margin-bottom: 3px;
     }
-    .chat-cta-inner p:last-child {
+    .chat-cta-wrap .cta-sub {
       font-size: 0.8rem;
       color: var(--mid);
-      margin-top: 3px;
     }
-    .btn {
-      background: var(--ink);
-      color: var(--white);
-      border: none;
-      padding: 10px 22px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .btn:hover { background: var(--accent); }
-    .btn-ghost {
-      background: none;
-      color: rgba(255,255,255,0.7);
-      border: none;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: color 0.15s;
-      padding: 0;
-    }
-    .btn-ghost:hover { color: #fff; }
 
-    /* Chat panel */
-    .chat-panel {
-      border: 1px solid var(--rule);
+    .btn {
+      flex-shrink: 0;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 11px 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
     }
-    .chat-head {
+    .btn:hover { background: #1e3a26; }
+
+    /* ── Chat panel ──────────────────────────────────────────── */
+    .chat-panel-wrap {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .chat-panel-head {
       background: var(--ink);
       color: #fff;
-      padding: 12px 20px;
+      padding: 14px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .chat-head-left p:first-child {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    .chat-panel-head .head-title {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
     }
-    .chat-head-left p:last-child {
-      font-size: 0.7rem;
+    .chat-panel-head .head-sub {
+      font-size: 0.72rem;
       opacity: 0.5;
       margin-top: 1px;
     }
-    .chat-head-right { display: flex; gap: 16px; align-items: center; }
+    .chat-panel-head .head-actions {
+      display: flex;
+      gap: 14px;
+    }
+    .chat-panel-head button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .chat-panel-head button:hover { color: #fff; }
 
     #chat-messages {
-      height: 20rem;
+      min-height: 18rem;
+      max-height: 22rem;
       overflow-y: auto;
-      padding: 20px;
-      background: var(--off);
+      padding: 22px;
+      background: var(--bg);
     }
+
     .empty-state {
-      padding-top: 24px;
       text-align: center;
+      padding-top: 20px;
     }
-    .empty-state p {
+    .empty-state > p {
       font-size: 0.8rem;
       color: var(--low);
-      margin-bottom: 16px;
-      letter-spacing: 0.03em;
+      margin-bottom: 18px;
     }
     .suggestion-grid {
       display: grid;
@@ -221,135 +228,137 @@
     .suggestion-btn {
       text-align: left;
       padding: 10px 14px;
-      background: var(--white);
+      background: var(--surface);
       border: 1px solid var(--rule);
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.77rem;
+      font-weight: 300;
       color: var(--mid);
       cursor: pointer;
+      line-height: 1.4;
       transition: border-color 0.15s, color 0.15s;
     }
-    .suggestion-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .suggestion-btn:hover { border-color: var(--accent); color: var(--ink); }
 
     .chat-row { display: flex; margin-bottom: 10px; }
     .chat-row.user { justify-content: flex-end; }
-    .chat-row.assistant { justify-content: flex-start; }
     .bubble {
-      max-width: 76%;
-      padding: 10px 14px;
-      font-size: 0.82rem;
+      max-width: 78%;
+      padding: 10px 15px;
+      border-radius: 2px;
+      font-size: 0.83rem;
       line-height: 1.6;
       white-space: pre-wrap;
     }
-    .bubble.user { background: var(--ink); color: #fff; }
-    .bubble.assistant { background: var(--white); border: 1px solid var(--rule); color: var(--ink); }
-    .bubble.thinking { background: var(--white); border: 1px solid var(--rule); color: var(--low); font-style: italic; }
+    .bubble.user { background: var(--accent); color: #fff; }
+    .bubble.assistant { background: var(--surface); border: 1px solid var(--rule); color: var(--ink); }
+    .bubble.thinking { background: var(--surface); border: 1px solid var(--rule); color: var(--low); font-style: italic; }
 
-    .chat-input-row {
-      display: flex;
+    .chat-input-area {
       border-top: 1px solid var(--rule);
-      background: var(--white);
+      display: flex;
+      background: var(--surface);
     }
-    .chat-input-row input {
+    .chat-input-area input {
       flex: 1;
-      padding: 12px 16px;
-      border: none;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.82rem;
-      color: var(--ink);
+      padding: 13px 18px;
       background: transparent;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--ink);
       outline: none;
     }
-    .chat-input-row input::placeholder { color: var(--low); }
-    .chat-input-row button {
-      padding: 12px 22px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .chat-input-area input::placeholder { color: var(--low); }
+    .chat-input-area button {
+      padding: 13px 22px;
+      background: var(--accent);
+      color: #fff;
       border: none;
-      cursor: pointer;
       border-left: 1px solid var(--rule);
-      transition: background 0.15s, color 0.15s;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.15s;
     }
-    #send-btn:not(:disabled) { background: var(--ink); color: #fff; }
-    #send-btn:not(:disabled):hover { background: var(--accent); }
-    #send-btn:disabled { background: var(--off); color: var(--low); cursor: not-allowed; }
+    .chat-input-area button:hover { background: #1e3a26; }
+    .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
 
-    /* ── About ─────────────────────────────────────────────── */
-    .about-body p {
-      font-size: 0.9rem;
+    /* ── About ───────────────────────────────────────────────── */
+    .about p {
+      font-size: 0.92rem;
       color: var(--mid);
-      line-height: 1.8;
+      line-height: 1.82;
       margin-bottom: 16px;
     }
-    .about-body p:last-child { margin-bottom: 0; }
+    .about p:last-child { margin-bottom: 0; }
 
-    /* ── Highlights ────────────────────────────────────────── */
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 40px;
-    }
-    .hl-group-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
+    /* ── Highlights ──────────────────────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+
+    .hl-head {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
       margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
     }
+
     .hl-list { list-style: none; }
     .hl-list li {
-      font-size: 0.82rem;
-      color: var(--mid);
-      line-height: 1.55;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--rule);
       display: flex;
       gap: 10px;
+      font-size: 0.83rem;
+      color: var(--mid);
+      line-height: 1.55;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--rule);
     }
-    .hl-list li:last-child { border-bottom: none; }
-    .hl-marker { color: var(--accent); flex-shrink: 0; font-weight: 600; }
+    .hl-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .hl-dot { color: var(--accent); flex-shrink: 0; margin-top: 1px; font-size: 0.6rem; line-height: 1.8; }
 
-    /* ── Experience ────────────────────────────────────────── */
+    /* ── Experience ──────────────────────────────────────────── */
     .exp-item {
-      padding: 24px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--rule);
     }
     .exp-item:first-child { padding-top: 0; }
     .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
 
-    .exp-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      margin-bottom: 6px;
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
       align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
     }
     .exp-role {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      font-family: 'Lora', serif;
+      font-size: 1.0rem;
+      font-weight: 400;
     }
-    .exp-period {
+    .exp-meta {
       font-size: 0.75rem;
       color: var(--low);
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .exp-company {
       font-size: 0.8rem;
       color: var(--accent);
       font-weight: 500;
-      letter-spacing: 0.02em;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
     }
     .exp-desc {
       font-size: 0.82rem;
       color: var(--mid);
+      font-style: italic;
       margin-bottom: 10px;
       line-height: 1.6;
     }
@@ -357,88 +366,88 @@
     .exp-list li {
       font-size: 0.82rem;
       color: var(--mid);
-      line-height: 1.55;
-      padding: 3px 0 3px 16px;
+      line-height: 1.6;
+      padding: 3px 0;
+      padding-left: 14px;
       position: relative;
     }
     .exp-list li::before {
-      content: '—';
+      content: '–';
       position: absolute;
       left: 0;
       color: var(--rule);
     }
 
-    /* ── Education ─────────────────────────────────────────── */
-    .edu-role {
-      font-size: 0.95rem;
-      font-weight: 600;
+    /* ── Education ───────────────────────────────────────────── */
+    .edu-degree {
+      font-family: 'Lora', serif;
+      font-size: 1.0rem;
+      font-weight: 400;
+      margin-bottom: 4px;
     }
     .edu-school {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--accent);
       font-weight: 500;
-      margin: 4px 0 4px;
+      margin-bottom: 4px;
     }
     .edu-status {
       font-size: 0.78rem;
       color: var(--low);
     }
 
-    /* ── Skills ────────────────────────────────────────────── */
-    .skills-grid {
+    /* ── Skills ──────────────────────────────────────────────── */
+    .skills-four {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px 40px;
+      gap: 28px 36px;
     }
-    .skill-group-label {
-      font-size: 0.7rem;
-      font-weight: 600;
+    .skill-group-name {
+      font-size: 0.68rem;
+      font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--mid);
       margin-bottom: 10px;
     }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag {
-      display: inline-block;
-      padding: 4px 10px;
+      padding: 4px 11px;
       border: 1px solid var(--rule);
-      font-size: 0.75rem;
+      border-radius: 2px;
+      font-size: 0.76rem;
       color: var(--mid);
-      letter-spacing: 0.02em;
       transition: border-color 0.15s, color 0.15s;
       cursor: default;
     }
-    .tag:hover { border-color: var(--ink); color: var(--ink); }
+    .tag:hover { border-color: var(--accent); color: var(--ink); }
 
-    /* ── Footer ────────────────────────────────────────────── */
-    .footer {
-      padding: 32px 0 0;
-      border-top: 3px solid var(--ink);
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 48px;
+      padding-top: 28px;
+      font-size: 0.78rem;
+      color: var(--low);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
-      color: var(--low);
-      letter-spacing: 0.04em;
     }
-    .footer a { color: var(--low); }
-    .footer a:hover { color: var(--accent); }
+    footer a { color: var(--low); }
+    footer a:hover { color: var(--accent); }
 
-    /* ── Responsive ────────────────────────────────────────── */
-    @media (max-width: 700px) {
-      .wrap { padding: 0 20px 60px; }
-      .topbar-nav { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-photo { order: -1; }
-      .hero-photo img { width: 80px; height: 97px; }
-      .section { grid-template-columns: 1fr; gap: 12px; }
-      .section-label { padding-top: 0; }
-      .highlights-grid,
-      .skills-grid { grid-template-columns: 1fr; }
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .page { padding: 0 20px 60px; }
+      .header { grid-template-columns: 1fr; }
+      .photo { order: -1; }
+      .photo img { width: 90px; height: 110px; }
+      .row { grid-template-columns: 1fr; gap: 10px; }
+      .label { padding-top: 0; }
+      .two-col, .skills-four { grid-template-columns: 1fr; }
       .suggestion-grid { grid-template-columns: 1fr; }
-      .chat-cta-inner { flex-direction: column; align-items: flex-start; }
-      .footer { flex-direction: column; gap: 8px; text-align: center; }
+      .chat-cta-wrap { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; gap: 6px; text-align: center; }
     }
 
     .hidden { display: none !important; }
@@ -446,12 +455,12 @@
 </head>
 <body>
 
-<!-- CONFIG: swap for localhost:3000/api/chat during local dev -->
+<!-- CONFIG: swap to http://localhost:3000/api/chat for local dev -->
 <script>
   const API_URL = 'https://evincarr.com/api/chat';
   // const API_URL = 'http://localhost:3000/api/chat';
 
-  const resumeData = {
+  const data = {
     name: "Evin Carr",
     title: "Remote Operations Specialist · AI-Powered Workflow Automation",
     location: "Fully Remote",
@@ -573,231 +582,216 @@ My background is all over the place in the best way. Bike shops, big box retail,
     "Tell me about Solar Wars"
   ];
 
-  // ── Chat state ──────────────────────────────────────────────
-  let messages = [];
-  let loading = false;
+  let msgs = [];
+  let busy = false;
 
-  function esc(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function x(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function renderChat() {
     const el = document.getElementById('chat-messages');
     if (!el) return;
-    if (!messages.length) {
+    if (!msgs.length) {
       el.innerHTML = `
         <div class="empty-state">
           <p>Ask anything about Evin's experience and projects</p>
           <div class="suggestion-grid">
             ${suggested.map(q =>
-              `<button class="suggestion-btn" onclick="askQuestion(${JSON.stringify(q)})">${esc(q)}</button>`
+              `<button class="suggestion-btn" onclick="ask(${JSON.stringify(q)})">${x(q)}</button>`
             ).join('')}
           </div>
         </div>`;
       return;
     }
-    el.innerHTML = messages.map(m =>
-      `<div class="chat-row ${m.role}"><div class="bubble ${m.role}">${esc(m.content)}</div></div>`
-    ).join('') + (loading
-      ? `<div class="chat-row assistant"><div class="bubble thinking">Thinking…</div></div>`
-      : '');
+    el.innerHTML = msgs.map(m =>
+      `<div class="chat-row ${m.role}"><div class="bubble ${m.role}">${x(m.content)}</div></div>`
+    ).join('') + (busy ? `<div class="chat-row assistant"><div class="bubble thinking">Thinking…</div></div>` : '');
     el.scrollTop = el.scrollHeight;
   }
 
   async function callAPI(msg, hist) {
     const r = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ message: msg, history: hist })
     });
     return (await r.json()).text;
   }
 
-  async function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const text = input.value.trim();
-    if (!text || loading) return;
-    messages.push({ role: 'user', content: text });
-    input.value = '';
-    loading = true; renderChat(); syncBtn();
-    try { messages.push({ role: 'assistant', content: await callAPI(text, messages.slice(0,-1)) }); }
-    catch { messages.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
-    loading = false; renderChat(); syncBtn();
+  async function send() {
+    const inp = document.getElementById('chat-input');
+    const t = inp.value.trim();
+    if (!t || busy) return;
+    msgs.push({ role: 'user', content: t });
+    inp.value = '';
+    busy = true; renderChat(); syncBtn();
+    try { msgs.push({ role: 'assistant', content: await callAPI(t, msgs.slice(0,-1)) }); }
+    catch { msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
+    busy = false; renderChat(); syncBtn();
   }
 
-  async function askQuestion(q) {
-    if (loading) return;
-    messages.push({ role: 'user', content: q });
-    loading = true; renderChat(); syncBtn();
-    try { messages.push({ role: 'assistant', content: await callAPI(q, messages.slice(0,-1)) }); }
-    catch { messages.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
-    loading = false; renderChat(); syncBtn();
+  async function ask(q) {
+    if (busy) return;
+    msgs.push({ role: 'user', content: q });
+    busy = true; renderChat(); syncBtn();
+    try { msgs.push({ role: 'assistant', content: await callAPI(q, msgs.slice(0,-1)) }); }
+    catch { msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
+    busy = false; renderChat(); syncBtn();
   }
 
   function syncBtn() {
     const b = document.getElementById('send-btn');
     const i = document.getElementById('chat-input');
-    if (b) b.disabled = loading || !i.value.trim();
+    if (b) b.disabled = busy || !i.value.trim();
   }
 
   function openChat() {
-    document.getElementById('cta').classList.add('hidden');
-    document.getElementById('panel').classList.remove('hidden');
+    document.getElementById('cta-row').classList.add('hidden');
+    document.getElementById('panel-row').classList.remove('hidden');
     renderChat();
   }
   function closeChat() {
-    document.getElementById('panel').classList.add('hidden');
-    document.getElementById('cta').classList.remove('hidden');
+    document.getElementById('panel-row').classList.add('hidden');
+    document.getElementById('cta-row').classList.remove('hidden');
   }
-  function startOver() { messages = []; renderChat(); }
+  function reset() { msgs = []; renderChat(); }
 
-  // ── Build ───────────────────────────────────────────────────
   function build() {
     const root = document.getElementById('root');
 
-    const bio = resumeData.bio.split('\n\n').map(p => `<p>${esc(p)}</p>`).join('');
+    const bio = data.bio.split('\n\n').map(p => `<p>${x(p)}</p>`).join('');
 
-    const automations = resumeData.highlights.automations.map(i =>
-      `<li><span class="hl-marker">+</span><span>${esc(i)}</span></li>`).join('');
+    const dot = `<span class="hl-dot">◆</span>`;
+    const autos = data.highlights.automations.map(i => `<li>${dot}<span>${x(i)}</span></li>`).join('');
+    const achiev = data.highlights.achievements.map(i => `<li>${dot}<span>${x(i)}</span></li>`).join('');
 
-    const achievements = resumeData.highlights.achievements.map(i =>
-      `<li><span class="hl-marker">+</span><span>${esc(i)}</span></li>`).join('');
-
-    const experience = resumeData.experience.map(j => `
+    const exp = data.experience.map(j => `
       <div class="exp-item">
-        <div class="exp-top">
-          <span class="exp-role">${esc(j.role)}</span>
-          <span class="exp-period">${esc(j.period)} · ${esc(j.location)}</span>
+        <div class="exp-header">
+          <span class="exp-role">${x(j.role)}</span>
+          <span class="exp-meta">${x(j.period)} · ${x(j.location)}</span>
         </div>
-        <p class="exp-company">${esc(j.company)}</p>
-        <p class="exp-desc">${esc(j.description)}</p>
-        <ul class="exp-list">
-          ${j.achievements.map(a => `<li>${esc(a)}</li>`).join('')}
-        </ul>
+        <p class="exp-company">${x(j.company)}</p>
+        <p class="exp-desc">${x(j.description)}</p>
+        <ul class="exp-list">${j.achievements.map(a => `<li>${x(a)}</li>`).join('')}</ul>
       </div>`).join('');
 
     const skillGroup = (label, items) => `
       <div>
-        <p class="skill-group-label">${label}</p>
-        <div class="tag-row">${items.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>
+        <p class="skill-group-name">${label}</p>
+        <div class="tags">${items.map(s => `<span class="tag">${x(s)}</span>`).join('')}</div>
       </div>`;
 
     root.innerHTML = `
-      <div class="wrap">
+      <div class="page">
 
-        <!-- Top bar -->
-        <div class="topbar">
-          <span class="topbar-name">Evin Carr</span>
-          <nav class="topbar-nav">
-            <a href="mailto:${esc(resumeData.email)}">${esc(resumeData.email)}</a>
-            <a href="https://${esc(resumeData.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://evincarr.com/Evin-Carr-Resume.pdf" download>Download CV</a>
-          </nav>
-        </div>
-
-        <!-- Hero -->
-        <div class="hero">
+        <header class="header">
           <div>
-            <h1 class="hero-title">Evin<br><em>Carr</em></h1>
-            <p class="hero-sub">${esc(resumeData.title)}</p>
+            <h1 class="name">${x(data.name)}</h1>
+            <p class="title">${x(data.title)}</p>
+            <div class="contact">
+              <span class="contact-item">${x(data.location)}</span>
+              <span class="contact-item"><a href="mailto:${x(data.email)}">${x(data.email)}</a></span>
+              <span class="contact-item"><a href="https://${x(data.linkedin)}" target="_blank" rel="noopener">LinkedIn</a></span>
+              <span class="contact-item"><a href="https://evincarr.com/Evin-Carr-Resume.pdf" download>Download CV</a></span>
+            </div>
           </div>
-          <div class="hero-photo">
+          <div class="photo">
             <img src="https://evincarr.com/headshot.jpg" alt="Evin Carr" />
           </div>
-        </div>
+        </header>
 
-        <!-- Chat CTA -->
-        <div class="section" id="cta">
-          <span class="section-label">AI Chat</span>
-          <div class="chat-cta-inner">
+        <hr class="rule">
+
+        <div class="row" id="cta-row">
+          <span class="label">AI Chat</span>
+          <div class="chat-cta-wrap">
             <div>
-              <p>Have a question? Ask the AI.</p>
-              <p>Trained on Evin's resume — ask about automations, RV life, or the nerdy stuff.</p>
+              <p class="cta-title">Have a question? Ask the AI.</p>
+              <p class="cta-sub">Trained on Evin's resume — ask about automations, RV life, or the nerdy stuff.</p>
             </div>
             <button class="btn" onclick="openChat()">Start a conversation</button>
           </div>
         </div>
 
-        <!-- Chat panel -->
-        <div class="section hidden" id="panel">
-          <span class="section-label">AI Chat</span>
-          <div class="chat-panel">
-            <div class="chat-head">
-              <div class="chat-head-left">
-                <p>AI Assistant</p>
-                <p>Ask me about Evin's experience</p>
+        <div class="row hidden" id="panel-row">
+          <span class="label">AI Chat</span>
+          <div class="chat-panel-wrap">
+            <div class="chat-panel-head">
+              <div>
+                <p class="head-title">AI Assistant</p>
+                <p class="head-sub">Ask me about Evin's experience</p>
               </div>
-              <div class="chat-head-right">
-                <button class="btn-ghost" onclick="startOver()">↺ Reset</button>
-                <button class="btn-ghost" onclick="closeChat()">✕ Close</button>
+              <div class="head-actions">
+                <button onclick="reset()">↺ Reset</button>
+                <button onclick="closeChat()">✕ Close</button>
               </div>
             </div>
             <div id="chat-messages"></div>
-            <div class="chat-input-row">
-              <input
-                id="chat-input"
-                type="text"
-                placeholder="Ask me anything…"
-                onkeypress="if(event.key==='Enter') sendMessage()"
-                oninput="syncBtn()"
-              />
-              <button id="send-btn" onclick="sendMessage()" disabled>Send</button>
+            <div class="chat-input-area">
+              <input id="chat-input" type="text" placeholder="Ask me anything…"
+                onkeypress="if(event.key==='Enter') send()" oninput="syncBtn()" />
+              <button id="send-btn" onclick="send()" disabled>Send</button>
             </div>
           </div>
         </div>
 
-        <!-- About -->
-        <div class="section">
-          <span class="section-label">About</span>
-          <div class="about-body">${bio}</div>
+        <hr class="rule">
+
+        <div class="row">
+          <span class="label">About</span>
+          <div class="about">${bio}</div>
         </div>
 
-        <!-- Highlights -->
-        <div class="section">
-          <span class="section-label">Highlights</span>
-          <div class="highlights-grid">
+        <hr class="rule">
+
+        <div class="row">
+          <span class="label">Highlights</span>
+          <div class="two-col">
             <div>
-              <p class="hl-group-label">Automation Projects</p>
-              <ul class="hl-list">${automations}</ul>
+              <p class="hl-head">Automation Projects</p>
+              <ul class="hl-list">${autos}</ul>
             </div>
             <div>
-              <p class="hl-group-label">Career Highlights</p>
-              <ul class="hl-list">${achievements}</ul>
+              <p class="hl-head">Career Highlights</p>
+              <ul class="hl-list">${achiev}</ul>
             </div>
           </div>
         </div>
 
-        <!-- Experience -->
-        <div class="section">
-          <span class="section-label">Experience</span>
-          <div>${experience}</div>
+        <hr class="rule">
+
+        <div class="row">
+          <span class="label">Experience</span>
+          <div>${exp}</div>
         </div>
 
-        <!-- Education -->
-        <div class="section">
-          <span class="section-label">Education</span>
+        <hr class="rule">
+
+        <div class="row">
+          <span class="label">Education</span>
           <div>
-            <p class="edu-role">${esc(resumeData.education.degree)}</p>
-            <p class="edu-school">${esc(resumeData.education.school)}</p>
-            <p class="edu-status">${esc(resumeData.education.status)}</p>
+            <p class="edu-degree">${x(data.education.degree)}</p>
+            <p class="edu-school">${x(data.education.school)}</p>
+            <p class="edu-status">${x(data.education.status)}</p>
           </div>
         </div>
 
-        <!-- Skills -->
-        <div class="section">
-          <span class="section-label">Skills</span>
-          <div class="skills-grid">
-            ${skillGroup('AI & Automation', resumeData.skills.aiAutomation)}
-            ${skillGroup('Tools & Platforms', resumeData.skills.tools)}
-            ${skillGroup('Technical', resumeData.skills.technical)}
-            ${skillGroup('Operations', resumeData.skills.operations)}
+        <hr class="rule">
+
+        <div class="row">
+          <span class="label">Skills</span>
+          <div class="skills-four">
+            ${skillGroup('AI & Automation', data.skills.aiAutomation)}
+            ${skillGroup('Tools & Platforms', data.skills.tools)}
+            ${skillGroup('Technical', data.skills.technical)}
+            ${skillGroup('Operations', data.skills.operations)}
           </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
+        <footer>
           <span>© ${new Date().getFullYear()} Evin Carr</span>
-          <span>Built with Claude AI &nbsp;·&nbsp; <a href="mailto:${esc(resumeData.email)}">Get in touch</a></span>
+          <span>Built with Claude AI &nbsp;·&nbsp; <a href="mailto:${x(data.email)}">Get in touch</a></span>
         </footer>
 
       </div>
@@ -808,6 +802,5 @@ My background is all over the place in the best way. Bike shops, big box retail,
 </script>
 
 <div id="root"></div>
-
 </body>
 </html>
