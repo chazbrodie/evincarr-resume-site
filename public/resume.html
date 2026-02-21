@@ -6,17 +6,17 @@
   <title>Evin Carr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:      #ECEDEA;   /* cool-warm fog gray — subtle sage hint, not linen */
-      --surface: #F5F5F3;
-      --ink:     #1A1C1B;
-      --mid:     #565A57;
-      --low:     #969997;
-      --rule:    #D0D3D1;
-      --accent:  #6E2B3C;   /* deep wine/burgundy — not an AI color */
+      --bg:      #EFEFED;
+      --surface: #FAFAF8;
+      --ink:     #111110;
+      --mid:     #575451;
+      --low:     #9A9892;
+      --rule:    #E0DFDB;
+      --accent:  #1B4FA0;   /* cobalt navy */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,11 +51,10 @@
     }
 
     .name {
-      font-family: 'Lora', Georgia, serif;
       font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.015em;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-bottom: 12px;
     }
 
@@ -134,10 +133,10 @@
 
     .label {
       font-size: 0.67rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--low);
       padding-top: 4px;
     }
 
@@ -153,8 +152,8 @@
       gap: 20px;
     }
     .chat-cta-wrap .cta-title {
-      font-family: 'Lora', serif;
       font-size: 1.05rem;
+      font-weight: 600;
       margin-bottom: 3px;
     }
     .chat-cta-wrap .cta-sub {
@@ -177,7 +176,7 @@
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .btn:hover { background: #1e3a26; }
+    .btn:hover { background: #14387A; }
 
     /* ── Chat panel ──────────────────────────────────────────── */
     .chat-panel-wrap {
@@ -195,8 +194,8 @@
       justify-content: space-between;
     }
     .chat-panel-head .head-title {
-      font-family: 'Lora', serif;
       font-size: 0.95rem;
+      font-weight: 600;
     }
     .chat-panel-head .head-sub {
       font-size: 0.72rem;
@@ -305,7 +304,7 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-input-area button:hover { background: #1e3a26; }
+    .chat-input-area button:hover { background: #14387A; }
     .chat-input-area button:disabled { background: var(--rule); color: var(--low); cursor: not-allowed; }
 
     /* ── About ───────────────────────────────────────────────── */
@@ -321,9 +320,9 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
 
     .hl-head {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem;
-      font-weight: 400;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 16px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--rule);
@@ -358,9 +357,9 @@
       margin-bottom: 2px;
     }
     .exp-role {
-      font-family: 'Lora', serif;
       font-size: 1.0rem;
-      font-weight: 400;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
     .exp-meta {
       font-size: 0.75rem;
@@ -370,7 +369,7 @@
     }
     .exp-company {
       font-size: 0.8rem;
-      color: var(--accent);
+      color: var(--mid);
       font-weight: 500;
       margin-bottom: 8px;
       letter-spacing: 0.01em;
@@ -400,14 +399,14 @@
 
     /* ── Education ───────────────────────────────────────────── */
     .edu-degree {
-      font-family: 'Lora', serif;
       font-size: 1.0rem;
-      font-weight: 400;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 4px;
     }
     .edu-school {
       font-size: 0.82rem;
-      color: var(--accent);
+      color: var(--mid);
       font-weight: 500;
       margin-bottom: 4px;
     }
