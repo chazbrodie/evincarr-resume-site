@@ -105,8 +105,7 @@ export default function Home() {
 
         {/* Quick Chat CTA */}
         {!chatOpen && (
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 text-white border border-green-700/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-2xl"></div>
+<div className="bg-gradient-to-r from-green-700 to-green-600 rounded-2xl shadow-2xl p-6 md:p-8 mb-6 md:mb-8 text-white border border-green-700/30 relative overflow-hidden">            <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-2xl"></div>
             <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-4 relative z-10">
               <div className="text-center md:text-left">
                 <h2 className="text-xl md:text-2xl font-bold mb-2">💬 Want to know more?</h2>
@@ -166,7 +165,7 @@ export default function Home() {
                     <div
                       className={`inline-block p-3 md:p-4 rounded-xl max-w-[85%] md:max-w-[80%] text-sm md:text-base ${
                         msg.role === 'user'
-                          ? 'bg-gradient-to-br from-green-600 to-blue-600 text-white shadow-md'
+                          ? 'bg-gradient-to-br from-green-700 to-green-600 text-white shadow-md'
                           : 'bg-slate-800 border border-slate-700 text-slate-200 shadow-sm'
                       }`}
                     >
@@ -200,7 +199,7 @@ export default function Home() {
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || !input.trim()}
-                  className="bg-gradient-to-br from-green-600 to-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl hover:from-green-700 hover:to-blue-500 disabled:from-slate-700 disabled:to-slate-700 disabled:cursor-not-allowed font-semibold shadow-lg transition-all text-sm md:text-base"
+                  className="bg-gradient-to-br from-green-700 to-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl hover:from-green-700 hover:to-blue-500 disabled:from-slate-700 disabled:to-slate-700 disabled:cursor-not-allowed font-semibold shadow-lg transition-all text-sm md:text-base"
                 >
                   Send
                 </button>
@@ -225,7 +224,7 @@ export default function Home() {
         {/* Highlights Grid */}
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
           {/* Automations */}
-          <section className="bg-gradient-to-br from-green-600 to-blue-600 rounded-2xl shadow-2xl p-6 md:p-8 text-white border border-green-700/30 relative overflow-hidden">
+          <section className="bg-gradient-to-br from-green-700 to-green-600 rounded-2xl shadow-2xl p-6 md:p-8 text-white border border-green-700/30 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
             <div className="relative">
               <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-5 flex items-center">
