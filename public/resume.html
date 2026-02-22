@@ -622,7 +622,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
           <p>Ask anything about Evin's experience and projects</p>
           <div class="suggestion-grid">
             ${suggested.map(q =>
-              `<button class="suggestion-btn" onclick="ask(${JSON.stringify(q)})">${x(q)}</button>`
+              `<button class="suggestion-btn" onclick="ask(${JSON.stringify(q).replace(/"/g, '&quot;')})">${x(q)}</button>`
             ).join('')}
           </div>
         </div>`;
