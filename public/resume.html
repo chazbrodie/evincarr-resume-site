@@ -639,7 +639,13 @@ My background is all over the place in the best way. Bike shops, big box retail,
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ message: msg, history: hist })
     });
-    return (await r.json()).text;
+    if (!r.ok) {
+      const errText = await r.text().catch(() => 'Unknown error');
+      console.error('Chat API error:', r.status, errText);
+      throw new Error(`API ${r.status}: ${errText}`);
+    }
+    const json = await r.json();
+    return json.text;
   }
 
   async function send() {
@@ -656,10 +662,17 @@ My background is all over the place in the best way. Bike shops, big box retail,
 
   async function ask(q) {
     if (busy) return;
+    console.log('ask() called with:', q);
     msgs.push({ role: 'user', content: q });
     busy = true; renderChat(); syncBtn();
-    try { msgs.push({ role: 'assistant', content: await callAPI(q, msgs.slice(0,-1)) }); }
-    catch { msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
+    try {
+      const reply = await callAPI(q, msgs.slice(0,-1));
+      console.log('API replied:', reply?.substring(0, 100));
+      msgs.push({ role: 'assistant', content: reply });
+    } catch(e) {
+      console.error('ask() error:', e);
+      msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' });
+    }
     busy = false; renderChat(); syncBtn();
   }
 
