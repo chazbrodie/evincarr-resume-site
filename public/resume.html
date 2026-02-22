@@ -635,16 +635,15 @@ My background is all over the place in the best way. Bike shops, big box retail,
   }
 
   async function callAPI(msg, hist) {
-    const r = await fetch(API_URL, {
+    var r = await fetch(API_URL, {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ message: msg, history: hist })
     });
     if (!r.ok) {
-      const errText = await r.text().catch(() => 'Unknown error');
-      console.error('Chat API error:', r.status, errText);
-      throw new Error(`API ${r.status}: ${errText}`);
+      console.error('Chat API error:', r.status);
+      throw new Error('API error ' + r.status);
     }
-    const json = await r.json();
+    var json = await r.json();
     return json.text;
   }
 
@@ -656,7 +655,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
     inp.value = '';
     busy = true; renderChat(); syncBtn();
     try { msgs.push({ role: 'assistant', content: await callAPI(t, msgs.slice(0,-1)) }); }
-    catch { msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
+    catch(e) { console.error('send() error:', e); msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
     busy = false; renderChat(); syncBtn();
   }
 
