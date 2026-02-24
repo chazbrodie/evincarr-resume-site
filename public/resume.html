@@ -606,7 +606,33 @@ My background is all over the place in the best way. Bike shops, big box retail,
     "Tell me about Solar Wars"
   ];
 
-  let msgs = [];
+  const STORAGE_KEY = 'evincarr_chat_messages';
+  const PANEL_KEY = 'evincarr_chat_open';
+
+  function loadMessages() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) return JSON.parse(stored);
+    } catch(e) { console.error('Failed to load chat history:', e); }
+    return [];
+  }
+
+  function saveMessages() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs)); }
+    catch(e) { console.error('Failed to save chat history:', e); }
+  }
+
+  function savePanelState(open) {
+    try { localStorage.setItem(PANEL_KEY, open ? '1' : '0'); }
+    catch(e) {}
+  }
+
+  function loadPanelState() {
+    try { return localStorage.getItem(PANEL_KEY) === '1'; }
+    catch(e) { return false; }
+  }
+
+  let msgs = loadMessages();
   let busy = false;
 
   function x(s) {
@@ -653,17 +679,17 @@ My background is all over the place in the best way. Bike shops, big box retail,
     if (!t || busy) return;
     msgs.push({ role: 'user', content: t });
     inp.value = '';
-    busy = true; renderChat(); syncBtn();
+    busy = true; renderChat(); syncBtn(); saveMessages();
     try { msgs.push({ role: 'assistant', content: await callAPI(t, msgs.slice(0,-1)) }); }
     catch(e) { console.error('send() error:', e); msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
-    busy = false; renderChat(); syncBtn();
+    busy = false; renderChat(); syncBtn(); saveMessages();
   }
 
   async function ask(q) {
     if (busy) return;
     console.log('ask() called with:', q);
     msgs.push({ role: 'user', content: q });
-    busy = true; renderChat(); syncBtn();
+    busy = true; renderChat(); syncBtn(); saveMessages();
     try {
       const reply = await callAPI(q, msgs.slice(0,-1));
       console.log('API replied:', reply?.substring(0, 100));
@@ -672,7 +698,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
       console.error('ask() error:', e);
       msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' });
     }
-    busy = false; renderChat(); syncBtn();
+    busy = false; renderChat(); syncBtn(); saveMessages();
   }
 
   function syncBtn() {
@@ -684,13 +710,15 @@ My background is all over the place in the best way. Bike shops, big box retail,
   function openChat() {
     document.getElementById('cta-row').classList.add('hidden');
     document.getElementById('panel-row').classList.remove('hidden');
+    savePanelState(true);
     renderChat();
   }
   function closeChat() {
     document.getElementById('panel-row').classList.add('hidden');
     document.getElementById('cta-row').classList.remove('hidden');
+    savePanelState(false);
   }
-  function reset() { msgs = []; renderChat(); }
+  function reset() { msgs = []; saveMessages(); renderChat(); }
 
   function build() {
     const root = document.getElementById('root');
@@ -848,7 +876,13 @@ My background is all over the place in the best way. Bike shops, big box retail,
     `;
   }
 
-  document.addEventListener('DOMContentLoaded', build);
+  document.addEventListener('DOMContentLoaded', function() {
+    build();
+    // Restore chat panel if it was open or has messages from a previous session
+    if (msgs.length || loadPanelState()) {
+      openChat();
+    }
+  });
 </script>
 
 <div id="root"></div>

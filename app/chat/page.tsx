@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 
 type Message = {
@@ -8,16 +8,42 @@ type Message = {
   content: string
 }
 
+const STORAGE_KEY = 'evincarr_react_chat_messages'
+
+function loadMessages(): Message[] {
+  if (typeof window === 'undefined') return []
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored) return JSON.parse(stored)
+  } catch (e) {
+    console.error('Failed to load chat history:', e)
+  }
+  return []
+}
+
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
+  // Load messages from localStorage on mount
+  useEffect(() => {
+    setMessages(loadMessages())
+  }, [])
+
+  // Save messages to localStorage whenever they change
+  const saveMessages = useCallback((msgs: Message[]) => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs)) }
+    catch (e) { console.error('Failed to save chat history:', e) }
+  }, [])
+
   const sendMessage = async () => {
     if (!input.trim() || isLoading) return
 
     const userMessage: Message = { role: 'user', content: input }
-    setMessages(prev => [...prev, userMessage])
+    const updatedWithUser = [...messages, userMessage]
+    setMessages(updatedWithUser)
+    saveMessages(updatedWithUser)
     setInput('')
     setIsLoading(true)
 
@@ -32,13 +58,17 @@ export default function ChatPage() {
       })
 
       const data = await response.json()
-      setMessages(prev => [...prev, { role: 'assistant', content: data.text }])
+      const updatedWithReply = [...updatedWithUser, { role: 'assistant' as const, content: data.text }]
+      setMessages(updatedWithReply)
+      saveMessages(updatedWithReply)
     } catch (error) {
       console.error('Error:', error)
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: 'Sorry, I encountered an error. Please try again.' 
-      }])
+      const updatedWithError = [...updatedWithUser, {
+        role: 'assistant' as const,
+        content: 'Sorry, I encountered an error. Please try again.'
+      }]
+      setMessages(updatedWithError)
+      saveMessages(updatedWithError)
     } finally {
       setIsLoading(false)
     }
