@@ -2,8 +2,8 @@ export const resumeData = {
   name: "Evin Carr",
   title: "Remote Operations Specialist | AI-Powered Workflow Automation",
   location: "Fully Remote",
-  email: "evindcarr@gmail.com",
   linkedin: "linkedin.com/in/evincarr",
+  website: "resumehowl.com",
   
   bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script - eliminating the tedious stuff so teams can focus on work that actually matters.
 
@@ -29,6 +29,18 @@ My background is all over the place in the best way. Bike shops, big box retail,
   },
 
   experience: [
+    {
+      role: "Founder",
+      company: "ResumeHowl",
+      period: "2026 - Present",
+      location: "Remote",
+      description: "Building an AI-powered resume platform to help job seekers create standout resumes. Currently in development and preparing for launch.",
+      achievements: [
+        "Designing and developing the full product using Claude AI and modern web technologies",
+        "Building AI-driven resume analysis, optimization, and generation features",
+        "Handling all aspects of the business — product development, branding, and go-to-market strategy"
+      ]
+    },
     {
       role: "Events Assistant",
       company: "Storm King Consulting",

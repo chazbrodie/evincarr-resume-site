@@ -488,8 +488,8 @@
     name: "Evin Carr",
     title: "Remote Operations Specialist · AI-Powered Workflow Automation",
     location: "Fully Remote",
-    email: "evindcarr@gmail.com",
     linkedin: "linkedin.com/in/evincarr",
+    website: "resumehowl.com",
 
     bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script — eliminating the tedious stuff so teams can focus on work that actually matters.
 
@@ -515,6 +515,18 @@ My background is all over the place in the best way. Bike shops, big box retail,
     },
 
     experience: [
+      {
+        role: "Founder",
+        company: "ResumeHowl",
+        period: "2026 – Present",
+        location: "Remote",
+        description: "Building an AI-powered resume platform to help job seekers create standout resumes. Currently in development and preparing for launch.",
+        achievements: [
+          "Designing and developing the full product using Claude AI and modern web technologies",
+          "Building AI-driven resume analysis, optimization, and generation features",
+          "Handling all aspects of the business — product development, branding, and go-to-market strategy"
+        ]
+      },
       {
         role: "Events Assistant",
         company: "Storm King Consulting",
@@ -606,7 +618,33 @@ My background is all over the place in the best way. Bike shops, big box retail,
     "Tell me about Solar Wars"
   ];
 
-  let msgs = [];
+  const STORAGE_KEY = 'evincarr_chat_messages';
+  const PANEL_KEY = 'evincarr_chat_open';
+
+  function loadMessages() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) return JSON.parse(stored);
+    } catch(e) { console.error('Failed to load chat history:', e); }
+    return [];
+  }
+
+  function saveMessages() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs)); }
+    catch(e) { console.error('Failed to save chat history:', e); }
+  }
+
+  function savePanelState(open) {
+    try { localStorage.setItem(PANEL_KEY, open ? '1' : '0'); }
+    catch(e) {}
+  }
+
+  function loadPanelState() {
+    try { return localStorage.getItem(PANEL_KEY) === '1'; }
+    catch(e) { return false; }
+  }
+
+  let msgs = loadMessages();
   let busy = false;
 
   function x(s) {
@@ -653,17 +691,17 @@ My background is all over the place in the best way. Bike shops, big box retail,
     if (!t || busy) return;
     msgs.push({ role: 'user', content: t });
     inp.value = '';
-    busy = true; renderChat(); syncBtn();
+    busy = true; renderChat(); syncBtn(); saveMessages();
     try { msgs.push({ role: 'assistant', content: await callAPI(t, msgs.slice(0,-1)) }); }
     catch(e) { console.error('send() error:', e); msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
-    busy = false; renderChat(); syncBtn();
+    busy = false; renderChat(); syncBtn(); saveMessages();
   }
 
   async function ask(q) {
     if (busy) return;
     console.log('ask() called with:', q);
     msgs.push({ role: 'user', content: q });
-    busy = true; renderChat(); syncBtn();
+    busy = true; renderChat(); syncBtn(); saveMessages();
     try {
       const reply = await callAPI(q, msgs.slice(0,-1));
       console.log('API replied:', reply?.substring(0, 100));
@@ -672,7 +710,7 @@ My background is all over the place in the best way. Bike shops, big box retail,
       console.error('ask() error:', e);
       msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' });
     }
-    busy = false; renderChat(); syncBtn();
+    busy = false; renderChat(); syncBtn(); saveMessages();
   }
 
   function syncBtn() {
@@ -684,13 +722,15 @@ My background is all over the place in the best way. Bike shops, big box retail,
   function openChat() {
     document.getElementById('cta-row').classList.add('hidden');
     document.getElementById('panel-row').classList.remove('hidden');
+    savePanelState(true);
     renderChat();
   }
   function closeChat() {
     document.getElementById('panel-row').classList.add('hidden');
     document.getElementById('cta-row').classList.remove('hidden');
+    savePanelState(false);
   }
-  function reset() { msgs = []; renderChat(); }
+  function reset() { msgs = []; saveMessages(); renderChat(); }
 
   function build() {
     const root = document.getElementById('root');
@@ -729,17 +769,14 @@ My background is all over the place in the best way. Bike shops, big box retail,
               <div class="contact">
                 <span class="contact-plain">${x(data.location)}</span>
                 <span class="contact-sep">·</span>
-                <a class="contact-link" href="mailto:${x(data.email)}">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5l5 3.5 5-3.5" stroke="currentColor" stroke-width="1"/></svg>
-                  ${x(data.email)}
-                </a>
                 <a class="contact-link" href="https://${x(data.linkedin)}" target="_blank" rel="noopener">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1"/><path d="M3.5 5.5v3M3.5 3.5v.5M5.5 8.5V6.25C5.5 5.836 5.836 5.5 6.25 5.5v0C6.664 5.5 7 5.836 7 6.25V8.5M7 6.5c0-.5.336-1 1-1s1 .5 1 1v2" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
                   LinkedIn
                 </a>
-                <a class="contact-link" href="https://evincarr.com/Evin-Carr-Resume.pdf" download>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v6M4 5l2 2 2-2M2 9v1.5A.5.5 0 002.5 11h7a.5.5 0 00.5-.5V9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Download CV
+                <span class="contact-sep">·</span>
+                <a class="contact-link" href="https://${x(data.website)}" target="_blank" rel="noopener">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1"/><ellipse cx="6" cy="6" rx="2" ry="4.5" stroke="currentColor" stroke-width="1"/><path d="M1.5 6h9" stroke="currentColor" stroke-width="1"/></svg>
+                  ResumeHowl
                 </a>
               </div>
             </div>
@@ -841,14 +878,20 @@ My background is all over the place in the best way. Bike shops, big box retail,
 
         <footer>
           <span>© ${new Date().getFullYear()} Evin Carr</span>
-          <span>Built with Claude AI &nbsp;·&nbsp; <a href="mailto:${x(data.email)}">Get in touch</a></span>
+          <span>Built with Claude AI</span>
         </footer>
 
       </div>
     `;
   }
 
-  document.addEventListener('DOMContentLoaded', build);
+  document.addEventListener('DOMContentLoaded', function() {
+    build();
+    // Restore chat panel if it was open or has messages from a previous session
+    if (msgs.length || loadPanelState()) {
+      openChat();
+    }
+  });
 </script>
 
 <div id="root"></div>
