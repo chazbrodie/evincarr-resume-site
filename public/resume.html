@@ -486,7 +486,7 @@
 
   const data = {
     name: "Evin Carr",
-    title: "GTM & AI Automations Engineer",
+    title: "Operations & Automations",
     location: "Remote",
     linkedin: "linkedin.com/in/evincarr",
     website: "resumehowl.com",
@@ -512,7 +512,7 @@
 
     experience: [
       {
-        role: "GTM & AI Automations Engineer (Contract)",
+        role: "Operations & Automations (Contract)",
         company: "Storm King Consulting",
         period: "Jan 2026 – Present",
         location: "Remote",
@@ -626,21 +626,49 @@
   function renderChat() {
     const el = document.getElementById('chat-messages');
     if (!el) return;
+    el.textContent = '';
+
     if (!msgs.length) {
-      el.innerHTML = `
-        <div class="empty-state">
-          <p>Ask anything about Evin's experience and projects</p>
-          <div class="suggestion-grid">
-            ${suggested.map(q =>
-              `<button class="suggestion-btn" onclick="ask(${JSON.stringify(q).replace(/"/g, '&quot;')})">${x(q)}</button>`
-            ).join('')}
-          </div>
-        </div>`;
+      var empty = document.createElement('div');
+      empty.className = 'empty-state';
+      var p = document.createElement('p');
+      p.textContent = "Ask anything about Evin's experience and projects";
+      empty.appendChild(p);
+      var grid = document.createElement('div');
+      grid.className = 'suggestion-grid';
+      suggested.forEach(function(q) {
+        var btn = document.createElement('button');
+        btn.className = 'suggestion-btn';
+        btn.textContent = q;
+        btn.addEventListener('click', function() { ask(q); });
+        grid.appendChild(btn);
+      });
+      empty.appendChild(grid);
+      el.appendChild(empty);
       return;
     }
-    el.innerHTML = msgs.map(m =>
-      `<div class="chat-row ${m.role}"><div class="bubble ${m.role}">${x(m.content)}</div></div>`
-    ).join('') + (busy ? `<div class="chat-row assistant"><div class="bubble thinking">Thinking…</div></div>` : '');
+
+    msgs.forEach(function(m) {
+      if (m.role !== 'user' && m.role !== 'assistant') return;
+      var row = document.createElement('div');
+      row.className = 'chat-row ' + m.role;
+      var bubble = document.createElement('div');
+      bubble.className = 'bubble ' + m.role;
+      bubble.textContent = m.content;
+      row.appendChild(bubble);
+      el.appendChild(row);
+    });
+
+    if (busy) {
+      var tRow = document.createElement('div');
+      tRow.className = 'chat-row assistant';
+      var tBubble = document.createElement('div');
+      tBubble.className = 'bubble thinking';
+      tBubble.textContent = 'Thinking\u2026';
+      tRow.appendChild(tBubble);
+      el.appendChild(tRow);
+    }
+
     el.scrollTop = el.scrollHeight;
   }
 
@@ -773,8 +801,8 @@
           </div>
           <div class="chat-cta-wrap">
             <div>
-              <p class="cta-title">Have a question? Ask the AI.</p>
-              <p class="cta-sub">Trained on Evin's resume — ask about automations, RV life, or the nerdy stuff.</p>
+              <p class="cta-title">Have a question? Ask my AI Assistant.</p>
+              <p class="cta-sub">Trained on my resume — ask about automations, RV life, or the nerdy stuff.</p>
             </div>
             <button class="btn" onclick="openChat()">Start a conversation</button>
           </div>
