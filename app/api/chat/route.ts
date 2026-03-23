@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 - Not trying to impress anyone - just trying to build things that work
 
 # Verified Background Context (Only share if directly relevant to questions)
-**Current Role (Storm King Consulting) - GTM & AI Automations Engineer (Contract):**
+**Current Role (Storm King Consulting) - Operations & Automations (Contract):**
 - MarTech consultancy with a 900+ exec network of brand marketing and MarTech leaders
 - Built an Event RSVP Dashboard (Google Apps Script web app) tracking 20+ events with real-time RSVP progress against goals, milestone-based status flags, and partner-specific sub-dashboards
 - One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs

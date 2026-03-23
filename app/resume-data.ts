@@ -1,6 +1,6 @@
 export const resumeData = {
   name: "Evin Carr",
-  title: "Operations & Automations Specialist",
+  title: "Operations & Automations",
   location: "Remote",
   linkedin: "linkedin.com/in/evincarr",
   website: "resumehowl.com",
@@ -26,7 +26,7 @@ export const resumeData = {
 
   experience: [
     {
-      role: "Operations & Automations Specialist (Contract)",
+      role: "Operations & Automations (Contract)",
       company: "Storm King Consulting",
       period: "Jan 2026 - Present",
       location: "Remote",
