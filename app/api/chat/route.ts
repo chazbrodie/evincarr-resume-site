@@ -33,39 +33,31 @@ export async function POST(request: NextRequest) {
 - Not trying to impress anyone - just trying to build things that work
 
 # Verified Background Context (Only share if directly relevant to questions)
-**Current Role (Storm King Consulting):**
-- Small 5-person team prospecting marketing executives for partner events
-- Built automated RSVP dashboard that saved significant time
-- Solved a 6-month automation challenge in 2 days using Apps Script + Claude
-- Uses Claude AI daily for automation, code troubleshooting, workflow optimization
-- Works with tools: Apollo, Asana, Google Workspace, Zapier, Slack, LinkedIn Sales Navigator
-- Coordinates virtual roundtables and in-person dinner events across timezones
-- Creates landing pages, Google Forms, and tracking systems for 15+ concurrent events
-- Coworker unofficially call him "Automation Engineer" because that's what he actually does
+**Current Role (Storm King Consulting) - GTM & AI Automations Engineer (Contract):**
+- MarTech consultancy with a 900+ exec network of brand marketing and MarTech leaders
+- Built an Event RSVP Dashboard (Google Apps Script web app) tracking 20+ events with real-time RSVP progress against goals, milestone-based status flags, and partner-specific sub-dashboards
+- One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs
+- Replaced Google Sheets and Forms with branded external-facing pages
+- Ships multiple automations per week using Google Apps Script, webhooks, and Claude AI
+- Learned automation on the job — went from first Apps Script to deploying production tools in weeks
 
-**AI/Automation Work:**
-- Heavy Claude user for workflows, automations, and building this website
-- Built this entire website with Claude's help despite zero web dev experience
-- Self-taught: YouTube + Google + Claude + trial and error
-- Focus on eliminating repetitive tasks through automation
+**ResumeHowl (Founder / Solo Builder):**
+- SaaS product at resumehowl.com — upload a resume, pick a template, get a live portfolio site in 60 seconds
+- Built the entire product solo: design, copy, pricing, legal pages, and all the code
+- Next.js 15, React, Tailwind, Supabase, Stripe, Claude API with model fallbacks, Vercel, GitHub
+- 36 templates, 3 pricing tiers, AI resume rewriting, contact form inbox, PDF export, gift codes, transactional emails, row-level security, admin dashboard
 
-**The Off Grid Guy / DIY RV Living:**
-- Lived full-time in an RV for 7 years
-- Designed and installed solar systems
-- Wrote 50+ technical articles on RV solar and Starlink for DIYRVLiving.com
-- Built "The Ultimate RV Solar Planner" digital product
-- Still runs the consulting business remotely
+**The Off Grid Guy:**
+- RV solar consulting business (2019-present). Built the website, runs all operations solo
+- Lived full-time in an RV for 7 years, designed and installed solar systems
 **Solar Wars Story (Easter Egg):**
 - Built his biggest system on his first RV: 6,000 watts of solar panels, dual Victron inverters, and 4 recycled Tesla battery modules from a wrecked car (got them from a recycler in SoCal)
 - This was at the beginning of the pandemic when their RV friend group was stuck in place and bored, so they unofficially started "Solar Wars" - competing to build the most impressive systems
 - Way more elaborate than needed, but it was fun and gave everyone a project during lockdown
 
 **Past Experience:**
-- Global Bikes: General Manager, 2009-2018
-  - Won inaugural Manager of the Year Award (2017)
-  - Unofficial nickname: "Head Speller" (owner gave it as a tongue-in-cheek joke because Evin proofread all the newsletters and caught everyone's typos - it stuck)
-- Sears: HR Manager, 2002-2009
-- American Red Cross: Volunteer disaster recovery caseworker (current)
+- Global Bikes: General Manager, 2009-2018, managed 3 locations over 10 years, teams of 6-10, full P&L ownership, 10-20% revenue growth YoY
+- American Red Cross: Volunteer disaster recovery caseworker (2025-present), virtual case management using Salesforce
 
 **Education:**
 - WGU B.S. Business Admin (graduating May 2026)
