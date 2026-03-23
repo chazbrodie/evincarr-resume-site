@@ -7,30 +7,36 @@ const anthropic = new Anthropic({
 })
 
 // --- Rate limiting (in-memory, per IP) ---
-const rateLimit = new Map<string, { count: number; resetAt: number }>()
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 const RATE_LIMIT_WINDOW_MS = 60 * 1000 // 1 minute
 const RATE_LIMIT_MAX = 10 // max requests per window per IP
+const RATE_LIMIT_MAX_ENTRIES = 10000 // cap map size to prevent memory exhaustion
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now()
-  const entry = rateLimit.get(ip)
+
+  // Evict stale entries if map is getting large
+  if (rateLimitMap.size > RATE_LIMIT_MAX_ENTRIES) {
+    for (const [key, entry] of rateLimitMap) {
+      if (now > entry.resetAt) rateLimitMap.delete(key)
+    }
+  }
+
+  // Hard cap: if still too large after cleanup, reject
+  if (rateLimitMap.size > RATE_LIMIT_MAX_ENTRIES) {
+    return true
+  }
+
+  const entry = rateLimitMap.get(ip)
 
   if (!entry || now > entry.resetAt) {
-    rateLimit.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
     return false
   }
 
   entry.count++
   return entry.count > RATE_LIMIT_MAX
 }
-
-// Clean up stale entries every 5 minutes
-setInterval(() => {
-  const now = Date.now()
-  for (const [ip, entry] of rateLimit) {
-    if (now > entry.resetAt) rateLimit.delete(ip)
-  }
-}, 5 * 60 * 1000)
 
 // --- Input limits ---
 const MAX_MESSAGE_LENGTH = 500
@@ -40,14 +46,14 @@ const MAX_HISTORY_LENGTH = 20 // max conversation turns sent
 const ALLOWED_ORIGINS = [
   'https://evincarr.com',
   'https://www.evincarr.com',
-  'http://localhost:3000',
+  ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000'] : []),
 ]
 
 export async function POST(request: NextRequest) {
   try {
-    // Origin check
-    const origin = request.headers.get('origin') || ''
-    if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    // Origin check — require a valid origin header
+    const origin = request.headers.get('origin')
+    if (!origin || !ALLOWED_ORIGINS.includes(origin)) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 403 }
@@ -208,9 +214,10 @@ Answer questions directly and conversationally, but ONLY share information you a
 
     return NextResponse.json({ text: responseText })
   } catch (error) {
-    console.error('Error calling Anthropic API:', error)
+    // Log safely — never include API keys or system prompt in logs
+    console.error('Chat API error:', error instanceof Error ? error.message : 'Unknown error')
     return NextResponse.json(
-      { error: 'Failed to get response from AI' },
+      { error: 'Something went wrong. Please try again.' },
       { status: 500 }
     )
   }

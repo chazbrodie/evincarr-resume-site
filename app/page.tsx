@@ -13,6 +13,7 @@ export default function Home() {
         padding: 0,
       }}
       title="Evin Carr - Resume"
+      sandbox="allow-same-origin allow-scripts allow-popups"
     />
   )
 }
