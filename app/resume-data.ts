@@ -1,6 +1,6 @@
 export const resumeData = {
   name: "Evin Carr",
-  title: "GTM & AI Automations Engineer",
+  title: "Operations & Automations Specialist",
   location: "Remote",
   linkedin: "linkedin.com/in/evincarr",
   website: "resumehowl.com",
@@ -26,7 +26,7 @@ export const resumeData = {
 
   experience: [
     {
-      role: "GTM & AI Automations Engineer (Contract)",
+      role: "Operations & Automations Specialist (Contract)",
       company: "Storm King Consulting",
       period: "Jan 2026 - Present",
       location: "Remote",
