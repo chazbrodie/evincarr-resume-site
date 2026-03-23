@@ -1,148 +1,95 @@
 export const resumeData = {
   name: "Evin Carr",
-  title: "Remote Operations Specialist | AI-Powered Workflow Automation",
-  location: "Fully Remote",
+  title: "GTM & AI Automations Engineer",
+  location: "Remote",
   linkedin: "linkedin.com/in/evincarr",
   website: "resumehowl.com",
-  
-  bio: `I've spent 15+ years making operations run smoother across retail, small business, and nonprofits. Everything changed when I discovered AI tools could solve problems I'd been tackling manually forever. Now I build automations using Claude AI, Zapier, and Google Apps Script - eliminating the tedious stuff so teams can focus on work that actually matters.
 
-I'm genuinely obsessed with Claude AI. I use it to build automations, troubleshoot code I don't know how to write, and optimize workflows. I even built this entire website with Claude's help despite having zero web development background. If something's repetitive, my brain immediately goes to "how do I automate this?"
-
-My background is all over the place in the best way. Bike shops, big box retail, my own solar consulting business, nonprofit disaster recovery work with families after disasters. Different industries, same core skill: spot the broken thing, figure out how to fix it, make sure people can do their jobs without pulling their hair out. After 20 years grinding in retail and HR, I semi-retired and traveled full-time in an RV for seven years. Learned solar systems inside and out, built a consulting business, wrote a ton about RV tech. Then I discovered AI and came back because I realized I could actually build the solutions I'd been dreaming about for years.`,
+  bio: `I build automations and web apps that take manual work off people's plates so they can focus on the stuff that actually matters. 10+ years in operations, now shipping real tools weekly with Google Apps Script, Claude AI, Next.js, and Supabase. Currently building internal tools and event systems at a MarTech consultancy.`,
 
   highlights: {
     automations: [
-      "Built automated RSVP tracking dashboard with real-time updates using Google Apps Script and Claude AI for code generation",
-      "Developed Slack bot integration for instant event notifications, allowing the events team to see RSVPs without checking spreadsheets",
-      "Created an automated workflow to pull data directly into tracking sheets, eliminating manual entry across 15+ concurrent events",
-      "Use Claude AI, ChatGPT, and Perplexity daily as coding assistants and research tools to build practical solutions",
-      "Built this entire resume website with Claude's help, with zero web development experience (learned React, Next.js, Vercel in a weekend)"
+      "Built an Event RSVP Dashboard (Google Apps Script web app) tracking 20+ events with real-time RSVP progress, milestone-based status flags, and partner-specific sub-dashboards",
+      "One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs",
+      "Replaced Google Sheets and Forms with branded external-facing pages",
+      "Ship multiple automations per week using Google Apps Script, webhooks, and Claude AI",
+      "Built an entire SaaS product solo: 36 templates, AI resume rewriting, Stripe billing, PDF export"
     ],
     achievements: [
-      "Built automated RSVP tracking system in two days using only Apps Script, Claude AI, and creative problem-solving",
-      "Self-taught automation builder using YouTube, Google, Claude AI, and lots of trial and error",
-      "Managed multi-location bike shop operations achieving consistent 10-20% year-over-year growth",
-      "Wrote 20+ technical articles on RV solar systems and Starlink for DIYRVLiving.com",
-      "Designed and installed a 6,000-watt solar system on my personal RV, allowing me to live off-grid full-time for seven years"
+      "Learned automation on the job — went from first Apps Script to deploying production tools in weeks",
+      "Built ResumeHowl as a solo founder: design, copy, pricing, legal pages, and all the code",
+      "Managed 3 retail locations over 10 years with 10-20% revenue growth year over year",
+      "RV solar consulting business — built the website, run all operations solo",
+      "American Red Cross volunteer — virtual disaster recovery case management using Salesforce"
     ]
   },
 
   experience: [
     {
-      role: "Founder",
-      company: "ResumeHowl",
-      period: "2026 - Present",
-      location: "Remote",
-      description: "Building an AI-powered resume platform to help job seekers create standout resumes. Currently in development and preparing for launch.",
-      achievements: [
-        "Designing and developing the full product using Claude AI and modern web technologies",
-        "Building AI-driven resume analysis, optimization, and generation features",
-        "Handling all aspects of the business — product development, branding, and go-to-market strategy"
-      ]
-    },
-    {
-      role: "Events Assistant",
+      role: "GTM & AI Automations Engineer (Contract)",
       company: "Storm King Consulting",
-      period: "January 2026 - Present",
+      period: "Jan 2026 - Present",
       location: "Remote",
-      description: "Coordinate virtual and in-person events and experiences for curated executive network of marketing leaders while building automations to eliminate manual work.",
+      description: "MarTech consultancy with a 900+ exec network of brand marketing and MarTech leaders.",
       achievements: [
-        "Built automated RSVP tracking dashboard consolidating multiple event forms into real-time updates",
-        "Developed Slack bot integration for instant event notifications using Google Workspace Apps Script",
-        "Coordinate operations for virtual roundtables andin-person dinners across timezones",
-        "Create landing pages, Google Forms, and tracking systems for 15+ concurrent events",
-        "Use Claude AI and Zapier daily for automation building, code troubleshooting, and workflow optimization"
+        "Built an Event RSVP Dashboard (Google Apps Script web app) that tracks 20+ events, real-time RSVP progress against goals, milestone-based status flags, and partner-specific sub-dashboards. One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs",
+        "Replaced Google Sheets and Forms with branded external-facing pages",
+        "Ship multiple automations per week using Google Apps Script, webhooks, and Claude AI",
+        "Learned automation on the job. Went from first Apps Script to deploying production tools in weeks"
       ]
     },
     {
-      role: "Founder/CEO",
-      company: "The Off Grid Guy & DIY RV Living",
-      period: "2020 - Present",
-      location: "Remote",
-      description: "Created digital products and provide solar consulting services to RV owners nationwide.",
+      role: "Founder / Solo Builder",
+      company: "ResumeHowl",
+      period: "2026",
+      location: "resumehowl.com",
+      description: "SaaS product. Upload a resume, pick a template, get a live portfolio site in 60 seconds. Free and Pro tiers, Stripe billing, Claude AI generation.",
       achievements: [
-        "Provide solar consulting to clients across the country via video calls and custom system designs",
-        "Manage all business operations, including marketing, sales, customer support, technical troubleshooting",
-        "Created and launched 'The Ultimate RV Solar Planner' digital product, marketing through Facebook ads",
-        "Wrote 20+ in-depth technical articles on RV solar systems and Starlink satellite internet for DIYRVLiving.com",
-        "Designed and installed solar systems up to 6,000 watts"
+        "Built the entire product solo: design, copy, pricing, legal pages, and all the code",
+        "Next.js 15, React, Tailwind, Supabase, Stripe, Claude API with model fallbacks, Vercel, GitHub",
+        "36 templates, 3 pricing tiers, AI resume rewriting, contact form inbox, PDF export, gift codes, transactional emails, row-level security, admin dashboard for usage and error tracking"
       ]
     },
     {
-      role: "Disaster Recovery Caseworker (Volunteer)",
-      company: "American Red Cross",
-      period: "March 2025 - Present",
-      location: "Remote",
-      description: "Provide disaster recovery support through virtual case management.",
+      role: "General Manager",
+      company: "Global Bikes",
+      period: "2009 - 2018",
+      location: "Phoenix, AZ",
+      description: "Managed multi-location bike shop operations with consistent growth year over year.",
       achievements: [
-        "Conduct virtual client interviews and develop individualized recovery plans for disaster-affected families",
-        "Document all case activities and maintain accurate records in Salesforce CRM",
-        "Collaborate with remote team across multiple timezones to serve disaster survivors"
-      ]
-    },
-    {
-  role: "General Manager",
-  company: "Global Bikes",
-  period: "2009 - 2018",
-  location: "Phoenix, AZ",
-  description: "Managed multi-location bike shop operations with consistent growth year over year.",
-  achievements: [
-    "Won inaugural Manager of the Year Award (2017)",
-    "Achieved consistent 10-20% year-over-year sales growth across multiple locations",
-    "Led teams of 10-15 people through hiring, training, and daily operations",
-    "Monitored and analyzed KPI tracking systems to identify performance trends"
-  ]
-},
-    {
-      role: "HR Manager | Sales | Operations",
-      company: "Sears",
-      period: "2002 - 2009",
-      location: "West Springfield, MA",
-      description: "Managed full-cycle HR operations for large retail location during major technology transitions.",
-      achievements: [
-        "Managed HR operations for 130+ employees including recruitment, onboarding, payroll, benefits",
-        "Led technology transition from legacy green-screen systems to modern platforms, including training entire staff",
-        "Created staff scheduling systems, optimizing coverage while controlling labor costs"
+        "Managed 3 retail locations over 10 years, teams of 6-10, full P&L ownership at each",
+        "Managed daily operations off KPI dashboards and reporting systems",
+        "10-20% revenue growth year over year"
       ]
     }
   ],
 
+  otherExperience: [
+    {
+      role: "Founder & Operator",
+      company: "The Off Grid Guy",
+      period: "2019 - Present",
+      description: "RV solar consulting business. Built the website, run all operations solo."
+    },
+    {
+      role: "Disaster Recovery Caseworker, Volunteer",
+      company: "American Red Cross",
+      period: "2025 - Present",
+      description: "Virtual case management using Salesforce with distributed teams."
+    }
+  ],
+
   education: {
-    degree: "B.S. in Business Administration",
+    degree: "B.S., Business Administration",
     school: "Western Governors University",
     status: "Expected May 2026"
   },
 
   skills: {
-    aiAutomation: [
-      "Claude AI (Advanced)",
-      "ChatGPT",
-      "Perplexity",
-      "Google Apps Script",
-      "Zapier",
-      "Make (learning)",
-      "n8n (learning)"
-    ],
-    tools: [
-      "Google Workspace",
-      "Microsoft Office",
-      "Slack",
-      "Salesforce",
-      "Asana"
-    ],
-    technical: [
-      "API Integration",
-      "Dashboard Building",
-      "Workflow Automation",
-      "Process Optimization"
-    ],
-    operations: [
-      "Event Coordination",
-      "Project Management",
-      "Team Leadership",
-      "Remote Collaboration",
-      "Async Communication"
-    ]
+    ai: ["Claude (AI + API)", "ChatGPT", "Perplexity"],
+    web: ["Next.js", "React", "Tailwind", "Shadcn UI", "Supabase", "Stripe", "Resend", "Vercel"],
+    automationGtm: ["Google Apps Script", "Zapier", "Webhooks", "Clay", "Apollo"],
+    platforms: ["Google Workspace", "Slack", "Salesforce", "Asana", "WordPress"],
+    devTools: ["GitHub", "Vercel", "Cloudflare Turnstile"]
   }
 }

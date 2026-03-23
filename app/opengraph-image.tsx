@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Evin Carr - Remote Operations Specialist'
+export const alt = 'Evin Carr - GTM & AI Automations Engineer'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -48,7 +48,7 @@ export default async function Image() {
               marginBottom: 32,
             }}
           >
-            Remote Operations Specialist
+            GTM & AI Automations Engineer
           </div>
           <div
             style={{
@@ -57,7 +57,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            AI-Powered Workflow Automation
+            Internal Tools · Event Systems · MarTech
           </div>
           <div
             style={{
@@ -74,7 +74,9 @@ export default async function Image() {
             <span style={{ color: '#D4D4D8' }}>·</span>
             <span>Google Apps Script</span>
             <span style={{ color: '#D4D4D8' }}>·</span>
-            <span>Zapier</span>
+            <span>Next.js</span>
+            <span style={{ color: '#D4D4D8' }}>·</span>
+            <span>Supabase</span>
           </div>
         </div>
         {/* Right side - headshot */}
