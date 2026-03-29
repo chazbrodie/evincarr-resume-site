@@ -81,8 +81,7 @@ export const resumeData = {
 
   education: {
     degree: "B.S., Business Administration",
-    school: "Western Governors University",
-    status: "Expected May 2026"
+    school: "Western Governors University"
   },
 
   skills: {

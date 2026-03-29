@@ -167,7 +167,7 @@ export async function POST(request: NextRequest) {
 - American Red Cross: Volunteer disaster recovery caseworker (2025-present), virtual case management using Salesforce
 
 **Education:**
-- WGU B.S. Business Admin (graduating May 2026)
+- WGU B.S. Business Administration
 
 **Work Preferences:**
 - Fully remote, open to relocating internationally
