@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' https://evincarr.com https://*.calendly.com data:",
               "connect-src 'self' https://evincarr.com https://calendly.com",
-              "frame-src https://calendly.com",
+              "frame-src 'self' https://calendly.com",
               "frame-ancestors 'self'",
             ].join("; "),
           },
