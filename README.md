@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# evincarr-resume-site
 
-## Getting Started
+Personal resume site for Evin Carr — deployed at [evincarr.com](https://evincarr.com).
 
-First, run the development server:
+Built with Next.js 16, React 19, Tailwind 4, and TypeScript. Hosted on Vercel.
+
+## Layout
+
+- **`public/resume.html`** — the actual visible page. A self-contained HTML/CSS/JS file with the resume data inlined. `app/page.tsx` just iframes this.
+- **`app/resume-data.ts`** — TypeScript copy of the same resume data. Source of truth for the chat API only (the visible site reads from `public/resume.html`'s inline copy). Keep these two in sync.
+- **`app/api/chat/route.ts`** — Anthropic-backed chat API (rate-limited, origin-checked, prompt-injection hardened). Live at `/api/chat`. See note below.
+- **`app/layout.tsx`** — page metadata and OpenGraph description.
+- **`app/opengraph-image.tsx`** — generates the 1200×630 social-share card (dynamic Next.js image).
+- **`public/headshot.jpg`** — headshot used by the resume header and OG card.
+
+## Chat API: plumbing on, UI off
+
+The `/api/chat` endpoint is **fully deployed and reachable** (used by the rate-limit, origin, and prompt-injection logic in `app/api/chat/route.ts`), but the **visible chatbot widget was intentionally removed** from `public/resume.html`. There is no longer a "Start a conversation" CTA, chat panel, suggested questions, or `localStorage` chat state on the page.
+
+The endpoint stays in place so the chat UI can be restored later from git history without rewiring the backend.
+
+When you update the resume:
+
+1. Edit `public/resume.html` (the visible page) **and** `app/resume-data.ts` (used by the chat API system prompt). Both should match.
+2. Update `app/layout.tsx` description if the title/positioning changed.
+3. Update `app/opengraph-image.tsx` alt text and tagline if the title changed.
+4. Update the "Verified Background Context" block in `app/api/chat/route.ts` so the chat AI doesn't quote stale bullets.
+
+## Local dev
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build
+pnpm exec tsc --noEmit   # typecheck
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The chat API needs `ANTHROPIC_API_KEY` in `.env.local` to work locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushes to any branch → Vercel preview deployment. Merge to `main` → production at evincarr.com.

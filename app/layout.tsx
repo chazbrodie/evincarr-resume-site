@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Evin Carr - Resume",
-  description: "Operations & Automations. Building automations and web apps with Google Apps Script, Claude AI, Next.js, and Supabase.",
+  description: "Operations & Automations Lead. 10+ years building systems that scale, now shipping AI-powered automations with Google Apps Script, Claude API, Next.js, and Supabase.",
   openGraph: {
     title: "Evin Carr - Resume",
-    description: "Operations & Automations. Building internal tools and event systems at a MarTech consultancy. Google Apps Script, Claude AI, Next.js, Supabase.",
+    description: "Operations & Automations Lead at a MarTech consultancy. Building event ops dashboards, AI-powered asset generation, and pipeline automations with Apps Script, Claude API, and Next.js.",
     url: "https://evincarr.com",
     siteName: "Evin Carr Resume",
     locale: "en_US",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Evin Carr - Resume",
-    description: "Operations & Automations. Building automations and web apps with Google Apps Script, Claude AI, Next.js, and Supabase.",
+    description: "Operations & Automations Lead. 10+ years building systems that scale, now shipping AI-powered automations with Google Apps Script, Claude API, Next.js, and Supabase.",
   },
 };
 

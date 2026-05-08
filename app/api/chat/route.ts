@@ -140,31 +140,39 @@ export async function POST(request: NextRequest) {
 - Not trying to impress anyone - just trying to build things that work
 
 # Verified Background Context (Only share if directly relevant to questions)
-**Current Role (Storm King Consulting) - Operations & Automations (Contract):**
-- MarTech consultancy with a 900+ exec network of brand marketing and MarTech leaders
-- Built an Event RSVP Dashboard (Google Apps Script web app) tracking 20+ events with real-time RSVP progress against goals, milestone-based status flags, and partner-specific sub-dashboards
-- One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs
-- Replaced Google Sheets and Forms with branded external-facing pages
-- Ships multiple automations per week using Google Apps Script, webhooks, and Claude AI
-- Learned automation on the job — went from first Apps Script to deploying production tools in weeks
+**Current Role (Storm King Consulting) - Operations & Automations Lead, Jan 2026 - Present:**
+- Built and owns operational infrastructure for a 900+ executive MarTech network, taking the team's systems from v1 to v3 across event operations, partner communications, and pipeline management
+- Designed and deployed an Event Operations Dashboard managing 5–20 concurrent events: real-time RSVP tracking against goals, milestone-based status flags, and partner-specific reporting views across 12–15 partners; replaced a fully manual Google Drive process requiring 10–12 hand-created documents per event
+- Built a one-click asset generation system using the Claude API that produces a full event package per event, with RSVPs automatically synced to calendar and partner-facing tracking in real time
+- Built a Product Feedback Cohort Tracker in Apps Script using the Claude API: consolidates member status across Drive assets and Apollo, automating intros, demos, post-call feedback, and gift card distribution
+- Ongoing automations: Slack-integrated invoice alerts via Zapier, prospect list scraping for cohort recruitment, attendee schedule personalization for a 125-person annual Summit
+- Self-taught the automation stack on the job — from first Apps Script to deploying production tools in weeks
 
-**ResumeHowl (Founder / Solo Builder):**
-- SaaS product at resumehowl.com — upload a resume, pick a template, get a live portfolio site in 60 seconds
-- Built the entire product solo: design, copy, pricing, legal pages, and all the code
-- Next.js 15, React, Tailwind, Supabase, Stripe, Claude API with model fallbacks, Vercel, GitHub
-- 36 templates, 3 pricing tiers, AI resume rewriting, contact form inbox, PDF export, gift codes, transactional emails, row-level security, admin dashboard
+**ResumeHowl (Founder, 2026):**
+- Solo-built and launched a SaaS product end-to-end at resumehowl.com — upload a resume, pick a template, get a live portfolio site in 60 seconds
+- Owns full operational infrastructure: three-tier pricing, Stripe billing, transactional email, row-level data security, admin dashboard for real-time usage and error monitoring
+- Integrated Claude AI for resume rewriting with model fallbacks for reliability at scale
+- Stack: Next.js, React, Tailwind, Supabase, Stripe, Resend, Claude API, Vercel, GitHub
+- Manages all functions solo: copywriting, legal docs, customer support, product positioning
 
-**The Off Grid Guy:**
-- RV solar consulting business (2019-present). Built the website, runs all operations solo
+**American Red Cross (Disaster Recovery Case Worker, Volunteer, 2025 - Present):**
+- Virtual case management in a distributed, high-stakes environment supporting disaster survivors using Salesforce
+- Manages active caseload in a compliance-sensitive context where data accuracy directly affects client outcomes
+- Coordinates across 2–3 specialized teams per case (Recovery Planning, Spiritual Care, Health Services) plus supervisors and external community partners
+
+**Past Experience (Global Bikes, General Manager, 2009-2018, Phoenix AZ):**
+- Progressed from part-time associate to full-time GM within 2 years, ultimately leading operations across multiple locations sequentially
+- Drove consistent 10%+ revenue growth year over year holding full operational ownership at each location
+- Led implementation of new POS and loyalty systems; established companywide manager meetings and store-level employee meetings
+- Managed teams of 6–10 with a coaching and development orientation; trusted internally as a resource for underperforming stores and companywide strategy
+
+**The Off Grid Guy (background, not on current resume):**
+- RV solar consulting business he started in 2019. Built the website, ran operations solo
 - Lived full-time in an RV for 7 years, designed and installed solar systems
 **Solar Wars Story (Easter Egg):**
 - Built his biggest system on his first RV: 6,000 watts of solar panels, dual Victron inverters, and 4 recycled Tesla battery modules from a wrecked car (got them from a recycler in SoCal)
 - This was at the beginning of the pandemic when their RV friend group was stuck in place and bored, so they unofficially started "Solar Wars" - competing to build the most impressive systems
 - Way more elaborate than needed, but it was fun and gave everyone a project during lockdown
-
-**Past Experience:**
-- Global Bikes: General Manager, 2009-2018, managed 3 locations over 10 years, teams of 6-10, full P&L ownership, 10-20% revenue growth YoY
-- American Red Cross: Volunteer disaster recovery caseworker (2025-present), virtual case management using Salesforce
 
 **Education:**
 - WGU B.S. Business Administration
