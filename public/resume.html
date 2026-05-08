@@ -145,168 +145,6 @@
       color: var(--teal);
     }
 
-    /* ── Chat CTA ────────────────────────────────────────────── */
-    .chat-cta-wrap {
-      border: 1px solid var(--line);
-      border-top: 2px solid var(--teal);
-      background: var(--bg);
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .chat-cta-wrap .cta-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 3px;
-    }
-    .chat-cta-wrap .cta-sub {
-      font-size: 0.92rem;
-      color: var(--mid);
-    }
-
-    .btn {
-      flex-shrink: 0;
-      background: transparent;
-      color: var(--teal);
-      border: 1.5px solid var(--teal);
-      padding: 10px 20px;
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, transform 0.12s;
-      white-space: nowrap;
-    }
-    .btn:hover { background: var(--teal); color: #fff; transform: translateY(-1px); }
-
-    /* ── Chat panel ──────────────────────────────────────────── */
-    .chat-panel-wrap {
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .chat-panel-head {
-      background: var(--ink);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .chat-panel-head .head-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #F4F4F5;
-    }
-    .chat-panel-head .head-sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      color: rgba(244,244,245,0.4);
-      margin-top: 2px;
-    }
-    .chat-panel-head .head-actions {
-      display: flex;
-      gap: 14px;
-    }
-    .chat-panel-head button {
-      background: none;
-      border: none;
-      color: rgba(244,244,245,0.4);
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.82rem;
-      cursor: pointer;
-      padding: 0;
-      transition: color 0.15s;
-    }
-    .chat-panel-head button:hover { color: #F4F4F5; }
-
-    #chat-messages {
-      min-height: 18rem;
-      max-height: 22rem;
-      overflow-y: auto;
-      padding: 22px;
-      background: #FAFAF9;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding-top: 20px;
-    }
-    .empty-state > p {
-      font-size: 0.92rem;
-      color: var(--low);
-      margin-bottom: 18px;
-    }
-    .suggestion-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-    .suggestion-btn {
-      text-align: left;
-      padding: 10px 14px;
-      background: transparent;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.9rem;
-      color: var(--mid);
-      cursor: pointer;
-      line-height: 1.4;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .suggestion-btn:hover { border-color: var(--teal); color: var(--ink); }
-
-    .chat-row { display: flex; margin-bottom: 10px; }
-    .chat-row.user { justify-content: flex-end; }
-    .bubble {
-      max-width: 78%;
-      padding: 10px 14px;
-      border-radius: 3px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      white-space: pre-wrap;
-    }
-    .bubble.user { background: var(--teal); color: #fff; }
-    .bubble.assistant { background: #FFFFFF; border: 1px solid var(--line); color: var(--body); }
-    .bubble.thinking { background: #FFFFFF; border: 1px solid var(--line); color: var(--low); font-style: italic; }
-
-    .chat-input-area {
-      border-top: 1px solid var(--line);
-      display: flex;
-      background: #FFFFFF;
-    }
-    .chat-input-area input {
-      flex: 1;
-      padding: 12px 16px;
-      background: transparent;
-      border: none;
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.95rem;
-      color: var(--body);
-      outline: none;
-    }
-    .chat-input-area input::placeholder { color: var(--low); }
-    .chat-input-area button {
-      padding: 12px 20px;
-      background: var(--teal);
-      color: #fff;
-      border: none;
-      border-left: 1px solid var(--line);
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .chat-input-area button:hover { background: #0E4E62; }
-    .chat-input-area button:disabled { background: var(--line); color: var(--low); cursor: not-allowed; }
-
     /* ── About ───────────────────────────────────────────────── */
     .about p {
       font-size: 1.05rem;
@@ -469,71 +307,80 @@
       .photo { order: -1; }
       .photo img { width: 80px; height: 96px; }
       .two-col, .skills-four { grid-template-columns: 1fr; }
-      .suggestion-grid { grid-template-columns: 1fr; }
-      .chat-cta-wrap { flex-direction: column; align-items: flex-start; }
       footer { flex-direction: column; gap: 6px; text-align: center; }
     }
-
-    .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
-<!-- CONFIG: swap to http://localhost:3000/api/chat for local dev -->
+<!--
+  Chat UI was intentionally removed from this file.
+  The /api/chat endpoint (app/api/chat/route.ts) is still deployed and reachable;
+  only the visible chatbot widget on the page was nuked. To re-enable, restore
+  the CSS/JS/render blocks from git history.
+-->
 <script>
-  const API_URL = 'https://evincarr.com/api/chat';
-  // const API_URL = 'http://localhost:3000/api/chat';
-
   const data = {
     name: "Evin Carr",
-    title: "Operations & Automations",
+    title: "Operations & Automations Lead",
     location: "Remote",
     linkedin: "linkedin.com/in/evincarr",
     website: "resumehowl.com",
 
-    bio: `I build automations and web apps that take manual work off people's plates so they can focus on the stuff that actually matters. 10+ years in operations, now shipping real tools weekly with Google Apps Script, Claude AI, Next.js, and Supabase. Currently building internal tools and event systems at a MarTech consultancy.`,
+    bio: `Operations leader with 10+ years building systems that scale. Now working at the intersection of systems thinking and AI-powered automation. Currently taking a fast-moving MarTech consultancy's operations from v1 to v3: designing workflows, shipping automations, and replacing ad hoc processes with infrastructure that runs without hand-holding. Volunteer disaster caseworker with the American Red Cross.`,
 
     highlights: {
       automations: [
-        "Built an Event RSVP Dashboard (Google Apps Script web app) tracking 20+ events with real-time RSVP progress, milestone-based status flags, and partner-specific sub-dashboards",
-        "One click generates 10+ documents per event: email sequences, branded survey pages, response sheets, and planning docs",
-        "Replaced Google Sheets and Forms with branded external-facing pages",
-        "Ship multiple automations per week using Google Apps Script, webhooks, and Claude AI",
-        "Built an entire SaaS product solo: 36 templates, AI resume rewriting, Stripe billing, PDF export"
+        "Designed and deployed an Event Operations Dashboard managing 5–20 concurrent events with real-time RSVP tracking, milestone-based status flags, and partner-specific reporting views across 12–15 partners",
+        "Built a one-click asset generation system using the Claude API that produces a full event package per event, with RSVPs auto-synced to calendar and partner-facing tracking in real time",
+        "Built a Product Feedback Cohort Tracker in Apps Script using the Claude API: consolidates member status across Drive and Apollo, automating intros, demos, post-call feedback, and gift card distribution",
+        "Slack-integrated invoice alerts via Zapier, prospect list scraping for cohort recruitment, and attendee schedule personalization for a 125-person annual Summit",
+        "Built ResumeHowl as a solo SaaS: three-tier pricing, Stripe billing, transactional email, row-level security, and an admin dashboard for real-time usage and error monitoring"
       ],
       achievements: [
-        "Learned automation on the job — went from first Apps Script to deploying production tools in weeks",
-        "Built ResumeHowl as a solo founder: design, copy, pricing, legal pages, and all the code",
-        "Managed 3 retail locations over 10 years with 10–20% revenue growth year over year",
-        "RV solar consulting business — built the website, run all operations solo",
-        "American Red Cross volunteer — virtual disaster recovery case management using Salesforce"
+        "Took a MarTech consultancy's operations from v1 to v3 across event ops, partner communications, and pipeline management",
+        "Solo-built and launched ResumeHowl end-to-end: product architecture, pricing strategy, compliance, billing, and admin tooling",
+        "Drove consistent 10%+ revenue growth year over year as General Manager at Global Bikes, leading multiple retail locations sequentially with full P&L ownership",
+        "American Red Cross volunteer disaster recovery caseworker — virtual case management in Salesforce, coordinating across 2–3 specialized teams per case",
+        "Self-taught the entire automation stack: from first Apps Script to deploying production tools in weeks"
       ]
     },
 
     experience: [
       {
-        role: "Operations & Automations (Contract)",
+        role: "Operations & Automations Lead",
         company: "Storm King Consulting",
         period: "Jan 2026 – Present",
         location: "Remote",
-        description: "MarTech consultancy with a 900+ exec network of brand marketing and MarTech leaders.",
+        description: "Built and own operational infrastructure for a 900+ executive MarTech network, taking the team's systems from v1 to v3 across event operations, partner communications, and pipeline management.",
         achievements: [
-          "Built an Event RSVP Dashboard (Google Apps Script web app) that tracks 20+ events, real-time RSVP progress against goals, milestone-based status flags, and partner-specific sub-dashboards. One click generates 10+ documents per event",
-          "Replaced Google Sheets and Forms with branded external-facing pages",
-          "Ship multiple automations per week using Google Apps Script, webhooks, and Claude AI",
-          "Learned automation on the job. Went from first Apps Script to deploying production tools in weeks"
+          "Designed and deployed an Event Operations Dashboard managing 5–20 concurrent events: real-time RSVP tracking against goals, milestone-based status flags, and partner-specific reporting views across 12–15 partners; replaced a fully manual Google Drive process requiring 10–12 hand-created documents per event",
+          "Built a one-click asset generation system using the Claude API that produces a full event package per event, with RSVPs automatically synced to calendar and partner-facing tracking in real time",
+          "Ship ongoing automations across team workflows: Slack-integrated invoice alerts via Zapier, prospect list scraping for cohort recruitment, and attendee schedule personalization for a 125-person annual Summit",
+          "Built a Product Feedback Cohort Tracker in Apps Script using the Claude API: consolidates member status across Drive assets and Apollo, automating intros, demos, post-call feedback, and gift card distribution"
         ]
       },
       {
-        role: "Founder / Solo Builder",
+        role: "Founder",
         company: "ResumeHowl",
         period: "2026",
-        location: "resumehowl.com",
-        description: "SaaS product. Upload a resume, pick a template, get a live portfolio site in 60 seconds. Free and Pro tiers, Stripe billing, Claude AI generation.",
+        location: "Remote",
+        description: "Solo-built and launched a SaaS product end-to-end, including product architecture, pricing strategy, compliance, billing infrastructure, and an admin dashboard for usage and error tracking.",
         achievements: [
-          "Built the entire product solo: design, copy, pricing, legal pages, and all the code",
-          "Next.js 15, React, Tailwind, Supabase, Stripe, Claude API with model fallbacks, Vercel, GitHub",
-          "36 templates, 3 pricing tiers, AI resume rewriting, contact form inbox, PDF export, gift codes, transactional emails, row-level security, admin dashboard for usage and error tracking"
+          "Designed full operational infrastructure: three-tier pricing, Stripe billing, transactional email systems, row-level data security, and an admin dashboard for real-time usage and error monitoring",
+          "Integrated Claude AI for resume rewriting with model fallbacks to maintain reliability at scale",
+          "Managed broad-ranging functions: copywriting, legal docs, customer support systems, product positioning"
+        ]
+      },
+      {
+        role: "Disaster Recovery Case Worker, Volunteer",
+        company: "American Red Cross",
+        period: "2025 – Present",
+        location: "Remote",
+        description: "Virtual case management in a distributed, high-stakes environment supporting disaster survivors through structured recovery workflows using Salesforce.",
+        achievements: [
+          "Manage active caseload using Salesforce in a compliance-sensitive context where data accuracy directly affects client outcomes for case progression",
+          "Coordinate regularly across 2–3 specialized teams per case (Recovery Planning, Spiritual Care, Health Services) and with supervisors and external community partners to move cases through to resolution"
         ]
       },
       {
@@ -541,27 +388,12 @@
         company: "Global Bikes",
         period: "2009 – 2018",
         location: "Phoenix, AZ",
-        description: "Managed multi-location bike shop operations with consistent growth year over year.",
+        description: "Progressed from part-time associate to full-time General Manager within 2 years, ultimately leading operations across multiple locations sequentially. Trusted internally as a resource for underperforming stores and companywide strategy.",
         achievements: [
-          "Managed 3 retail locations over 10 years, teams of 6–10, full P&L ownership at each",
-          "Managed daily operations off KPI dashboards and reporting systems",
-          "10–20% revenue growth year over year"
+          "Drove consistent 10%+ revenue growth year over year holding full operational ownership at each location",
+          "Led implementation of new POS and loyalty systems; established companywide manager meetings and store-level employee meetings to standardize communication and performance management",
+          "Managed teams of 6–10 with a coaching and development orientation, serving as an informal mentor and strategic resource to peer managers across the company"
         ]
-      }
-    ],
-
-    otherExperience: [
-      {
-        role: "Founder & Operator",
-        company: "The Off Grid Guy",
-        period: "2019 – Present",
-        description: "RV solar consulting business. Built the website, run all operations solo."
-      },
-      {
-        role: "Disaster Recovery Caseworker, Volunteer",
-        company: "American Red Cross",
-        period: "2025 – Present",
-        description: "Virtual case management using Salesforce with distributed teams."
       }
     ],
 
@@ -571,165 +403,17 @@
     },
 
     skills: {
-      ai: ["Claude (AI + API)", "ChatGPT", "Perplexity"],
-      web: ["Next.js", "React", "Tailwind", "Shadcn UI", "Supabase", "Stripe", "Resend", "Vercel"],
+      ai: ["Claude (Max + API)", "ChatGPT", "Perplexity"],
+      web: ["Next.js", "React", "Tailwind", "Supabase", "Stripe", "Resend", "Vercel"],
       automationGtm: ["Google Apps Script", "Zapier", "Webhooks", "Clay", "Apollo"],
-      platforms: ["Google Workspace", "Slack", "Salesforce", "Asana", "WordPress"],
-      devTools: ["GitHub", "Vercel", "Cloudflare Turnstile"]
+      platforms: ["Salesforce", "Asana", "Google Workspace", "Slack", "WordPress"],
+      devTools: ["GitHub", "Cloudflare"]
     }
   };
-
-  const suggested = [
-    "What automation projects have you built?",
-    "Tell me about the RSVP dashboard",
-    "How did you learn to code?",
-    "What's your experience with Claude AI?",
-    "What do your coworkers call you?",
-    "What was your RV life like?",
-    "Tell me about Solar Wars"
-  ];
-
-  const STORAGE_KEY = 'evincarr_chat_messages';
-  const PANEL_KEY = 'evincarr_chat_open';
-
-  function loadMessages() {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) return JSON.parse(stored);
-    } catch(e) { console.error('Failed to load chat history:', e); }
-    return [];
-  }
-
-  function saveMessages() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs)); }
-    catch(e) { console.error('Failed to save chat history:', e); }
-  }
-
-  function savePanelState(open) {
-    try { localStorage.setItem(PANEL_KEY, open ? '1' : '0'); }
-    catch(e) {}
-  }
-
-  function loadPanelState() {
-    try { return localStorage.getItem(PANEL_KEY) === '1'; }
-    catch(e) { return false; }
-  }
-
-  let msgs = loadMessages();
-  let busy = false;
 
   function x(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
-
-  function renderChat() {
-    const el = document.getElementById('chat-messages');
-    if (!el) return;
-    el.textContent = '';
-
-    if (!msgs.length) {
-      var empty = document.createElement('div');
-      empty.className = 'empty-state';
-      var p = document.createElement('p');
-      p.textContent = "Ask anything about Evin's experience and projects";
-      empty.appendChild(p);
-      var grid = document.createElement('div');
-      grid.className = 'suggestion-grid';
-      suggested.forEach(function(q) {
-        var btn = document.createElement('button');
-        btn.className = 'suggestion-btn';
-        btn.textContent = q;
-        btn.addEventListener('click', function() { ask(q); });
-        grid.appendChild(btn);
-      });
-      empty.appendChild(grid);
-      el.appendChild(empty);
-      return;
-    }
-
-    msgs.forEach(function(m) {
-      if (m.role !== 'user' && m.role !== 'assistant') return;
-      var row = document.createElement('div');
-      row.className = 'chat-row ' + m.role;
-      var bubble = document.createElement('div');
-      bubble.className = 'bubble ' + m.role;
-      bubble.textContent = m.content;
-      row.appendChild(bubble);
-      el.appendChild(row);
-    });
-
-    if (busy) {
-      var tRow = document.createElement('div');
-      tRow.className = 'chat-row assistant';
-      var tBubble = document.createElement('div');
-      tBubble.className = 'bubble thinking';
-      tBubble.textContent = 'Thinking\u2026';
-      tRow.appendChild(tBubble);
-      el.appendChild(tRow);
-    }
-
-    el.scrollTop = el.scrollHeight;
-  }
-
-  async function callAPI(msg, hist) {
-    var r = await fetch(API_URL, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ message: msg, history: hist })
-    });
-    if (!r.ok) {
-      console.error('Chat API error:', r.status);
-      throw new Error('API error ' + r.status);
-    }
-    var json = await r.json();
-    return json.text;
-  }
-
-  async function send() {
-    const inp = document.getElementById('chat-input');
-    const t = inp.value.trim();
-    if (!t || busy) return;
-    msgs.push({ role: 'user', content: t });
-    inp.value = '';
-    busy = true; renderChat(); syncBtn(); saveMessages();
-    try { msgs.push({ role: 'assistant', content: await callAPI(t, msgs.slice(0,-1)) }); }
-    catch(e) { console.error('send() error:', e); msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' }); }
-    busy = false; renderChat(); syncBtn(); saveMessages();
-  }
-
-  async function ask(q) {
-    if (busy) return;
-    console.log('ask() called with:', q);
-    msgs.push({ role: 'user', content: q });
-    busy = true; renderChat(); syncBtn(); saveMessages();
-    try {
-      const reply = await callAPI(q, msgs.slice(0,-1));
-      console.log('API replied:', reply?.substring(0, 100));
-      msgs.push({ role: 'assistant', content: reply });
-    } catch(e) {
-      console.error('ask() error:', e);
-      msgs.push({ role: 'assistant', content: 'Something went wrong. Please try again.' });
-    }
-    busy = false; renderChat(); syncBtn(); saveMessages();
-  }
-
-  function syncBtn() {
-    const b = document.getElementById('send-btn');
-    const i = document.getElementById('chat-input');
-    if (b) b.disabled = busy || !i.value.trim();
-  }
-
-  function openChat() {
-    document.getElementById('cta-row').classList.add('hidden');
-    document.getElementById('panel-row').classList.remove('hidden');
-    savePanelState(true);
-    renderChat();
-  }
-  function closeChat() {
-    document.getElementById('panel-row').classList.add('hidden');
-    document.getElementById('cta-row').classList.remove('hidden');
-    savePanelState(false);
-  }
-  function reset() { msgs = []; saveMessages(); renderChat(); }
 
   function build() {
     const root = document.getElementById('root');
@@ -749,15 +433,6 @@
         <p class="exp-company">${x(j.company)}</p>
         <p class="exp-desc">${x(j.description)}</p>
         <ul class="exp-list">${j.achievements.map(a => `<li>${x(a)}</li>`).join('')}</ul>
-      </div>`).join('');
-
-    const otherExp = data.otherExperience.map(j => `
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">${x(j.role)}</span>
-          <span class="exp-meta">${x(j.company)} · ${x(j.period)}</span>
-        </div>
-        <p class="exp-desc">${x(j.description)}</p>
       </div>`).join('');
 
     const skillGroup = (label, items) => `
@@ -794,43 +469,6 @@
           </div>
         </header>
 
-        <section class="section" id="cta-row">
-          <div class="section-head">
-            <span class="section-label">AI Chat</span>
-          </div>
-          <div class="chat-cta-wrap">
-            <div>
-              <p class="cta-title">Have a question? Ask my AI Assistant.</p>
-              <p class="cta-sub">Trained on my resume — ask about automations, RV life, or the nerdy stuff.</p>
-            </div>
-            <button class="btn" onclick="openChat()">Start a conversation</button>
-          </div>
-        </section>
-
-        <section class="section hidden" id="panel-row">
-          <div class="section-head">
-            <span class="section-label">AI Chat</span>
-          </div>
-          <div class="chat-panel-wrap">
-            <div class="chat-panel-head">
-              <div>
-                <p class="head-title">AI Assistant</p>
-                <p class="head-sub">Ask me about Evin's experience</p>
-              </div>
-              <div class="head-actions">
-                <button onclick="reset()">↺ Reset</button>
-                <button onclick="closeChat()">✕ Close</button>
-              </div>
-            </div>
-            <div id="chat-messages"></div>
-            <div class="chat-input-area">
-              <input id="chat-input" type="text" placeholder="Ask me anything…"
-                onkeypress="if(event.key==='Enter') send()" oninput="syncBtn()" />
-              <button id="send-btn" onclick="send()" disabled>Send</button>
-            </div>
-          </div>
-        </section>
-
         <section class="section">
           <div class="section-head">
             <span class="section-label">About</span>
@@ -859,13 +497,6 @@
             <span class="section-label">Experience</span>
           </div>
           <div>${exp}</div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <span class="section-label">Other Experience</span>
-          </div>
-          <div>${otherExp}</div>
         </section>
 
         <section class="section">
@@ -900,13 +531,7 @@
     `;
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    build();
-    // Restore chat panel if it was open or has messages from a previous session
-    if (msgs.length || loadPanelState()) {
-      openChat();
-    }
-  });
+  document.addEventListener('DOMContentLoaded', build);
 </script>
 
 <div id="root"></div>
