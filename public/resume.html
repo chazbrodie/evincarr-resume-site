@@ -638,6 +638,18 @@
       padding: 2px 8px;
       border-radius: 999px;
     }
+    .exp-completed-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--low);
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
     .exp-meta {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.74rem;
@@ -734,8 +746,7 @@
     .skill-group:nth-child(1) .skill-group-name::before { background: var(--terra); }
     .skill-group:nth-child(2) .skill-group-name::before { background: var(--teal); }
     .skill-group:nth-child(3) .skill-group-name::before { background: var(--amber); }
-    .skill-group:nth-child(4) .skill-group-name::before { background: var(--plum); }
-    .skill-group:nth-child(5) .skill-group-name::before { background: var(--sky); }
+    .skill-group:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag {
       padding: 5px 12px;
@@ -817,8 +828,8 @@
       .meta-stamp { font-size: 0.65rem; }
       .name { font-size: clamp(2.6rem, 11vw, 4rem); margin-bottom: 22px; }
       .header-bottom { grid-template-columns: 1fr; gap: 24px; padding-bottom: 40px; }
-      .photo { order: -1; }
-      .photo img { width: 92px; height: 110px; }
+      .photo { order: -1; width: 110px; height: 110px; }
+      .photo img { width: 110px; height: 110px; }
       .two-col, .skills-four { grid-template-columns: 1fr; }
       .section { padding-top: 44px; }
       .timeline { padding-left: 20px; }
@@ -836,13 +847,6 @@
   </style>
 </head>
 <body>
-
-<!--
-  Chat UI was intentionally removed from this file.
-  The /api/chat endpoint (app/api/chat/route.ts) is still deployed and reachable;
-  only the visible chatbot widget on the page was nuked. To re-enable, restore
-  the CSS/JS/render blocks from git history.
--->
 
 <div class="bg-decor" aria-hidden="true">
   <span class="orb orb-1"></span>
@@ -891,44 +895,47 @@
 <script>
   const data = {
     name: "Evin Carr",
-    title: "Operations & Automations",
-    titleSub: "systems thinker · solo SaaS founder",
+    title: "Head of Operations & Automations",
+    titleSub: "systems thinker · AI automation builder",
     location: "Remote",
     linkedin: "linkedin.com/in/evincarr",
     website: "resumehowl.com",
 
-    bio: `Operations leader with 10+ years building systems that scale. Now working at the intersection of systems thinking and AI-powered automation. Currently taking a fast-moving MarTech consultancy's operations from v1 to v3: designing workflows, shipping automations, and replacing ad hoc processes with infrastructure that runs without hand-holding. Volunteer disaster caseworker with the American Red Cross.`,
+    bio: `Operations leader with 10+ years running and improving operations, now focused on AI-powered automation. Head of Operations & Automations at Storm King Consulting, a MarTech consultancy running a 1,000+ executive network, promoted in June 2026 from Events Coordinator, a role started that January. Replaced the team's patchwork of tools with StormSpot, a custom web app designed and built from scratch. Automations run in production every day on the Claude API, MCP, Apps Script, and webhooks. Volunteer disaster caseworker with the American Red Cross.`,
 
     highlights: {
       automations: [
-        "Designed and deployed an Event Operations Dashboard managing 5–20 concurrent events with real-time RSVP tracking, milestone-based status flags, and partner-specific reporting views across 12–15 partners",
-        "Built a one-click asset generation system using the Claude API that produces a full event package per event, with RSVPs auto-synced to calendar and partner-facing tracking in real time",
-        "Built a Product Feedback Cohort Tracker in Apps Script using the Claude API: consolidates member status across Drive and Apollo, automating intros, demos, post-call feedback, and gift card distribution",
-        "Slack-integrated invoice alerts via Zapier, prospect list scraping for cohort recruitment, and attendee schedule personalization for a 125-person annual Summit",
-        "Built ResumeHowl as a solo SaaS: three-tier pricing, Stripe billing, transactional email, row-level security, and an admin dashboard for real-time usage and error monitoring"
+        "Designed and built StormSpot, an all-in-one web app that replaced HubSpot, Pipedrive, Apollo, Asana, and Google Drive for event ops, pipeline management, and partner communications",
+        "Built a one-click event generator on the Claude API: branded landing page, built-in RSVP form, auto-added calendar attendees, and automated confirmation and reminder emails",
+        "Run Claude-powered automations for member intros, demo scheduling, and post-call feedback",
+        "Replaced a manual event process (10–12 hand-created documents per event) with a real-time dashboard managing up to 20 events across 12–15 partners",
+        "Built ResumeHowl as a solo side project: three-tier pricing, Stripe billing, transactional email, row-level security, and an admin dashboard (completed, 2026)"
       ],
       achievements: [
-        "Took a MarTech consultancy's operations from v1 to v3 across event ops, partner communications, and pipeline management",
-        "Solo-built and launched ResumeHowl end-to-end: product architecture, pricing strategy, compliance, billing, and admin tooling",
+        "Promoted to Head of Operations & Automations at Storm King Consulting in June 2026, six months after joining as Events Coordinator",
+        "Own all operational and marketing systems for a MarTech consultancy running a 1,000+ executive network",
+        "Led company AI adoption: evaluated plans, rolled out Claude Team across the company, and trained colleagues on AI workflows",
         "Drove consistent 10%+ revenue growth year over year as General Manager at Global Bikes, leading multiple retail locations sequentially with full P&L ownership",
-        "American Red Cross volunteer disaster recovery caseworker — virtual case management in Salesforce, coordinating across 2–3 specialized teams per case",
-        "Self-taught the entire automation stack: from first Apps Script to deploying production tools in weeks"
+        "American Red Cross volunteer disaster recovery caseworker: virtual case management in Salesforce, coordinating across 2–3 specialized teams per case"
       ]
     },
 
     experience: [
       {
-        role: "Operations & Automations Lead",
+        role: "Head of Operations & Automations",
         company: "Storm King Consulting",
         period: "Jan 2026 – Present",
         location: "Remote",
         current: true,
-        description: "Built and own operational infrastructure for a 900+ executive MarTech network, taking the team's systems from v1 to v3 across event operations, partner communications, and pipeline management.",
+        description: "Promoted to Head of Operations & Automations in June 2026 after starting as Events Coordinator that January. Own all operational and marketing systems for a MarTech consultancy running a 1,000+ executive network: event operations, campaign workflows, data quality, and the automation that ties them together.",
         achievements: [
-          "Designed and deployed an Event Operations Dashboard managing 5–20 concurrent events: real-time RSVP tracking against goals, milestone-based status flags, and partner-specific reporting views across 12–15 partners; replaced a fully manual Google Drive process requiring 10–12 hand-created documents per event",
-          "Built a one-click asset generation system using the Claude API that produces a full event package per event, with RSVPs automatically synced to calendar and partner-facing tracking in real time",
-          "Ship ongoing automations across team workflows: Slack-integrated invoice alerts via Zapier, prospect list scraping for cohort recruitment, and attendee schedule personalization for a 125-person annual Summit",
-          "Built a Product Feedback Cohort Tracker in Apps Script using the Claude API: consolidates member status across Drive assets and Apollo, automating intros, demos, post-call feedback, and gift card distribution"
+          "Designed and built StormSpot, a custom all-in-one web app that replaced what we used HubSpot, Pipedrive, Apollo, Asana, and Google Drive for: contact and pipeline management, event operations, lead enrichment, and automated partner communications",
+          "Built a one-click event generator on the Claude API that produces a branded landing page with a built-in RSVP form; submissions add attendees to the calendar event and trigger automated confirmation and reminder emails",
+          "Run Claude-powered automations for member intros, demo scheduling, and post-call feedback, and manage lead enrichment in Apollo with no engineering support",
+          "Replaced a manual event process (10–12 hand-created documents per event) with a real-time dashboard managing up to 20 upcoming events: RSVP tracking against goals, milestone status flags, and partner-specific reporting across 12–15 partners",
+          "Led company AI adoption: evaluated plans, rolled out Claude Team across the company, and train colleagues on AI workflows",
+          "Set the data standards across our systems, with automated checks that catch bad data before it hits reporting",
+          "Ship ongoing automations in Apps Script, Zapier, and webhooks: Slack invoice alerts, prospect list scraping for cohort recruitment, and personalized attendee schedules for a 125-person annual Summit"
         ]
       },
       {
@@ -936,34 +943,35 @@
         company: "ResumeHowl",
         period: "2026",
         location: "Remote",
-        description: "Solo-built and launched a SaaS product end-to-end, including product architecture, pricing strategy, compliance, billing infrastructure, and an admin dashboard for usage and error tracking.",
+        completed: true,
+        description: "Built and launched a SaaS product end to end as a solo side project: product architecture, billing, compliance, email systems, and admin tooling. Shipped and complete, not actively maintained.",
         achievements: [
-          "Designed full operational infrastructure: three-tier pricing, Stripe billing, transactional email systems, row-level data security, and an admin dashboard for real-time usage and error monitoring",
-          "Integrated Claude AI for resume rewriting with model fallbacks to maintain reliability at scale",
-          "Managed broad-ranging functions: copywriting, legal docs, customer support systems, product positioning"
+          "Built full operational infrastructure: three-tier pricing, Stripe billing, transactional email, row-level data security, and a real-time admin dashboard for usage and error monitoring"
         ]
       },
       {
-        role: "Disaster Recovery Case Worker, Volunteer",
+        role: "Disaster Recovery Caseworker, Volunteer",
         company: "American Red Cross",
         period: "2025 – Present",
         location: "Remote",
-        description: "Virtual case management in a distributed, high-stakes environment supporting disaster survivors through structured recovery workflows using Salesforce.",
         achievements: [
-          "Manage active caseload using Salesforce in a compliance-sensitive context where data accuracy directly affects client outcomes for case progression",
-          "Coordinate regularly across 2–3 specialized teams per case (Recovery Planning, Spiritual Care, Health Services) and with supervisors and external community partners to move cases through to resolution"
+          "Manage an active caseload in Salesforce in a compliance-sensitive context where data accuracy directly affects client outcomes, coordinating across 2–3 specialized teams per case"
         ]
+      },
+      {
+        role: "Independent Consulting & Skilled Trades",
+        company: "Self-Employed",
+        period: "2018 – 2025",
+        location: "Remote",
+        description: "Solar installation, off-grid systems consulting, and a small digital products business, while living and working remotely full-time."
       },
       {
         role: "General Manager",
         company: "Global Bikes",
         period: "2009 – 2018",
         location: "Phoenix, AZ",
-        description: "Progressed from part-time associate to full-time General Manager within 2 years, ultimately leading operations across multiple locations sequentially. Trusted internally as a resource for underperforming stores and companywide strategy.",
         achievements: [
-          "Drove consistent 10%+ revenue growth year over year holding full operational ownership at each location",
-          "Led implementation of new POS and loyalty systems; established companywide manager meetings and store-level employee meetings to standardize communication and performance management",
-          "Managed teams of 6–10 with a coaching and development orientation, serving as an informal mentor and strategic resource to peer managers across the company"
+          "Progressed from part-time associate to GM in 2 years; drove 10%+ annual revenue growth across multiple locations, led POS and loyalty system implementations, and managed teams of 6–10"
         ]
       }
     ],
@@ -974,11 +982,9 @@
     },
 
     skills: {
-      ai: ["Claude (Max + API)", "ChatGPT", "Perplexity"],
-      web: ["Next.js", "React", "Tailwind", "Supabase", "Stripe", "Resend", "Vercel"],
-      automationGtm: ["Google Apps Script", "Zapier", "Webhooks", "Clay", "Apollo"],
-      platforms: ["Salesforce", "Asana", "Google Workspace", "Slack", "WordPress"],
-      devTools: ["GitHub", "Cloudflare"]
+      aiAutomation: ["Claude (Max + API)", "MCP", "Google Apps Script", "Zapier", "Webhooks", "APIs", "ChatGPT", "Perplexity"],
+      marketingCrm: ["Apollo", "Clay", "Salesforce", "Asana", "Slack", "Google Workspace", "WordPress"],
+      aiAssistedDev: ["Next.js", "React", "Tailwind", "Supabase", "Stripe", "Resend", "Vercel", "Netlify", "GitHub", "Cloudflare"]
     }
   };
 
@@ -1003,12 +1009,13 @@
           <span class="exp-role">
             ${x(j.role)}
             ${j.current ? '<span class="exp-current-tag">shipping now</span>' : ''}
+            ${j.completed ? '<span class="exp-completed-tag">completed</span>' : ''}
           </span>
           <span class="exp-meta">${x(j.period)} · ${x(j.location)}</span>
         </div>
         <p class="exp-company">${x(j.company)}</p>
-        <p class="exp-desc">${x(j.description)}</p>
-        <ul class="exp-list">${j.achievements.map(a => `<li>${x(a)}</li>`).join('')}</ul>
+        ${j.description ? `<p class="exp-desc">${x(j.description)}</p>` : ''}
+        ${j.achievements && j.achievements.length ? `<ul class="exp-list">${j.achievements.map(a => `<li>${x(a)}</li>`).join('')}</ul>` : ''}
       </div>`).join('');
 
     const skillGroup = (label, items) => `
@@ -1115,11 +1122,9 @@
             <span class="section-aside">// stack in production</span>
           </div>
           <div class="skills-four">
-            ${skillGroup('AI', data.skills.ai)}
-            ${skillGroup('Web', data.skills.web)}
-            ${skillGroup('Automation &amp; GTM', data.skills.automationGtm)}
-            ${skillGroup('Platforms', data.skills.platforms)}
-            ${skillGroup('Dev Tools', data.skills.devTools)}
+            ${skillGroup('AI &amp; Automation', data.skills.aiAutomation)}
+            ${skillGroup('Marketing &amp; CRM Ops', data.skills.marketingCrm)}
+            ${skillGroup('AI-Assisted Development (shipped production apps with)', data.skills.aiAssistedDev)}
           </div>
         </section>
 
